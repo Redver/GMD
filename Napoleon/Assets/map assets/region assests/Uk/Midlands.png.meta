@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Midlands_0: 3342237214603803
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

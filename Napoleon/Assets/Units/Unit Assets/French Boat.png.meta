@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8ce6fcf63e00b884eb20e539d12cbf47
+guid: f9907de7cef9c534caffcc9012864ca4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7388939667968157023
-    second: Alsace_0
+      213: 3261421983787788224
+    second: French Boat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alsace_0
+      name: French Boat_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 40
-        width: 361
-        height: 421
+        x: 59
+        y: 103
+        width: 657
+        height: 441
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1aa17ff2586357990800000000000000
-      internalID: -7388939667968157023
+      spriteID: 0c72256b306e24d20800000000000000
+      internalID: 3261421983787788224
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Alsace_0: -7388939667968157023
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
