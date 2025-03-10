@@ -990,6 +990,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Players",
+            "id": "5372f8e3-2933-4398-8435-d332134e4f35",
+            "actions": [
+                {
+                    "name": "SelectProvince",
+                    "type": "Value",
+                    "id": "30727dfa-2b44-417a-9359-52e0755be401",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5a5dfec3-ae2e-4efc-997c-a14dc74c4b9b",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Joystick",
+                    "action": "SelectProvince",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
