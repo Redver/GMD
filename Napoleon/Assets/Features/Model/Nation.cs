@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class Nation : MonoBehaviour
 {
-    private enum nationType
-    {
-        France,
-        GreatBritain
-    };
     private string nationName;
+    private float treasurey;
+    private int provinceCount;
+    
+    
     void Start()
     {
         
@@ -18,10 +17,20 @@ public class Nation : MonoBehaviour
         
     }
 
-    void onNationSelected(nationType nation)
+    void onNationSelected(string nationName)
     {
-        nationName = nation.ToString();
+        this.nationName = nationName;
     }
-    
-    
+
+    void updateProvinceCount()
+    {
+        
+    }
+
+
+    public string getName()
+    {
+        return nationName;
+    }
+
 }

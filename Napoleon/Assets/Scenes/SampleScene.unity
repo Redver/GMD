@@ -129,9 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 184490188}
   - component: {fileID: 184490189}
-  - component: {fileID: 184490191}
   - component: {fileID: 184490190}
-  m_Layer: 0
+  - component: {fileID: 184490191}
+  m_Layer: 7
   m_Name: Scotland_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -220,13 +220,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &184490191
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &184490191
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184490187}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -235,12 +245,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.0600004, y: 3.8600004, z: 0.20000003}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.06, y: 3.86}
+    newSize: {x: 3.06, y: 3.86}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.06, y: 3.86}
+  m_EdgeRadius: 0
 --- !u!1 &283122475
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,9 +283,9 @@ GameObject:
   m_Component:
   - component: {fileID: 283122476}
   - component: {fileID: 283122477}
-  - component: {fileID: 283122479}
   - component: {fileID: 283122478}
-  m_Layer: 0
+  - component: {fileID: 283122479}
+  m_Layer: 7
   m_Name: North_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -342,13 +374,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &283122479
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &283122479
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283122475}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -357,12 +399,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5400002, y: 2.3300002, z: 0.20000003}
-  m_Center: {x: -0.0000009536743, y: 0.00000047683716, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.54, y: 2.33}
+    newSize: {x: 2.54, y: 2.33}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.54, y: 2.33}
+  m_EdgeRadius: 0
 --- !u!1 &501415624
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +436,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 501415625}
-  - component: {fileID: 501415626}
   m_Layer: 0
   m_Name: Provinces
   m_TagString: Untagged
@@ -407,19 +470,6 @@ Transform:
   - {fileID: 2104688393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &501415626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501415624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905f767ca7174664cbf017e7dc1593fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  provinceList: []
 --- !u!1 &501927130
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,9 +480,9 @@ GameObject:
   m_Component:
   - component: {fileID: 501927131}
   - component: {fileID: 501927132}
-  - component: {fileID: 501927134}
   - component: {fileID: 501927133}
-  m_Layer: 0
+  - component: {fileID: 501927134}
+  m_Layer: 7
   m_Name: Wales_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -521,13 +571,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &501927134
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &501927134
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501927130}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -536,12 +596,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4800003, y: 1.9200002, z: 0.20000003}
-  m_Center: {x: -0.0000019073486, y: -0.00000047683716, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.48, y: 1.92}
+    newSize: {x: 2.48, y: 1.92}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.48, y: 1.92}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,9 +789,9 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Camera
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 519420031}
+  m_Camera: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,9 +917,9 @@ GameObject:
   m_Component:
   - component: {fileID: 893807110}
   - component: {fileID: 893807111}
-  - component: {fileID: 893807113}
   - component: {fileID: 893807112}
-  m_Layer: 0
+  - component: {fileID: 893807113}
+  m_Layer: 7
   m_Name: Rhone_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -926,13 +1008,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &893807113
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &893807113
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893807109}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -941,12 +1033,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.5700006, y: 3.3900006, z: 0.20000003}
-  m_Center: {x: 0.0000009536743, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.57, y: 3.39}
+    newSize: {x: 4.57, y: 3.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.57, y: 3.39}
+  m_EdgeRadius: 0
 --- !u!1 &914798097
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,9 +1102,9 @@ GameObject:
   m_Component:
   - component: {fileID: 978151582}
   - component: {fileID: 978151583}
-  - component: {fileID: 978151585}
   - component: {fileID: 978151584}
-  m_Layer: 0
+  - component: {fileID: 978151585}
+  m_Layer: 7
   m_Name: Somerset_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -1079,13 +1193,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &978151585
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &978151585
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978151581}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1094,12 +1218,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.8000004, y: 1.4200001, z: 0.20000003}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.8, y: 1.42}
+    newSize: {x: 3.8, y: 1.42}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.8, y: 1.42}
+  m_EdgeRadius: 0
 --- !u!1 &1012738897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,9 +1256,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1012738898}
   - component: {fileID: 1012738899}
-  - component: {fileID: 1012738901}
   - component: {fileID: 1012738900}
-  m_Layer: 0
+  - component: {fileID: 1012738901}
+  m_Layer: 7
   m_Name: Alsace_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -1201,13 +1347,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1012738901
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &1012738901
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012738897}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1216,12 +1372,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.6100004, y: 4.2100005, z: 0.20000003}
-  m_Center: {x: 0, y: -0.000000059604645, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.61, y: 4.21}
+    newSize: {x: 3.61, y: 4.21}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.61, y: 4.21}
+  m_EdgeRadius: 0
 --- !u!1 &1056876585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,9 +1441,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1094225963}
   - component: {fileID: 1094225964}
-  - component: {fileID: 1094225966}
   - component: {fileID: 1094225965}
-  m_Layer: 0
+  - component: {fileID: 1094225966}
+  m_Layer: 7
   m_Name: Midlands_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -1354,13 +1532,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1094225966
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &1094225966
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094225962}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1369,12 +1557,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.8400002, y: 1.9300002, z: 0.20000003}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.84, y: 1.93}
+    newSize: {x: 2.84, y: 1.93}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.84, y: 1.93}
+  m_EdgeRadius: 0
 --- !u!1 &1169340271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,9 +1595,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1169340272}
   - component: {fileID: 1169340273}
-  - component: {fileID: 1169340275}
   - component: {fileID: 1169340274}
-  m_Layer: 0
+  - component: {fileID: 1169340275}
+  m_Layer: 7
   m_Name: SouthEast_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -1476,13 +1686,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1169340275
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &1169340275
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169340271}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1491,12 +1711,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.4400005, y: 2.1500003, z: 0.20000003}
-  m_Center: {x: 0, y: -0.00000023841858, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.44, y: 2.15}
+    newSize: {x: 3.44, y: 2.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.44, y: 2.15}
+  m_EdgeRadius: 0
 --- !u!1 &1204025456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,9 +1749,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1204025457}
   - component: {fileID: 1204025458}
-  - component: {fileID: 1204025460}
   - component: {fileID: 1204025459}
-  m_Layer: 0
+  - component: {fileID: 1204025460}
+  m_Layer: 7
   m_Name: Brittany_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -1598,13 +1840,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1204025460
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &1204025460
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204025456}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1613,12 +1865,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.0900004, y: 2.7800002, z: 0.20000003}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.09, y: 2.78}
+    newSize: {x: 3.09, y: 2.78}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.09, y: 2.78}
+  m_EdgeRadius: 0
 --- !u!1 &1261330468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,9 +2021,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1306352574}
   - component: {fileID: 1306352575}
-  - component: {fileID: 1306352577}
   - component: {fileID: 1306352576}
-  m_Layer: 0
+  - component: {fileID: 1306352577}
+  m_Layer: 7
   m_Name: Gascony_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -1838,13 +2112,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1306352577
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &1306352577
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306352573}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1853,12 +2137,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.1700006, y: 4.5800004, z: 0.20000003}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.17, y: 4.58}
+    newSize: {x: 5.17, y: 4.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.17, y: 4.58}
+  m_EdgeRadius: 0
 --- !u!1 &1331070567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,9 +2175,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1331070568}
   - component: {fileID: 1331070569}
-  - component: {fileID: 1331070571}
   - component: {fileID: 1331070570}
-  m_Layer: 0
+  - component: {fileID: 1331070571}
+  m_Layer: 7
   m_Name: Iledefrance_0
   m_TagString: Province
   m_Icon: {fileID: 0}
@@ -1960,13 +2266,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1331070571
-BoxCollider:
+  NeigbourProvinces: []
+  provinceLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &1331070571
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331070567}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1975,12 +2291,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.5100007, y: 5.7400002, z: 0.20000003}
-  m_Center: {x: 0.0000009536743, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.51, y: 5.74}
+    newSize: {x: 5.51, y: 5.74}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.51, y: 5.74}
+  m_EdgeRadius: 0
 --- !u!1 &2104688392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,9 +2329,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2104688393}
   - component: {fileID: 2104688396}
-  - component: {fileID: 2104688395}
   - component: {fileID: 2104688394}
-  m_Layer: 0
+  - component: {fileID: 2104688397}
+  m_Layer: 6
   m_Name: EnglishChannel_0
   m_TagString: SeaTile
   m_Icon: {fileID: 0}
@@ -2027,27 +2365,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb3d951d5536b4db5cd44c95a35f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &2104688395
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104688392}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
+  NeigbourProvinces: []
+  provinceLayer:
     serializedVersion: 2
     m_Bits: 0
-  m_ExcludeLayers:
+  seaLayer:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.910001, y: 2.5600002, z: 0.20000003}
-  m_Center: {x: 0, y: 0.00000011920929, z: -0.0000000011651486}
 --- !u!212 &2104688396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2103,6 +2427,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2104688397
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104688392}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.91, y: 2.56}
+    newSize: {x: 6.91, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.91, y: 2.56}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
