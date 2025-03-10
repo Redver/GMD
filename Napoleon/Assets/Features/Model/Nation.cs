@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Nation : MonoBehaviour
@@ -5,11 +6,15 @@ public class Nation : MonoBehaviour
     private string nationName;
     private float treasurey;
     private int provinceCount;
-    
-    
+
+    private void Awake()
+    {
+        nationName = gameObject.name;
+    }
+
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -17,14 +22,9 @@ public class Nation : MonoBehaviour
         
     }
 
-    void onNationSelected(string nationName)
+    public void updateProvinceCount()
     {
-        this.nationName = nationName;
-    }
-
-    void updateProvinceCount()
-    {
-        
+        this.provinceCount = transform.childCount;
     }
 
 

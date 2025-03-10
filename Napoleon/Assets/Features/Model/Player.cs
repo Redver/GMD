@@ -26,4 +26,9 @@ public class Player : MonoBehaviour
     {
         Nation = nation;
     }
+
+    void onEndTurn()
+    {
+        Nation.updateProvinceCount();
+    }
 }

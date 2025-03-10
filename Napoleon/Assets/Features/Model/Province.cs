@@ -18,7 +18,16 @@ public class Province : MonoBehaviour
     {
         provinceLayer = LayerMask.GetMask("Province");
         seaLayer = LayerMask.GetMask("SeaTile");
-        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        this.sr = gameObject.GetComponent<SpriteRenderer>();
+        if (startingOwner != null)
+        {
+            owner = startingOwner.GetComponent<Nation>();
+            Debug.Log(owner.name);
+        }
+    }
+    
+    void Start()
+    {
         
         Nations = new Dictionary<string, GameObject>();
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Nation");
@@ -26,14 +35,10 @@ public class Province : MonoBehaviour
         {
             Nations.Add(nation.name, nation);
         }
-    }
-    
-    void Start()
-    {
         FindNeighbors();
         if (owner != null)
         {
-            onOwned(owner);
+            onChangedOwner(owner);
         }
     }
 
@@ -70,7 +75,7 @@ public class Province : MonoBehaviour
     }
 
     bool IsBlocked(Province neighbor)
-    {
+    { 
         Vector2 start = transform.position;
         Vector2 end = neighbor.transform.position;
 
@@ -79,13 +84,14 @@ public class Province : MonoBehaviour
         return hit.collider != null; 
     }
 
-    void onOwned(Nation owner)
+    void onChangedOwner(Nation owner)
     { 
+        Debug.Log($"{gameObject.name} owned {owner.name}");
         this.owner = owner;
         switch (owner.name)
         {
             case "France": sr.color = Color.blue; break;
-            case "Great Britain": sr.color = Color.red; break;
+            case "GreatBritain": sr.color = Color.red; break;
         }
         gameObject.transform.SetParent(Nations[owner.name].transform);
     }
