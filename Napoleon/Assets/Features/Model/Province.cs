@@ -12,28 +12,26 @@ public class Province : MonoBehaviour
     private int friendlyUnitCount;
     private int enemyUnitCount;
     private SpriteRenderer sr;
-    private Dictionary<string, GameObject> Nations;
+    private Dictionary<string, GameObject> Nations = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
         provinceLayer = LayerMask.GetMask("Province");
         seaLayer = LayerMask.GetMask("SeaTile");
-        this.sr = gameObject.GetComponent<SpriteRenderer>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
         if (startingOwner != null)
         {
             owner = startingOwner.GetComponent<Nation>();
-            Debug.Log(owner.name);
         }
     }
     
     void Start()
     {
-        
-        Nations = new Dictionary<string, GameObject>();
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Nation");
         foreach (GameObject nation in temp)
         {
-            Nations.Add(nation.name, nation);
+            Nation nationScript = nation.GetComponent<Nation>();
+            Nations.Add(nationScript.getName(), nation);
         }
         FindNeighbors();
         if (owner != null)
@@ -62,12 +60,10 @@ public class Province : MonoBehaviour
                     if (hit.gameObject.layer == LayerMask.NameToLayer("SeaTile"))
                     {
                         NeigbourProvinces.Add(neighbor);
-                        Debug.Log($"{gameObject.name} added BLOCKER neighbor: {hit.name}");
                     }
                     else if (!IsBlocked(neighbor) || gameObject.layer == LayerMask.NameToLayer("SeaTile"))
                     {
                         NeigbourProvinces.Add(neighbor);
-                        Debug.Log($"{gameObject.name} added land neighbor: {hit.name}");
                     }
                 }
             }
@@ -86,16 +82,14 @@ public class Province : MonoBehaviour
 
     void onChangedOwner(Nation owner)
     { 
-        Debug.Log($"{gameObject.name} owned {owner.name}");
         this.owner = owner;
         switch (owner.name)
         {
             case "France": sr.color = Color.blue; break;
             case "GreatBritain": sr.color = Color.red; break;
         }
-        gameObject.transform.SetParent(Nations[owner.name].transform);
+        gameObject.transform.SetParent(Nations[owner.getName()].transform);
     }
-
     void Update()
     {
         

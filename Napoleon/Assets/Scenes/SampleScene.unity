@@ -221,12 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!61 &184490191
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -375,12 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!61 &283122479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -572,12 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!61 &501927134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -885,9 +870,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 844984858}
-  m_Layer: 0
-  m_Name: GB
-  m_TagString: Untagged
+  - component: {fileID: 844984859}
+  m_Layer: 8
+  m_Name: GreatBritain
+  m_TagString: Nation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -907,6 +893,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &844984859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844984857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c63b46449d3c4d47b4c5cc0a5ccf853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &893807109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,12 +1007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!61 &893807113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1070,9 +1063,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 914798098}
-  m_Layer: 0
+  - component: {fileID: 914798099}
+  m_Layer: 8
   m_Name: France
-  m_TagString: Untagged
+  m_TagString: Nation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1092,6 +1086,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &914798099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914798097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c63b46449d3c4d47b4c5cc0a5ccf853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &978151581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,12 +1200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!61 &978151585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1348,12 +1349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!61 &1012738901
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1533,12 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 844984857}
 --- !u!61 &1094225966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1687,12 +1678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 844984857}
 --- !u!61 &1169340275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1841,12 +1827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!61 &1204025460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2113,12 +2094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 914798097}
 --- !u!61 &1306352577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2267,12 +2243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 914798097}
 --- !u!61 &1331070571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2319,6 +2290,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.51, y: 5.74}
   m_EdgeRadius: 0
+--- !u!1 &1508532281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508532282}
+  m_Layer: 0
+  m_Name: Selection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1508532282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508532281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.310971, y: 0.045436047, z: -0.019023461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2104688392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,12 +2368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
-  provinceLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  seaLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  startingOwner: {fileID: 0}
 --- !u!212 &2104688396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2485,3 +2482,4 @@ SceneRoots:
   - {fileID: 844984858}
   - {fileID: 1261330469}
   - {fileID: 1056876586}
+  - {fileID: 1508532282}
