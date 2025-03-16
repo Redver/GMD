@@ -16,12 +16,15 @@ public class Selector : MonoBehaviour
     private float cooldownBaseValue = 0.5f;
     [SerializeField] private float inputCooldown = 0.5f;
     [SerializeField] private float provinceDirection; //remove after testing
+    [SerializeField] private float inputDirection; //remove after testing
+    private LayerMask provinceLayer;
 
     
     void Start()
     {
         ChangeSelectionParent(startProvince);
         StartCoroutine(startCooldown());
+        provinceLayer = LayerMask.GetMask("Province");
     }
 
     void Update()
@@ -54,21 +57,22 @@ public class Selector : MonoBehaviour
 
     private void moveSelector(Vector2 input)
     {
-        Province toMoveTo = gameObject.GetComponent<Province>();
-        float angleOfInput = Vector2.SignedAngle(Vector2.up, input);
-        float lowestDistance = float.MaxValue;
-        foreach (var keyValue in directions)
+        Vector3 rayDirection = new Vector3(input.x, input.y, 0f).normalized; 
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, rayDirection, 100f);
+
+        foreach (RaycastHit2D hit in hits)
         {
-            float angle = keyValue.Value;
-            float diff = Math.Abs(angle - angleOfInput);
-            if (diff < lowestDistance)
+            if (hit.collider != null)
             {
-                lowestDistance = diff;
-                toMoveTo = keyValue.Key;
+                GameObject hitProvince = hit.collider.gameObject;
+
+                if (hitProvince != selectedProvince)
+                {
+                    ChangeSelectionParent(hitProvince);
+                    return;
+                }
             }
         }
-        provinceDirection = directions[toMoveTo];
-        ChangeSelectionParent(toMoveTo.gameObject);
     }
 
     private void getNeighbourAngles()

@@ -1810,7 +1810,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.44, y: 2.15}
+  m_Size: {x: 3.04, y: 1.56}
   m_EdgeRadius: 0
 --- !u!1 &1204025456
 GameObject:
@@ -2375,7 +2375,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.51, y: 5.74}
+  m_Size: {x: 5.51, y: 4.05}
   m_EdgeRadius: 0
 --- !u!1 &1508532281
 GameObject:
@@ -2425,6 +2425,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startProvince: {fileID: 1169340271}
   input: {x: 0, y: 0}
+  inputCooldown: 0.5
+  provinceDirection: 0
+  inputDirection: 0
 --- !u!114 &1508532284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2575,7 +2578,7 @@ Transform:
   m_GameObject: {fileID: 2104688392}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.74, y: 0.814, z: 0.009449768}
+  m_LocalPosition: {x: -4.74, y: 0.814, z: 0}
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2638,7 +2641,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -5788919941025983028, guid: 3a507519c75cdd24a96daff012f47b9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2694,7 +2697,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.91, y: 2.56}
+  m_Size: {x: 6.91, y: 1.04}
   m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
