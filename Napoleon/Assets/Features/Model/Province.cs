@@ -23,6 +23,7 @@ public class Province : MonoBehaviour
         {
             owner = startingOwner.GetComponent<Nation>();
         }
+        FindNeighbors();
     }
     
     void Start()
@@ -33,7 +34,6 @@ public class Province : MonoBehaviour
             Nation nationScript = nation.GetComponent<Nation>();
             Nations.Add(nationScript.getName(), nation);
         }
-        FindNeighbors();
         if (owner != null)
         {
             onChangedOwner(owner);
@@ -90,6 +90,12 @@ public class Province : MonoBehaviour
         }
         gameObject.transform.SetParent(Nations[owner.getName()].transform);
     }
+    
+    public List<Province> getNeighbours()
+    {
+        return NeigbourProvinces;
+    }
+
     void Update()
     {
         

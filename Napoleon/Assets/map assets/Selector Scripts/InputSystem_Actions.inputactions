@@ -997,7 +997,7 @@
             "actions": [
                 {
                     "name": "SelectProvince",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "30727dfa-2b44-417a-9359-52e0755be401",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -1012,10 +1012,65 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Joystick",
+                    "groups": ";Joystick;Gamepad",
                     "action": "SelectProvince",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "f1bce9e1-5d52-439d-935f-2765e5d0ae98",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectProvince",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "584b32c1-8ee4-493f-897d-e3ff275e4d9f",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectProvince",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "faed8fa7-7a2e-4876-8de1-7c51e20645e0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectProvince",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "404280ad-d933-4be2-b0ce-a3e2ec5de817",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectProvince",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "97902a47-c066-4133-ab12-05b2c1b1a531",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectProvince",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
