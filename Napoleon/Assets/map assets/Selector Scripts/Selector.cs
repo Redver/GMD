@@ -13,18 +13,13 @@ public class Selector : MonoBehaviour
     [SerializeField] private GameObject startProvince;
     [SerializeField] private Vector2 input;
     private Dictionary<Province, float> directions = new Dictionary<Province, float>();
-    private float cooldownBaseValue = 0.5f;
-    [SerializeField] private float inputCooldown = 0.5f;
-    [SerializeField] private float provinceDirection; //remove after testing
-    [SerializeField] private float inputDirection; //remove after testing
-    private LayerMask provinceLayer;
-
+    private float cooldownBaseValue = 0.2f;
+    [SerializeField] private float inputCooldown = 0.2f;
     
     void Start()
     {
         ChangeSelectionParent(startProvince);
         StartCoroutine(startCooldown());
-        provinceLayer = LayerMask.GetMask("Province");
     }
 
     void Update()

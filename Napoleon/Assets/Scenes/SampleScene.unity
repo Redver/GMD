@@ -2426,8 +2426,6 @@ MonoBehaviour:
   startProvince: {fileID: 1169340271}
   input: {x: 0, y: 0}
   inputCooldown: 0.5
-  provinceDirection: 0
-  inputDirection: 0
 --- !u!114 &1508532284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2545,8 +2543,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 30727dfa-2b44-417a-9359-52e0755be401
     m_ActionName: 'Players/SelectProvince[/XInputControllerWindows/leftStick]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Players
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

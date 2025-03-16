@@ -997,7 +997,7 @@
             "actions": [
                 {
                     "name": "SelectProvince",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "30727dfa-2b44-417a-9359-52e0755be401",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -1012,7 +1012,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Joystick;Gamepad",
+                    "groups": ";Gamepad",
                     "action": "SelectProvince",
                     "isComposite": false,
                     "isPartOfComposite": false
