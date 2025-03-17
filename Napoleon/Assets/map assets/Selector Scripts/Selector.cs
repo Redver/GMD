@@ -8,18 +8,19 @@ using UnityEngine.InputSystem;
 
 public class Selector : MonoBehaviour
 {
-    private GameObject selectedProvince;
-    private GameObject currentCountryNation;
+    private GameObject selectedProvinceObject;
+    private Nation currentCountryNation;
     [SerializeField] private GameObject startProvince;
     [SerializeField] private Vector2 input;
-    private Dictionary<Province, float> directions = new Dictionary<Province, float>();
     private float cooldownBaseValue = 0.2f;
     [SerializeField] private float inputCooldown = 0.2f;
     private float movementTime = 0.2f;
+    private bool unitSelected = false;
     
     void Start()
     {
         ChangeSelectionParent(startProvince);
+        currentCountryNation = startProvince.GetComponentInParent<Nation>();
         StartCoroutine(startCooldown());
     }
 
@@ -60,35 +61,21 @@ public class Selector : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                GameObject hitProvince = hit.collider.gameObject;
-
-                if (hitProvince != selectedProvince)
+                GameObject hitProvinceObject = hit.collider.gameObject;
+                Province hitProvince = hitProvinceObject.GetComponent<Province>();
+                Province selectedProvince = selectedProvinceObject.GetComponent<Province>();
+                if (hitProvinceObject != selectedProvinceObject && (hitProvinceObject.GetComponentInParent<Nation>() == currentCountryNation || hitProvinceObject.tag == "SeaTile" || unitSelected && hitProvince.getNeighbours().Contains(selectedProvince)))
                 {
-                    ChangeSelectionParent(hitProvince);
+                    ChangeSelectionParent(hitProvinceObject);
                     return;
                 }
             }
         }
     }
 
-    private void getNeighbourAngles()
-    {
-        List<Province> neighbours = selectedProvince.GetComponent<Province>().getNeighbours();
-        Dictionary<Province, float> directions = new Dictionary<Province, float>();
-
-        foreach (var province in neighbours)
-        {
-            Vector2 direction = (province.transform.position - selectedProvince.transform.position);
-            float angle = Vector2.SignedAngle(Vector2.up, direction); 
-            directions.Add(province, angle);
-        }
-
-        this.directions = directions; 
-    }
-
     public void onChangeTurn(GameObject nation)
     {
-        currentCountryNation = nation;
+        currentCountryNation = nation.GetComponent<Nation>();
         startOnCapital(nation);
     }
 
@@ -109,12 +96,11 @@ public class Selector : MonoBehaviour
 
     public void ChangeSelectionParent(GameObject province)
     {
-        selectedProvince = province;
-        gameObject.transform.SetParent(selectedProvince.transform);
+        selectedProvinceObject = province;
+        gameObject.transform.SetParent(selectedProvinceObject.transform);
         Vector3 oldPosition = gameObject.transform.position;
         Vector3 newPosition = gameObject.transform.parent.position;
         StartCoroutine(LerpSelector(oldPosition, newPosition, movementTime));
-        getNeighbourAngles();
     }
 
     private IEnumerator LerpSelector(Vector3 from, Vector3 to, float timeForMovement)
