@@ -15,6 +15,7 @@ public class Selector : MonoBehaviour
     private Dictionary<Province, float> directions = new Dictionary<Province, float>();
     private float cooldownBaseValue = 0.2f;
     [SerializeField] private float inputCooldown = 0.2f;
+    private float movementTime = 0.2f;
     
     void Start()
     {
@@ -112,7 +113,7 @@ public class Selector : MonoBehaviour
         gameObject.transform.SetParent(selectedProvince.transform);
         Vector3 oldPosition = gameObject.transform.position;
         Vector3 newPosition = gameObject.transform.parent.position;
-        StartCoroutine(LerpSelector(oldPosition, newPosition, 0.2f));
+        StartCoroutine(LerpSelector(oldPosition, newPosition, movementTime));
         getNeighbourAngles();
     }
 

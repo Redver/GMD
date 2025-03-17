@@ -992,7 +992,7 @@
             ]
         },
         {
-            "name": "Players",
+            "name": "Selector",
             "id": "5372f8e3-2933-4398-8435-d332134e4f35",
             "actions": [
                 {
@@ -1071,6 +1071,34 @@
                     "action": "SelectProvince",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Players",
+            "id": "28477260-2967-46ca-9d84-03cb5fb48c63",
+            "actions": [
+                {
+                    "name": "EndTurn",
+                    "type": "Button",
+                    "id": "63961b71-0bfc-4a69-8cf1-3fe78501a14f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cd69876b-2ff4-445d-a480-738af98d0f10",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "EndTurn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

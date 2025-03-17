@@ -1,11 +1,16 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
-    private Nation Nation;
+    [SerializeField] private GameObject NationObject;
+    [SerializeField] private GameObject SelectorObject;
+    private Selector selector;
+    private Nation nation;
+    [SerializeField] private int playerIndex;
 
     void Start()
     {
@@ -14,7 +19,12 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-
+        nation = NationObject.GetComponent<Nation>();
+        if (nation != null)
+        {
+           SetNation(nation); 
+        }
+        selector = SelectorObject.GetComponent<Selector>();
     }
 
     void Update()
@@ -22,13 +32,27 @@ public class Player : MonoBehaviour
         
     }
 
-    void SetNation(Nation nation)
+    public void SetNation(Nation nation)
     {
-        Nation = nation;
+        switch (nation.getName())
+        {
+            case "GreatBritain":
+                playerIndex = 0;
+                break;
+            case "France":
+                playerIndex = 1;
+                break;
+        }
     }
 
-    void onEndTurn()
+    public void onEndTurn(InputAction.CallbackContext context)
     {
-        Nation.updateProvinceCount();
+        nation.onEndTurn();
+    }
+
+    public void onStartTurn()
+    {
+        nation.onStartTurn();
+        selector.onChangeTurn(NationObject);
     }
 }

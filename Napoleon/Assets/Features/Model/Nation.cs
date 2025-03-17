@@ -5,7 +5,7 @@ public class Nation : MonoBehaviour
 {
     private string nationName;
     private float treasurey;
-    private int provinceCount;
+    [SerializeField] private int provinceCount;
 
     private void Awake()
     {
@@ -22,11 +22,20 @@ public class Nation : MonoBehaviour
         
     }
 
+    public void onEndTurn()
+    {
+        updateProvinceCount();
+    }
+
     public void updateProvinceCount()
     {
         this.provinceCount = transform.childCount;
     }
 
+    public void onStartTurn()
+    {
+        new NotImplementedException();
+    }
 
     public string getName()
     {
