@@ -10,17 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject SelectorObject;
     private Selector selector;
     private Nation nation;
-    [SerializeField] private int playerIndex;
-    public static int currentPlayerIndex;
+    [SerializeField] private GameObject SelectorsObject;
+    private Selectors selectors;
 
     void Start()
     {
-        currentPlayerIndex = 0;
+        selectors = SelectorsObject.GetComponent<Selectors>();
         nation = NationObject.GetComponent<Nation>();
-        if (nation != null)
-        {
-            SetNation(nation); 
-        }
         selector = SelectorObject.GetComponent<Selector>();
     }
 
@@ -32,49 +28,16 @@ public class Player : MonoBehaviour
     {
         
     }
-
-    public void SetNation(Nation nation)
-    {
-        switch (nation.getName())
-        {
-            case "GreatBritain":
-                playerIndex = 0;
-                break;
-            case "France":
-                playerIndex = 1;
-                break;
-            default:
-                playerIndex = -1;
-                break; 
-        }
-    }
-
+    
     public void onEndTurn(InputAction.CallbackContext context)
     {
-        if (playerIndex == currentPlayerIndex)
-        {
-            nation.onEndTurn();
-            currentPlayerIndex = (currentPlayerIndex + 1) % 1;
-            List<Player> players = new List<Player>();
-            players.Add(GameObject.FindGameObjectWithTag("Players").GetComponent<Player>());
-            foreach (var player in players)
-            {
-                if (player.getPlayerIndex() == currentPlayerIndex)
-                {
-                    player.onStartTurn();
-                }
-            }
-        }
+        Console.WriteLine("OnEndTurn");
+        selectors.onEndTurn(SelectorObject);
     }
 
     public void onStartTurn()
     {
         nation.onStartTurn();
-        selector.onChangeTurn(NationObject);
-    }
-
-    public int getPlayerIndex()
-    {
-        return playerIndex;
+        selector.onStartTurn(NationObject);
     }
 }

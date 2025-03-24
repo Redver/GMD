@@ -8,6 +8,7 @@ TagManager:
   - SeaTile
   - Nation
   - Players
+  - Selectors
   layers:
   - Default
   - TransparentFX

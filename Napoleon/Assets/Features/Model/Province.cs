@@ -24,6 +24,10 @@ public class Province : MonoBehaviour
             owner = startingOwner.GetComponent<Nation>();
         }
         FindNeighbors();
+        if (owner != null)
+        {
+            setStartingOwner();
+        }
     }
     
     void Start()
@@ -33,10 +37,6 @@ public class Province : MonoBehaviour
         {
             Nation nationScript = nation.GetComponent<Nation>();
             Nations.Add(nationScript.getName(), nation);
-        }
-        if (owner != null)
-        {
-            onChangedOwner(owner);
         }
     }
 
@@ -78,6 +78,16 @@ public class Province : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(start, (end - start).normalized, Vector2.Distance(start, end), seaLayer);
 
         return hit.collider != null; 
+    }
+
+    void setStartingOwner()
+    {
+        switch (owner.name)
+        {
+            case "France": sr.color = Color.blue; break;
+            case "GreatBritain": sr.color = Color.red; break;
+        }
+        gameObject.transform.SetParent(startingOwner.transform);
     }
 
     void onChangedOwner(Nation owner)

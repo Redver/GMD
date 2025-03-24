@@ -8,14 +8,14 @@ using UnityEngine.InputSystem;
 
 public class Selector : MonoBehaviour
 {
-    private GameObject selectedProvinceObject;
-    private Nation currentCountryNation;
+    [SerializeField] private GameObject selectedProvinceObject;
+    [SerializeField] private Nation currentCountryNation;
     [SerializeField] private GameObject startProvince;
     [SerializeField] private Vector2 input;
-    private float cooldownBaseValue = 0.2f;
+    [SerializeField] private float cooldownBaseValue = 0.2f;
     [SerializeField] private float inputCooldown = 0.2f;
-    private float movementTime = 0.2f;
-    private bool unitSelected = false;
+    [SerializeField] private float movementTime = 0.2f;
+    [SerializeField] private bool unitSelected = false;
     
     void Start()
     {
@@ -73,9 +73,8 @@ public class Selector : MonoBehaviour
         }
     }
 
-    public void onChangeTurn(GameObject nation)
+    public void onStartTurn(GameObject nation)
     {
-        currentCountryNation = nation.GetComponent<Nation>();
         startOnCapital(nation);
     }
 
