@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        GetComponent<PlayerInput>().actions.Enable();
         selectors = SelectorsObject.GetComponent<Selectors>();
         nation = NationObject.GetComponent<Nation>();
         selector = SelectorObject.GetComponent<Selector>();
@@ -29,12 +30,12 @@ public class Player : MonoBehaviour
         
     }
     
-    public void onEndTurn(InputAction.CallbackContext context)
+    public void OnEndTurn(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             Console.WriteLine("OnEndTurn");
-            selectors.onEndTurn(SelectorObject);
+            selectors.OnEndTurn(SelectorObject);
         }
     }
 

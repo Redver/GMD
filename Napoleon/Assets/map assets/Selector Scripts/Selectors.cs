@@ -7,10 +7,10 @@ public class Selectors : MonoBehaviour
     void Start()
     {
         selectors = GameObject.FindGameObjectsWithTag("Selectors");
-        onEndTurn(selectors[1]);
+        OnEndTurn(selectors[1]);
     }
 
-    public void onEndTurn(GameObject playersSelector)
+    public void OnEndTurn(GameObject playersSelector)
     {
         GameObject otherSelector;
         if (selectors[0].activeSelf)
