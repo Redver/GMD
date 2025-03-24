@@ -31,8 +31,11 @@ public class Player : MonoBehaviour
     
     public void onEndTurn(InputAction.CallbackContext context)
     {
-        Console.WriteLine("OnEndTurn");
-        selectors.onEndTurn(SelectorObject);
+        if (context.performed)
+        {
+            Console.WriteLine("OnEndTurn");
+            selectors.onEndTurn(SelectorObject);
+        }
     }
 
     public void onStartTurn()
