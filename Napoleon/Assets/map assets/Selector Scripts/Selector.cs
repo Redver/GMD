@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 public class Selector : MonoBehaviour
 {
@@ -13,15 +14,22 @@ public class Selector : MonoBehaviour
     [SerializeField] private GameObject startProvince;
     [SerializeField] private Vector2 input;
     [SerializeField] private float cooldownBaseValue = 0.2f;
-    [SerializeField] private float inputCooldown = 0.2f;
+    [SerializeField] private float inputCooldown = 0.0f;
     [SerializeField] private float movementTime = 0.2f;
     [SerializeField] private bool unitSelected = false;
+    private Dictionary<string, GameObject> capitalProvinces;
+
     
     void Start()
     {
         ChangeSelectionParent(startProvince);
         currentCountryNation = startProvince.GetComponentInParent<Nation>();
         StartCoroutine(startCooldown());
+        capitalProvinces = new Dictionary<string, GameObject>
+        {
+            { "France", GameObject.Find("Iledefrance_0") },
+            { "GreatBritain", GameObject.Find("SouthEast_0") }
+        };
     }
 
     void Update()
@@ -31,12 +39,15 @@ public class Selector : MonoBehaviour
     
     public void OnInput(InputAction.CallbackContext context)
     {
-        if (inputCooldown == 0f)
+        if (this.isActiveAndEnabled)
         {
-            this.input = context.ReadValue<Vector2>();
-            moveSelector(input);
-            inputCooldown = cooldownBaseValue;
-            StartCoroutine(startCooldown());
+            if (inputCooldown == 0f)
+            {
+                this.input = context.ReadValue<Vector2>();
+                moveSelector(input);
+                inputCooldown = cooldownBaseValue;
+                StartCoroutine(startCooldown());
+            }
         }
     }
     
@@ -75,22 +86,20 @@ public class Selector : MonoBehaviour
 
     public void onStartTurn(GameObject nation)
     {
-        startOnCapital(nation);
+        startOnCapital(nation.name);
+        inputCooldown = 0;
     }
 
-    public void startOnCapital(GameObject nation)
+    public void startOnCapital(string nation)
     {
-        GameObject capitalProvince = new GameObject();
-        switch (nation.GetComponent<Nation>().name)
+        if (capitalProvinces.TryGetValue(nation, out GameObject capitalProvince))
         {
-            case "France":
-                capitalProvince = GameObject.Find("Iledefrance_0");
-                break;
-            case "GreatBritain":
-                capitalProvince = GameObject.Find("SouthEast_0");
-                break;
+            ChangeSelectionParent(capitalProvince);
         }
-        ChangeSelectionParent(capitalProvince);
+        else
+        {
+            UnityEngine.Debug.LogWarning($"Could not find capital for nation: {nation}");
+        }
     }
 
     public void ChangeSelectionParent(GameObject province)
@@ -112,5 +121,10 @@ public class Selector : MonoBehaviour
             yield return null;
         }
         gameObject.transform.position = to;
+    }
+
+    public void startNewTurnOnCurrentNationCapital()
+    {
+        startOnCapital(currentCountryNation.name);
     }
 }

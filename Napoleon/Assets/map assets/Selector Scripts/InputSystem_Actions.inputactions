@@ -1021,7 +1021,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "",
                     "action": "SelectProvince",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1135,7 +1135,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "",
                     "action": "SelectProvince",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1209,7 +1209,7 @@
                 {
                     "name": "",
                     "id": "543ada55-721e-4f1e-80c3-7fc527edbd57",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

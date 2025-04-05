@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Selectors : MonoBehaviour
@@ -9,20 +10,22 @@ public class Selectors : MonoBehaviour
         selectors = GameObject.FindGameObjectsWithTag("Selectors");
         OnEndTurn(selectors[1]);
     }
-
+    
     public void OnEndTurn(GameObject playersSelector)
     {
+        Debug.Log("End Turn selector called!");
         GameObject otherSelector;
+
         if (selectors[0].activeSelf)
-        {
-            otherSelector = selectors[0];
-        }
-        else
         {
             otherSelector = selectors[1];
         }
-        deactivateSelector(playersSelector);
+        else
+        {
+            otherSelector = selectors[0];
+        }
         activateSelector(otherSelector);
+        deactivateSelector(playersSelector);
     }
 
     public void deactivateSelector(GameObject selector)
@@ -33,6 +36,7 @@ public class Selectors : MonoBehaviour
     public void activateSelector(GameObject selector)
     {
         selector.SetActive(true);
+        selector.GetComponent<Selector>().startNewTurnOnCurrentNationCapital();
     }
 
     void Update()
