@@ -1594,37 +1594,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.61, y: 4.21}
   m_EdgeRadius: 0
---- !u!1 &1015424476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1015424478}
-  m_Layer: 0
-  m_Name: PlayerInputManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1015424478
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015424476}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19617614, y: 0.027534187, z: -0.45592436}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056876585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,26 +1745,6 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 63961b71-0bfc-4a69-8cf1-3fe78501a14f
-    m_ActionName: 'Players/EndTurn[/Keyboard/enter]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1056876587}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnEndTurn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-    m_ActionId: 7943137a-4823-4ce8-81cf-a1d399393a8c
-    m_ActionName: 'PlayerTwo/EndTurn[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: dac54366-70a4-42c5-a4fd-870b65f8a771
     m_ActionName: 'PlayerOne/SelectProvince[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
@@ -1814,6 +1763,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b68baad3-4608-496d-b87e-54ccf51aef72
     m_ActionName: 'PlayerTwo/SelectProvince[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0ffe1c8e-86fe-4298-8bd5-58b094af40ad
+    m_ActionName: 'PlayerOne/EndTurn[/Keyboard/n,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1056876587}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnEndTurn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 45726365-8f54-4e86-a70d-ad573beef9ff
+    m_ActionName: 'PlayerTwo/EndTurn[/Keyboard/m,/XInputControllerWindows/buttonSouth]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerTwo
@@ -2402,26 +2371,6 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1261330471}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnEndTurn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 63961b71-0bfc-4a69-8cf1-3fe78501a14f
-    m_ActionName: 'Players/EndTurn[/Keyboard/enter]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7943137a-4823-4ce8-81cf-a1d399393a8c
-    m_ActionName: 'PlayerTwo/EndTurn[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 1508532283}
         m_TargetAssemblyTypeName: Selector, Assembly-CSharp
         m_MethodName: OnInput
@@ -2440,6 +2389,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b68baad3-4608-496d-b87e-54ccf51aef72
     m_ActionName: 'PlayerTwo/SelectProvince[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1261330471}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnEndTurn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0ffe1c8e-86fe-4298-8bd5-58b094af40ad
+    m_ActionName: 'PlayerOne/EndTurn[/Keyboard/n,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 45726365-8f54-4e86-a70d-ad573beef9ff
+    m_ActionName: 'PlayerTwo/EndTurn[/Keyboard/m,/XInputControllerWindows/buttonSouth]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerOne
@@ -3106,5 +3075,4 @@ SceneRoots:
   - {fileID: 844984858}
   - {fileID: 1261330469}
   - {fileID: 1056876586}
-  - {fileID: 1015424478}
   - {fileID: 1761472370}

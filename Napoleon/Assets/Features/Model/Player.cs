@@ -19,6 +19,12 @@ public class Player : MonoBehaviour
         selectors = SelectorsObject.GetComponent<Selectors>();
         nation = NationObject.GetComponent<Nation>();
         selector = SelectorObject.GetComponent<Selector>();
+        var playerInput = GetComponent<PlayerInput>();
+        if (playerInput != null)
+        {
+            playerInput.actions.Enable();
+        }
+        Debug.Log($"Active action map: {GetComponent<PlayerInput>().currentActionMap.name}");
     }
 
     private void Awake()
@@ -32,9 +38,9 @@ public class Player : MonoBehaviour
     
     public void OnEndTurn(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.canceled)
         {
-            Console.WriteLine("OnEndTurn");
+            Debug.Log("End Turn button pressed!");
             selectors.OnEndTurn(SelectorObject);
         }
     }

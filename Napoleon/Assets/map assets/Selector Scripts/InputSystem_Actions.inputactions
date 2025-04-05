@@ -27,7 +27,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -501,7 +501,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "15cef263-9014-4fd5-94d9-4e4a6234a6ef",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -996,15 +996,6 @@
             "id": "28477260-2967-46ca-9d84-03cb5fb48c63",
             "actions": [
                 {
-                    "name": "EndTurn",
-                    "type": "Button",
-                    "id": "63961b71-0bfc-4a69-8cf1-3fe78501a14f",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "SelectProvince",
                     "type": "Value",
                     "id": "dac54366-70a4-42c5-a4fd-870b65f8a771",
@@ -1012,20 +1003,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "EndTurn",
+                    "type": "Button",
+                    "id": "0ffe1c8e-86fe-4298-8bd5-58b094af40ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "cd69876b-2ff4-445d-a480-738af98d0f10",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "EndTurn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "fcbd7a8e-551e-4ae6-9927-af7f4cc441c6",
@@ -1091,6 +1080,28 @@
                     "action": "SelectProvince",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "56b7aef3-3f92-49e4-ba87-3478927dd541",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EndTurn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b3b3a53-397b-4049-b28b-11127ecab47d",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EndTurn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1099,15 +1110,6 @@
             "id": "e693f854-2bc2-4017-8b99-e071bfcda5c1",
             "actions": [
                 {
-                    "name": "EndTurn",
-                    "type": "Button",
-                    "id": "7943137a-4823-4ce8-81cf-a1d399393a8c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "SelectProvince",
                     "type": "Value",
                     "id": "b68baad3-4608-496d-b87e-54ccf51aef72",
@@ -1115,20 +1117,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "EndTurn",
+                    "type": "Button",
+                    "id": "45726365-8f54-4e86-a70d-ad573beef9ff",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "83e0d18f-db6f-490d-8c2d-0d9d1d58b440",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "EndTurn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "e3e15de4-d545-4e4b-8b7b-4fb032f065c9",
@@ -1194,6 +1194,28 @@
                     "action": "SelectProvince",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7b8b3139-80bb-4b75-8bed-0b7842b6d979",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EndTurn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "543ada55-721e-4f1e-80c3-7fc527edbd57",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EndTurn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
