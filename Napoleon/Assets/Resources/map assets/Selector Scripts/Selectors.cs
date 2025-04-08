@@ -8,21 +8,22 @@ public class Selectors : MonoBehaviour
     void Start()
     {
         selectors = GameObject.FindGameObjectsWithTag("Selectors");
-        OnEndTurn(selectors[1]);
+        OnEndTurn();
     }
-    
-    public void OnEndTurn(GameObject playersSelector)
-    {
-        Debug.Log("End Turn selector called!");
-        GameObject otherSelector;
 
+    public void OnEndTurn()
+    {
+        GameObject otherSelector;
+        GameObject playersSelector;
         if (selectors[0].activeSelf)
         {
             otherSelector = selectors[1];
+            playersSelector = selectors[0];
         }
         else
         {
             otherSelector = selectors[0];
+            playersSelector = selectors[1];
         }
         activateSelector(otherSelector);
         deactivateSelector(playersSelector);

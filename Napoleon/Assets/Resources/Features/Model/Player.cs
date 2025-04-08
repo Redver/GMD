@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
@@ -8,9 +9,12 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject NationObject;
     [SerializeField] private GameObject SelectorObject;
+    [SerializeField] private GameObject SelectorsObject;
+
+    public UnityEvent onEndTurnUnityEvent; 
+
     private Selector selector;
     private Nation nation;
-    [SerializeField] private GameObject SelectorsObject;
     private Selectors selectors;
 
     void Start()
@@ -34,11 +38,7 @@ public class Player : MonoBehaviour
     {
         if (context.canceled)
         {
-            Debug.Log("End Turn button pressed!");
-            if (selectors.gameObject.activeSelf)
-            {
-                selectors.OnEndTurn(SelectorObject);
-            }
+            onEndTurnUnityEvent.Invoke();
         }
     }
 

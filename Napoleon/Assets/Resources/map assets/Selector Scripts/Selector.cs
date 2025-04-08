@@ -17,6 +17,7 @@ public class Selector : MonoBehaviour
     [SerializeField] private float inputCooldown = 0.0f;
     [SerializeField] private float movementTime = 0.2f;
     [SerializeField] private bool unitSelected = false;
+    [SerializeField] private GameObject buildMenu;
     private Dictionary<string, GameObject> capitalProvinces;
 
     
@@ -36,10 +37,31 @@ public class Selector : MonoBehaviour
     {
         
     }
-    
+
+    public void ToggleBuildMenu()
+    {
+        if (isActiveAndEnabled)
+        {
+            if (buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
+            {
+                buildMenu.GetComponent<BuilderMenuUI>().setClose();
+                buildMenu.SetActive(false);
+            }
+            else
+            {
+                buildMenu.SetActive(true);
+                Vector3 menuPosition = this.transform.position;
+                menuPosition.x += 0.8f;
+                menuPosition.y += 0.3f;
+                buildMenu.transform.position = menuPosition;
+                buildMenu.GetComponent<BuilderMenuUI>().setOpen();
+            }
+        }
+    }
+
     public void OnInput(InputAction.CallbackContext context)
     {
-        if (this.isActiveAndEnabled)
+        if (this.isActiveAndEnabled && !buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
         {
             if (inputCooldown == 0f)
             {
