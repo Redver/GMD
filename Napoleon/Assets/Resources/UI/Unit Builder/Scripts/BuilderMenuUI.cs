@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BuilderMenuUI : MonoBehaviour
 {
@@ -34,12 +35,16 @@ public class BuilderMenuUI : MonoBehaviour
     public void setOpen()
     {
         IsOpen = true;
-        panelStateMachine.SwitchState();
     }
 
-    public void ChangeSelected()
+    public void ChangeSelected(InputAction.CallbackContext context)
     {
-        panelStateMachine.SwitchState();
+        if (panelStateMachine.getStateTime() <= 0 && IsOpen)
+        {
+            panelStateMachine.SwitchState();
+            panelStateMachine.resetCooldown();
+            StartCoroutine(panelStateMachine.cooldownRoutine());
+        }
     }
 
     public void setClose()

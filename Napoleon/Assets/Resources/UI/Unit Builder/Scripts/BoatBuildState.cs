@@ -37,14 +37,14 @@ public class BoatBuildState : IPanelState
         Vector3 unitPanelPosition = boatPanel.transform.position;
         unitPanelPosition.y += 0.1f;
         boatPanel.transform.position = unitPanelPosition;
-        boatPanel.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("UI/Unit Builder/Assets/BoatBuilderSelected");
+        boatPanel.GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>("UI/Unit Builder/Assets/BoatBuilderSelected");
     }
-    
+
     private void makeBoatdeSelected()
     {
         Vector3 unitPanelPosition = boatPanel.transform.position;
         unitPanelPosition.y -= 0.1f;
         boatPanel.transform.position = unitPanelPosition;
-        boatPanel.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("UI/Unit Builder/Assets/BoatBuilder");
+        boatPanel.GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>("UI/Unit Builder/Assets/BoatBuilder");
     }
 }

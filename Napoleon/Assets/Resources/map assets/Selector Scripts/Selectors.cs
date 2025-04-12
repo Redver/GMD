@@ -1,4 +1,5 @@
 using System;
+using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using UnityEngine;
 
 public class Selectors : MonoBehaviour
@@ -37,7 +38,7 @@ public class Selectors : MonoBehaviour
     public void activateSelector(GameObject selector)
     {
         selector.SetActive(true);
-        selector.GetComponent<Selector>().startNewTurnOnCurrentNationCapital();
+        selector.GetComponent<SelectorView>().startOnCapital();
     }
 
     void Update()

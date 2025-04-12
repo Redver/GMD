@@ -106,6 +106,16 @@ public class Province : MonoBehaviour
         return NeigbourProvinces;
     }
 
+    public Nation getOwner()
+    {
+        return owner;
+    }
+
+    public GameObject getOwnerGameObject()
+    {
+        return this.transform.parent.gameObject;
+    }
+    
     void Update()
     {
         

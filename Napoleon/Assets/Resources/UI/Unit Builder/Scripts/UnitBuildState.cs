@@ -37,7 +37,7 @@ public class UnitBuildState : IPanelState
         Vector3 unitPanelPosition = unitPanel.transform.position;
         unitPanelPosition.y += 0.1f;
         unitPanel.transform.position = unitPanelPosition;
-        unitPanel.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("UI/Unit Builder/Assets/UnitBuildSquareSelected");
+        unitPanel.GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>("UI/Unit Builder/Assets/UnitBuildSquareSelected");
     }
     
     private void makeUnitdeSelected()
@@ -45,6 +45,6 @@ public class UnitBuildState : IPanelState
         Vector3 unitPanelPosition = unitPanel.transform.position;
         unitPanelPosition.y -= 0.1f;
         unitPanel.transform.position = unitPanelPosition;
-        unitPanel.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("UI/Unit Builder/Assets/UnitBuildSquare");
+        unitPanel.GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>("UI/Unit Builder/Assets/UnitBuildSquare");
     }
 }

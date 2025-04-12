@@ -1014,9 +1014,10 @@ GameObject:
   m_Component:
   - component: {fileID: 795073584}
   - component: {fileID: 795073585}
+  - component: {fileID: 795073586}
   m_Layer: 5
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: BuildPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,6 +1092,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &795073586
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795073583}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20, y: 20}
+    newSize: {x: 20, y: 20}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 20, y: 20}
+  m_EdgeRadius: 0
 --- !u!1 &844984857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   provinceCount: 0
+  capitalProvince: {fileID: 0}
 --- !u!1 &893807109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   provinceCount: 0
+  capitalProvince: {fileID: 0}
 --- !u!1 &977922361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,7 +1408,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b2760b863490047b68b1527a1f0016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panels: []
+  panels:
+  - {fileID: 795073583}
+  - {fileID: 1957487480}
 --- !u!4 &977922363
 Transform:
   m_ObjectHideFlags: 0
@@ -1568,17 +1619,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000568164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f18b88229430c140b874e1cf6870b7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d7b7637e0864c97b490124f271590da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedProvinceObject: {fileID: 0}
-  currentCountryNation: {fileID: 0}
   startProvince: {fileID: 1331070567}
   input: {x: 0, y: 0}
-  cooldownBaseValue: 0.2
-  inputCooldown: 0
-  movementTime: 0.2
-  unitSelected: 0
   buildMenu: {fileID: 977922361}
 --- !u!1 &1012738897
 GameObject:
@@ -1900,7 +1945,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1000568166}
-        m_TargetAssemblyTypeName: Selector, Assembly-CSharp
+        m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
+          Assembly-CSharp
         m_MethodName: OnInput
         m_Mode: 0
         m_Arguments:
@@ -1940,7 +1986,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1000568166}
-        m_TargetAssemblyTypeName: Selector, Assembly-CSharp
+        m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
+          Assembly-CSharp
         m_MethodName: ToggleBuildMenu
         m_Mode: 1
         m_Arguments:
@@ -1953,6 +2000,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d094b53a-c16a-4f35-9d5b-795e6d7fcce0
     m_ActionName: 'PlayerTwo/OpenBuildMenu[/XInputControllerWindows/buttonEast,/Keyboard/b]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9b1f8b22-6e05-460d-b319-2b6b3f7e54d5
+    m_ActionName: 'PlayerOne/SwitchSelectedBuildItem[/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/right]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 977922362}
+        m_TargetAssemblyTypeName: BuilderMenuUI, Assembly-CSharp
+        m_MethodName: ChangeSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7c986240-9c37-46b3-9121-fc71664d8c62
+    m_ActionName: 'PlayerTwo/SwitchSelectedBuildItem[/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/right]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerTwo
@@ -2542,7 +2609,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1508532283}
-        m_TargetAssemblyTypeName: Selector, Assembly-CSharp
+        m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
+          Assembly-CSharp
         m_MethodName: OnInput
         m_Mode: 0
         m_Arguments:
@@ -2582,7 +2650,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1508532283}
-        m_TargetAssemblyTypeName: Selector, Assembly-CSharp
+        m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
+          Assembly-CSharp
         m_MethodName: ToggleBuildMenu
         m_Mode: 1
         m_Arguments:
@@ -2599,6 +2668,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d094b53a-c16a-4f35-9d5b-795e6d7fcce0
     m_ActionName: 'PlayerTwo/OpenBuildMenu[/XInputControllerWindows/buttonEast,/Keyboard/b]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 977922362}
+        m_TargetAssemblyTypeName: BuilderMenuUI, Assembly-CSharp
+        m_MethodName: ChangeSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9b1f8b22-6e05-460d-b319-2b6b3f7e54d5
+    m_ActionName: 'PlayerOne/SwitchSelectedBuildItem[/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c986240-9c37-46b3-9121-fc71664d8c62
+    m_ActionName: 'PlayerTwo/SwitchSelectedBuildItem[/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/right]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: PlayerOne
@@ -3061,17 +3150,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1508532281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f18b88229430c140b874e1cf6870b7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d7b7637e0864c97b490124f271590da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedProvinceObject: {fileID: 0}
-  currentCountryNation: {fileID: 0}
   startProvince: {fileID: 1169340271}
   input: {x: 0, y: 0}
-  cooldownBaseValue: 0.2
-  inputCooldown: 0
-  movementTime: 0.2
-  unitSelected: 0
   buildMenu: {fileID: 977922361}
 --- !u!1 &1761472369
 GameObject:
@@ -3209,9 +3292,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1957487481}
   - component: {fileID: 1957487482}
+  - component: {fileID: 1957487483}
   m_Layer: 5
   m_Name: Unit
-  m_TagString: Untagged
+  m_TagString: BuildPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3286,6 +3370,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1957487483
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957487480}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20, y: 20}
+    newSize: {x: 20, y: 20}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 20, y: 20}
+  m_EdgeRadius: 0
 --- !u!1 &2104688392
 GameObject:
   m_ObjectHideFlags: 0
