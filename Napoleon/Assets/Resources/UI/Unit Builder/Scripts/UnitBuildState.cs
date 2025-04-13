@@ -22,7 +22,7 @@ public class UnitBuildState : IPanelState
         throw new System.NotImplementedException();
     }
 
-    public void Exit(BuilderMenuUI builderMenuUI)
+    public void Exit()
     {
         makeUnitdeSelected();
     }

@@ -41,7 +41,7 @@ public class BuilderMenuUI : MonoBehaviour
     {
         if (panelStateMachine.getStateTime() <= 0 && IsOpen)
         {
-            panelStateMachine.SwitchState();
+            panelStateMachine.switchState();
             panelStateMachine.resetCooldown();
             StartCoroutine(panelStateMachine.cooldownRoutine());
         }

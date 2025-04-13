@@ -40,7 +40,7 @@ public class Province : MonoBehaviour
         }
     }
 
-    void FindNeighbors()
+    public void FindNeighbors()
     {
         BoxCollider2D col = GetComponent<BoxCollider2D>();
         if (col == null) return;
@@ -70,7 +70,7 @@ public class Province : MonoBehaviour
         }
     }
 
-    bool IsBlocked(Province neighbor)
+    public bool IsBlocked(Province neighbor)
     { 
         Vector2 start = transform.position;
         Vector2 end = neighbor.transform.position;
@@ -80,7 +80,7 @@ public class Province : MonoBehaviour
         return hit.collider != null; 
     }
 
-    void setStartingOwner()
+    public void setStartingOwner()
     {
         switch (owner.name)
         {
@@ -90,7 +90,7 @@ public class Province : MonoBehaviour
         gameObject.transform.SetParent(startingOwner.transform);
     }
 
-    void onChangedOwner(Nation owner)
+    public void onChangedOwner(Nation owner)
     { 
         this.owner = owner;
         switch (owner.name)

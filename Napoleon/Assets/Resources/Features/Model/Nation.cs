@@ -5,6 +5,8 @@ public class Nation : MonoBehaviour
 {
     private string nationName;
     private float treasurey;
+    private int unitCount;
+    private int boatCount;
     [SerializeField] private int provinceCount;
     [SerializeField] GameObject capitalProvince;
 
@@ -23,9 +25,29 @@ public class Nation : MonoBehaviour
         
     }
 
+    public void updateTreasurey()
+    {
+        float income = provinceCount * 3;
+        float expenses = unitCount + (boatCount * 3);
+        float net = income - expenses;
+        treasurey += net;
+    }
+
+    public void payForUnit()
+    {
+        treasurey -= 10;
+    }
+    
+    public void payForBoat()
+    {
+        treasurey -= 15;
+    }
+
+
     public void onEndTurn()
     {
         updateProvinceCount();
+        updateTreasurey();
     }
 
     public void updateProvinceCount()

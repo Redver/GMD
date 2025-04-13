@@ -16,14 +16,19 @@ public class PanelStateMachine
         State.Enter(builderMenuUI);
     }
 
-    public void SwitchState()
+    public void switchState()
     {
         IPanelState nextState = State.NextState();
-        State.Exit(BuilderMenuUI);
+        State.Exit();
         State = nextState;
         State.Enter(BuilderMenuUI);
     }
-    
+
+    public void buildSelected()
+    {
+        State.BuildSelected(BuilderMenuUI);
+    }
+
     public IEnumerator cooldownRoutine()
     {
         while (stateTime >= 0)

@@ -4,7 +4,7 @@ public interface IPanelState
 {
     void Enter(BuilderMenuUI builderMenuUI);
     void BuildSelected(BuilderMenuUI builderMenuUI);
-    void Exit(BuilderMenuUI builderMenuUI);
+    void Exit();
     
     IPanelState NextState();
 }

@@ -27,7 +27,7 @@ public class BoatBuildState : IPanelState
         throw new System.NotImplementedException();
     }
 
-    public void Exit(BuilderMenuUI builderMenuUI)
+    public void Exit()
     {
         makeBoatdeSelected();
     }

@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   provinceCount: 0
-  capitalProvince: {fileID: 0}
+  capitalProvince: {fileID: 1169340271}
 --- !u!1 &893807109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   provinceCount: 0
-  capitalProvince: {fileID: 0}
+  capitalProvince: {fileID: 1331070567}
 --- !u!1 &977922361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2009,7 @@ MonoBehaviour:
       - m_Target: {fileID: 977922362}
         m_TargetAssemblyTypeName: BuilderMenuUI, Assembly-CSharp
         m_MethodName: ChangeSelected
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2673,7 +2673,7 @@ MonoBehaviour:
       - m_Target: {fileID: 977922362}
         m_TargetAssemblyTypeName: BuilderMenuUI, Assembly-CSharp
         m_MethodName: ChangeSelected
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
