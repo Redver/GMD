@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Resources.Features.Model.Units;
 using UnityEngine;
 
 public class Province : MonoBehaviour
@@ -9,6 +10,7 @@ public class Province : MonoBehaviour
     private LayerMask seaLayer;
     private Nation owner;
     [SerializeField] private GameObject startingOwner;
+    private Stack<IUnit> unitStack = new Stack<IUnit>();
     private int friendlyUnitCount;
     private int enemyUnitCount;
     private SpriteRenderer sr;
@@ -38,6 +40,34 @@ public class Province : MonoBehaviour
             Nation nationScript = nation.GetComponent<Nation>();
             Nations.Add(nationScript.getName(), nation);
         }
+    }
+
+    public void addUnitToStack(IUnit unit)
+    {
+        unitStack.Push(unit);
+    }
+    
+    public void addBoatToStack(IUnit unit)
+    {
+        unitStack.Push(unit);
+    }
+
+    public void updateUnitCount()
+    {
+        this.friendlyUnitCount = unitStack.Count;
+    }
+
+    public IUnit selectNextUnit()
+    {
+        IUnit unit = unitStack.Pop();
+        updateUnitCount();
+        return unit;
+    }
+
+    public void deselectUnit(IUnit unit)
+    {
+        unitStack.Push(unit);
+        updateUnitCount();
     }
 
     public void FindNeighbors()
@@ -115,7 +145,12 @@ public class Province : MonoBehaviour
     {
         return this.transform.parent.gameObject;
     }
-    
+
+    public int getFriendlyUnitCount()
+    {
+        return friendlyUnitCount;
+    }
+
     void Update()
     {
         

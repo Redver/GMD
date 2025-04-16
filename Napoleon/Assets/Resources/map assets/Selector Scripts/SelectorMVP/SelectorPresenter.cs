@@ -20,7 +20,23 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
       {
           return model.InputCooldown <= 0f;
       }
+
+      public void selectUnitInProvince()
+      {
+          if (model.canSelectUnit())
+          {
+              model.selectUnitInProvince();
+          }
+      }
       
+      public void deselectUnitInProvince()
+      {
+          if (model.canDeselectUnit())
+          {
+              model.delectUnitInProvince();
+          }
+      }
+
       public void moveSelector(Vector2 input)
       {
           GameObject hitProvinceObject = view.getHitProvinceObject(input);

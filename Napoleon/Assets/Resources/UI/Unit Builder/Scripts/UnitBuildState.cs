@@ -1,3 +1,4 @@
+using Resources.Features.Model.Units;
 using UnityEngine;
 
 public class UnitBuildState : IPanelState
@@ -19,7 +20,22 @@ public class UnitBuildState : IPanelState
 
     public void BuildSelected(BuilderMenuUI builderMenuUI)
     {
-        throw new System.NotImplementedException();
+        builderMenuUI.getProvinceOpenOn().GetComponent<Province>().getOwner().payForUnit();
+        GameObject provinceOpenOn = builderMenuUI.getProvinceOpenOn();
+        string path = "";
+        if (provinceOpenOn.GetComponent<Province>().getOwner().name == "GreatBritain")
+        {
+            path = "Features/Model/Units/Unit Assets/UK flag unit";
+        }
+        if (provinceOpenOn.GetComponent<Province>().getOwner().name == "France")
+        {
+            path = "Features/Model/Units/Unit Assets/FRflag";
+        }
+
+        GameObject builtUnit = builderMenuUI.instantiatePrefab(builderMenuUI.getBuildingUnitPreFab());
+        builtUnit.transform.localPosition = Vector3.zero;
+        builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
+        provinceOpenOn.GetComponent<Province>().addUnitToStack(builtUnit.transform.GetComponent<IUnit>());
     }
 
     public void Exit()

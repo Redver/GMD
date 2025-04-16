@@ -12,6 +12,7 @@ namespace Resources.Features.Model.Units
         {
             unitLogic = unitType;
             unitLogic.setCurrentProvince(province);
+            unitLogic.setView(this);
             updatePositions(province);
             this.transform.position = defaultPosition;
             //get prefab from object pool and activate on currently selected province

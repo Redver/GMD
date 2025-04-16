@@ -30,6 +30,22 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             StartCoroutine(startCooldown());
         }
 
+        public void selectUnitInProvince()
+        {
+            if (isActiveAndEnabled)
+            {
+                presenter.selectUnitInProvince();
+            }
+        }
+
+        public void deselectUnitInProvince()
+        {
+            if (isActiveAndEnabled)
+            {
+                presenter.deselectUnitInProvince();
+            }
+        }
+
 
         public void ToggleBuildMenu()
         {
@@ -48,6 +64,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
                     menuPosition.y += 0.3f;
                     buildMenu.transform.position = menuPosition;
                     buildMenu.GetComponent<BuilderMenuUI>().setOpen();
+                    buildMenu.GetComponent<BuilderMenuUI>().setProvinceOpenOn(presenter.getSelectedProvinceObject());
                 }
             }
         }
