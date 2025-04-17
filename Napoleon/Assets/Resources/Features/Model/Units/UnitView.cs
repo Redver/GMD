@@ -8,20 +8,24 @@ namespace Resources.Features.Model.Units
         private Vector3 defaultPosition;
         private Vector3 raisedPosition;
 
-        public UnitView(IUnit unitType, Province province)
+        public void Init(IUnit unitType, Province province)
         {
             unitLogic = unitType;
             unitLogic.setCurrentProvince(province);
             unitLogic.setView(this);
             updatePositions(province);
             this.transform.position = defaultPosition;
-            //get prefab from object pool and activate on currently selected province
         }
 
         public void selectUnit()
         {
             transform.SetParent(unitLogic.getSelector().transform);
             transform.position = raisedPosition;
+        }
+
+        public IUnit getUnitLogic()
+        {
+            return unitLogic;
         }
 
         public void dropUnit(Province newProvince)

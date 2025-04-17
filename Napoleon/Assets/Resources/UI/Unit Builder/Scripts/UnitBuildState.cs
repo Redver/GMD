@@ -35,7 +35,9 @@ public class UnitBuildState : IPanelState
         GameObject builtUnit = builderMenuUI.instantiatePrefab(builderMenuUI.getBuildingUnitPreFab());
         builtUnit.transform.localPosition = Vector3.zero;
         builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
-        provinceOpenOn.GetComponent<Province>().addUnitToStack(builtUnit.transform.GetComponent<IUnit>());
+        builtUnit.transform.GetComponent<UnitView>().Init(new Infantry(), provinceOpenOn.GetComponent<Province>());
+        IUnit unit = builtUnit.transform.GetComponent<UnitView>().getUnitLogic();
+        provinceOpenOn.GetComponent<Province>().addUnitToStack(unit);
     }
 
     public void Exit()

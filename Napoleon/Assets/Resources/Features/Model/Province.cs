@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Resources.Features.Model.Units;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Province : MonoBehaviour
@@ -45,11 +46,25 @@ public class Province : MonoBehaviour
     public void addUnitToStack(IUnit unit)
     {
         unitStack.Push(unit);
+        updateUnitCount();
     }
-    
+
+    public GameObject getSelector()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Selectors"))
+            {
+                return child.gameObject;
+            }
+        }
+        throw new Exception("Selectors not found");
+    }
+
     public void addBoatToStack(IUnit unit)
     {
         unitStack.Push(unit);
+        updateUnitCount();
     }
 
     public void updateUnitCount()
