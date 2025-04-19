@@ -33,6 +33,7 @@ namespace Resources.Features.Model.Units
             unitLogic.setCurrentProvince(newProvince);
             transform.SetParent(newProvince.transform);
             transform.localPosition = new Vector3(0.1f, 0.1f, 0.1f);
+            updatePositions(newProvince);
         }
 
         public void updatePositions(Province province)

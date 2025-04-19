@@ -60,7 +60,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         public void delectUnitInProvince()
         {
             units.Peek().lowerSelectedUnit();
-            selectedProvince.deselectUnit(units.Pop());
+            units.Peek().getCurrentProvince().GetComponent<Province>().deselectUnit(units.Pop());
         }
 
         public bool canDropUnit()

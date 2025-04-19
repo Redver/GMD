@@ -12,7 +12,7 @@ public class Province : MonoBehaviour
     private Nation owner;
     [SerializeField] private GameObject startingOwner;
     private Stack<IUnit> unitStack = new Stack<IUnit>();
-    private int friendlyUnitCount;
+    [SerializeField] private int friendlyUnitCount;
     private int enemyUnitCount;
     private SpriteRenderer sr;
     private Dictionary<string, GameObject> Nations = new Dictionary<string, GameObject>();
@@ -49,6 +49,42 @@ public class Province : MonoBehaviour
         updateUnitCount();
     }
 
+    public void spreadUnits()
+    {
+        int unitCount = unitStack.Count;
+        if (unitCount == 0) return;
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col == null) return;
+
+        Bounds bounds = col.bounds;
+        float totalWidth = bounds.size.x * 0.4f;
+        float spacing = (unitCount > 1) ? totalWidth / (unitCount - 1) : 0;
+
+        Vector3 startPos = new Vector3(bounds.center.x - totalWidth / 2f, bounds.center.y, transform.position.z);
+
+        IUnit[] units = unitStack.ToArray();
+
+        for (int i = 0; i < unitCount; i++)
+        {
+            Vector3 targetPos;
+
+            if (unitCount == 1)
+            {
+                targetPos = new Vector3(bounds.center.x, bounds.center.y, transform.position.z);
+            }
+            else
+            {
+                float x = startPos.x + spacing * i;
+                targetPos = new Vector3(x, bounds.center.y, transform.position.z);
+            }
+
+            GameObject unitObj = ((Unit)units[i]).getView().gameObject;
+            unitObj.transform.SetParent(this.transform);
+            unitObj.transform.position = targetPos;
+        }
+    }
+
     public GameObject getSelector()
     {
         foreach (Transform child in transform)
@@ -61,15 +97,10 @@ public class Province : MonoBehaviour
         throw new Exception("Selectors not found");
     }
 
-    public void addBoatToStack(IUnit unit)
-    {
-        unitStack.Push(unit);
-        updateUnitCount();
-    }
-
     public void updateUnitCount()
     {
         this.friendlyUnitCount = unitStack.Count;
+        spreadUnits();
     }
 
     public IUnit selectNextUnit()

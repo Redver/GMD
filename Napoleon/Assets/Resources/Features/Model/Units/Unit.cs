@@ -46,12 +46,19 @@ namespace Resources.Features.Model.Units
 
         public void dropSelectedUnit(Province newProvince)
         {
+            province.updateUnitCount();
             view.dropUnit(newProvince);
+            newProvince.addUnitToStack(this);
         }
 
         public void setView(UnitView View)
         {
             this.view = View;
+        }
+
+        public UnitView getView()
+        {
+            return view;
         }
     }
 }

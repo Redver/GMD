@@ -15,5 +15,6 @@ namespace Resources.Features.Model.Units
         
         public void setView(UnitView View);
         public void dropSelectedUnit(Province newProvince);
+        public UnitView getView();
     }
 }
