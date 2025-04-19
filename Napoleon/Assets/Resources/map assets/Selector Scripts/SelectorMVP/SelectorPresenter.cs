@@ -37,6 +37,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           }
       }
 
+      public void dropUnitInProvince()
+      {
+          if (model.canDropUnit())
+          {
+              model.dropUnitInProvince();
+          }
+      }
+
       public void moveSelector(Vector2 input)
       {
           GameObject hitProvinceObject = view.getHitProvinceObject(input);
@@ -48,11 +56,10 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
       
       public void processProvinceSelection(GameObject hitProvinceObject)
       {
-          model.SelectedProvinceObject = hitProvinceObject;
+          model.updateSelectedProvince(hitProvinceObject);
           view.ChangeSelectionParent(hitProvinceObject);
           resetCooldown();
           startCooldownCoroutine();
-
       }
 
       public bool canSelectProvince(GameObject hitProvinceObject)

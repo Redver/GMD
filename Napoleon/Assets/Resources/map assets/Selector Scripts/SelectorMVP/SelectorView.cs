@@ -30,6 +30,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             StartCoroutine(startCooldown());
         }
 
+        public void dropUnitInNewProvince()
+        {
+            if (isActiveAndEnabled)
+            {
+                presenter.dropUnitInProvince();
+            }
+        }
+
         public void selectUnitInProvince()
         {
             if (isActiveAndEnabled)

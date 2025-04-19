@@ -63,6 +63,24 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             selectedProvince.deselectUnit(units.Pop());
         }
 
+        public bool canDropUnit()
+        {
+            return units.Count > 0;
+        }
+
+        public void dropUnitInProvince()
+        {
+            units.Peek().lowerSelectedUnit();
+            units.Pop().dropSelectedUnit(selectedProvince);
+
+        }
+
+        public void updateSelectedProvince(GameObject selectedProvinceObject)
+        {
+            SelectedProvinceObject = selectedProvinceObject;
+            SelectedProvince = selectedProvinceObject.GetComponent<Province>();
+        }
+
         public GameObject SelectedProvinceObject
         {
             get => selectedProvinceObject;
