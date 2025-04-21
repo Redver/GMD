@@ -1,4 +1,5 @@
-﻿using Resources.map_assets.Selector_Scripts.SelectorMVP;
+﻿using System;
+using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Resources.Features.Model.Units
     {
         protected UnitView view;
         protected Province province;
+        protected int moves;
 
         public Unit()
         {
@@ -59,6 +61,11 @@ namespace Resources.Features.Model.Units
         public UnitView getView()
         {
             return view;
+        }
+
+        public virtual bool canDropUnitHere(Province newProvince)
+        {
+            throw new Exception("Unit should never be initialised as this base class");
         }
     }
 }

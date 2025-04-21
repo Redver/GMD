@@ -65,7 +65,12 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
         public bool canDropUnit()
         {
-            return units.Count > 0;
+            bool unitCanDropHere = false;
+            if (units.Count > 0)
+            {
+                unitCanDropHere = units.Peek().canDropUnitHere(selectedProvince);
+            }
+            return unitCanDropHere;
         }
 
         public void dropUnitInProvince()
