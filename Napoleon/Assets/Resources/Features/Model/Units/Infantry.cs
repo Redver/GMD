@@ -7,8 +7,31 @@ namespace Resources.Features.Model.Units
     {
         public override bool canDropUnitHere(Province newProvince)
         {
-            return 
+            bool isNeighbourProvince = this.getCurrentProvince().GetComponent<Province>().getNeighbours().Contains(newProvince);
+            bool hasMovement = this.moves > 0;
+
+            return isNeighbourProvince && hasMovement;
+        }
+
+        public override void resetMoves()
+        {
+            this.moves = 1;
+            this.view.resetUnitColour();
+        }
+
+        public override void decreaseMoves()
+        {
+            this.moves--;
+            this.view.greyOutUnit();
+        }
+
+        public void onEndTurn()
+        {
+            resetMoves();
+            if (!isInCombat())
+            {
+                this.getCurrentProvince().GetComponent<Province>().onChangedOwner(this.nation);
+            }
         }
     }
-    //notes for next time: set up prefabs, set up the object pool, implement these methods.
 }

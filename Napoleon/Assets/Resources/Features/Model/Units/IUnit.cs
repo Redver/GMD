@@ -6,7 +6,6 @@ namespace Resources.Features.Model.Units
     public interface IUnit
     {
         public GameObject getSelector();
-        public void selectUnit(SelectorModel Selector);
         public void setCurrentProvince(Province province);
         public GameObject getCurrentProvince();
 
@@ -17,5 +16,18 @@ namespace Resources.Features.Model.Units
         public void dropSelectedUnit(Province newProvince);
         public UnitView getView();
         public bool canDropUnitHere(Province newProvince);
+        public void setNation(Nation builderNation);
+        public Nation getNation();
+
+        public int getMoves();
+        public void decreaseMoves();
+        public void resetMoves();
+        public void onEndTurn();
+        
+        public bool isInCombat();
+        public void setInCombat();
+        public void setNotInCombat();
+
+        public bool canSelect();
     }
 }

@@ -9,7 +9,9 @@ namespace Resources.Features.Model.Units
     {
         protected UnitView view;
         protected Province province;
+        protected Nation nation;
         protected int moves;
+        protected bool inCombat;
 
         public Unit()
         {
@@ -20,12 +22,7 @@ namespace Resources.Features.Model.Units
         {
             return province.getSelector();
         }
-
-        public void selectUnit(SelectorModel Selector)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        
         public void setCurrentProvince(Province province)
         {
             this.province = province;
@@ -66,6 +63,56 @@ namespace Resources.Features.Model.Units
         public virtual bool canDropUnitHere(Province newProvince)
         {
             throw new Exception("Unit should never be initialised as this base class");
+        }
+
+        public void setNation(Nation builderNation)
+        {
+            this.nation = builderNation;
+        }
+
+        public Nation getNation()
+        {
+            return this.nation;
+        }
+
+        public int getMoves()
+        {
+            return moves;   
+        }
+
+        public virtual void decreaseMoves()
+        {
+            throw new Exception("Unit should never be initialised as this base class");
+        }
+
+        public virtual void resetMoves()
+        {
+            throw new Exception("Unit should never be initialised as this base class");
+        }
+
+        public virtual void onEndTurn()
+        {
+            throw new Exception("Unit should never be initialised as this base class");
+        }
+
+        public bool canSelect()
+        {
+            return !isInCombat() && moves > 0;
+        }
+
+        public bool isInCombat()
+        {
+            return inCombat;
+        }
+
+        public void setInCombat()
+        {
+            this.inCombat = true;
+        }
+
+        public void setNotInCombat()
+        {
+            this.inCombat = false;
         }
     }
 }

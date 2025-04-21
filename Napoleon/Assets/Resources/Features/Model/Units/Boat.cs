@@ -22,7 +22,17 @@ namespace Resources.Features.Model.Units
                 }
             }
 
-            return  
+            return true;
+        }
+
+        public override void resetMoves()
+        {
+            this.moves = 5;
+        }
+
+        public void onEndTurn()
+        {
+            resetMoves();
         }
     }
 }

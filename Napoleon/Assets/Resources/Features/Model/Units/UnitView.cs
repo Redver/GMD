@@ -7,6 +7,8 @@ namespace Resources.Features.Model.Units
         private IUnit unitLogic;
         private Vector3 defaultPosition;
         private Vector3 raisedPosition;
+        private Color defaultColor;
+        private SpriteRenderer spriteRenderer;
 
         public void Init(IUnit unitType, Province province)
         {
@@ -15,6 +17,13 @@ namespace Resources.Features.Model.Units
             unitLogic.setView(this);
             updatePositions(province);
             this.transform.position = defaultPosition;
+            this.unitLogic.setNation(province.getOwner());
+            province.getOwner().endTurnEvent.AddListener(endTurnEvent);
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                defaultColor = spriteRenderer.color;
+            }
         }
 
         public void selectUnit()
@@ -46,6 +55,27 @@ namespace Resources.Features.Model.Units
         {
             this.transform.SetParent(unitLogic.getCurrentProvince().transform);
             this.transform.position = defaultPosition;
+        }
+
+        public void endTurnEvent()
+        {
+            unitLogic.onEndTurn();
+        }
+
+        public void greyOutUnit()
+        {
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+            }
+        }
+
+        public void resetUnitColour()
+        {
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = defaultColor;
+            }
         }
     }
 }

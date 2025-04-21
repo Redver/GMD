@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Nation : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class Nation : MonoBehaviour
     private int boatCount;
     [SerializeField] private int provinceCount;
     [SerializeField] GameObject capitalProvince;
+    public UnityEvent endTurnEvent; 
+
 
     private void Awake()
     {
         nationName = gameObject.name;
+        endTurnEvent = new UnityEvent();
     }
 
     void Start()
@@ -48,6 +52,7 @@ public class Nation : MonoBehaviour
     {
         updateProvinceCount();
         updateTreasurey();
+        endTurnEvent.Invoke();
     }
 
     public void updateProvinceCount()
