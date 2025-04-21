@@ -43,6 +43,39 @@ public class Province : MonoBehaviour
         }
     }
 
+    public bool canSelectUnit()
+    {
+        if (unitStack.Count > 0)
+        {
+            Queue<IUnit> unitQueue = new Queue<IUnit>();
+            IUnit canUnit = null;
+                
+            while (unitStack.Count > 0)
+            {
+                IUnit unit = unitStack.Pop();
+
+                if (unit.canSelect())
+                {
+                    canUnit = unit;
+                    break;
+                }
+                unitQueue.Enqueue(unit);
+            }
+                
+            foreach (var unit in unitQueue)
+            {
+                unitStack.Push(unit);
+            }
+                
+            if (canUnit != null)
+            {
+                unitStack.Push(canUnit);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void addUnitToStack(IUnit unit)
     {
         unitStack.Push(unit);

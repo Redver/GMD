@@ -10,7 +10,7 @@ namespace Resources.Features.Model.Units
         protected UnitView view;
         protected Province province;
         protected Nation nation;
-        protected int moves;
+        protected int moves = 0;
         protected bool inCombat;
 
         public Unit()

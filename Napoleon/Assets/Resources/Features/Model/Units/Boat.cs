@@ -30,7 +30,7 @@ namespace Resources.Features.Model.Units
             this.moves = 5;
         }
 
-        public void onEndTurn()
+        public override void onEndTurn()
         {
             resetMoves();
         }

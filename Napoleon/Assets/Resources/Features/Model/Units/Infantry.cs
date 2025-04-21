@@ -25,7 +25,7 @@ namespace Resources.Features.Model.Units
             this.view.greyOutUnit();
         }
 
-        public void onEndTurn()
+        public override void onEndTurn()
         {
             resetMoves();
             if (!isInCombat())

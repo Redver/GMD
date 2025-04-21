@@ -43,37 +43,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
         public bool canSelectUnit()
         {
-            bool canSelect = false;
-
-            if (this.units.Count > 0)
-            {
-                Queue<IUnit> unitQueue = new Queue<IUnit>();
-                IUnit canUnit = null;
-                
-                while (units.Count > 0)
-                {
-                    IUnit unit = units.Pop();
-
-                    if (unit.canSelect())
-                    {
-                        canUnit = unit;
-                        break;
-                    }
-                    unitQueue.Enqueue(unit);
-                }
-                
-                foreach (var unit in unitQueue)
-                {
-                    units.Push(unit);
-                }
-                
-                if (canUnit != null)
-                {
-                    units.Push(canUnit);
-                    return true;
-                }
-            }
-            return false;
+            return selectedProvince.canSelectUnit();
         }
 
         public bool canDeselectUnit()
