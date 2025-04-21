@@ -28,7 +28,7 @@ namespace Resources.Features.Model.Units
         public override void onEndTurn()
         {
             resetMoves();
-            if (!isInCombat())
+            if (!isInCombat() && this.getCurrentProvince().GetComponent<Province>().getOwner() != this.nation)
             {
                 this.getCurrentProvince().GetComponent<Province>().onChangedOwner(this.nation);
             }

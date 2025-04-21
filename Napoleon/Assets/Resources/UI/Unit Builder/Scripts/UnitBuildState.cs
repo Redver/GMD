@@ -38,6 +38,7 @@ public class UnitBuildState : IPanelState
         builtUnit.transform.GetComponent<UnitView>().Init(new Infantry(), provinceOpenOn.GetComponent<Province>());
         IUnit unit = builtUnit.transform.GetComponent<UnitView>().getUnitLogic();
         provinceOpenOn.GetComponent<Province>().addUnitToStack(unit);
+        unit.getView().greyOutUnit();
     }
 
     public void Exit()
