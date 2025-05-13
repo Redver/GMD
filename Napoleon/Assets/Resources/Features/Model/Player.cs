@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     {
         
     }
-    
+
     public void OnEndTurn(InputAction.CallbackContext context)
     {
         if (context.canceled)

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UK flag unit_0: 2150802199955132473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

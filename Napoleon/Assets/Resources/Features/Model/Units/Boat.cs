@@ -4,6 +4,7 @@ namespace Resources.Features.Model.Units
 {
     public class Boat : Unit
     {
+        
         public override bool canDropUnitHere(Province newProvince)
         {
             bool canMove = false;
