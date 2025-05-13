@@ -179,6 +179,40 @@ public class Province : MonoBehaviour
         }
     }
 
+    public int findDistanceBetween(Province target) //implementing breadth first search algorithm from medium.com, modified to do with provinces
+    {
+        List<Province> visited = new List<Province>();
+
+        Queue<(Province province, int distance)> queue = new Queue<(Province, int)>();
+
+        if (this == target)
+        {
+            return 0;
+        }
+
+        queue.Enqueue((this,0));
+        visited.Add(this);
+
+        while (queue.Count > 0)
+        {
+            var (current, distance) = queue.Dequeue();
+
+            foreach (Province neighbor in current.NeigbourProvinces)
+            {
+                if (neighbor == target)
+                    return distance + 1;
+
+                if (!visited.Contains(neighbor))
+                {
+                    visited.Add(neighbor);
+                    queue.Enqueue((neighbor, distance + 1));
+                }
+            }
+        }
+
+        return -1;
+    }
+
     public bool IsBlocked(Province neighbor)
     { 
         Vector2 start = transform.position;

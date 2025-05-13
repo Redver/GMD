@@ -2011,7 +2011,7 @@ MonoBehaviour:
     m_ActionId: ebdafe1d-fe40-44bc-8085-7540bb64145e
     m_ActionName: 'PlayerTwo/DeselectUnit[/Keyboard/p,/XInputControllerWindows/rightShoulder]'
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: PlayerTwo
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -2681,7 +2681,7 @@ MonoBehaviour:
     m_ActionId: a0926ec6-4f1c-45d1-9244-618919cf4fbd
     m_ActionName: PlayerTwo/DeselectUnit
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: PlayerOne
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

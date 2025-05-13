@@ -60,6 +60,7 @@ namespace Resources.Features.Model.Units
         public void endTurnEvent()
         {
             unitLogic.onEndTurn();
+            Debug.Log("EndTurn from unit");
         }
 
         public void greyOutUnit()

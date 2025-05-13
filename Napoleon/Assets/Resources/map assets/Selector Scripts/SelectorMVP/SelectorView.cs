@@ -77,6 +77,11 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             }
         }
 
+        public GameObject getSelectedProvinceObject()
+        {
+            return presenter.getSelectedProvinceObject();
+        }
+
         public void OnInput(InputAction.CallbackContext context)
         {
             if (this.isActiveAndEnabled && !buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
