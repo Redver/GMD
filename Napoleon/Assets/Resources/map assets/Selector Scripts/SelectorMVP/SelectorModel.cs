@@ -54,6 +54,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         public void selectUnitInProvince()
         {
             units.Push(selectedProvince.selectNextUnit());
+            Debug.Log($"unit selected by {selectorPresenter.getCurrentCountryObject()?.name}");
             units.Peek().raiseSelectedUnit();
         }
 

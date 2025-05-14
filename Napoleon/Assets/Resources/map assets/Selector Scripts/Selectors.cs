@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using UnityEngine;
 
@@ -9,7 +10,15 @@ public class Selectors : MonoBehaviour
     void Start()
     {
         selectors = GameObject.FindGameObjectsWithTag("Selectors");
+        StartCoroutine(WaitOneSecond());
         OnEndTurn();
+    }
+    
+    IEnumerator WaitOneSecond()
+    {
+        Debug.Log("Loading");
+        yield return new WaitForSeconds(1f); // waits for 1 second
+        Debug.Log("Done");
     }
 
     public void OnEndTurn()

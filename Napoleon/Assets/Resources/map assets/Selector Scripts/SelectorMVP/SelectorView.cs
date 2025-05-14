@@ -42,6 +42,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             if (isActiveAndEnabled)
             {
+                Debug.Log($"{gameObject.name}: selectUnitInProvince() called");
                 presenter.selectUnitInProvince();
             }
         }

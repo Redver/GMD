@@ -16,12 +16,14 @@ public class Nation : MonoBehaviour
     private void Awake()
     {
         nationName = gameObject.name;
-        endTurnEvent = new UnityEvent();
+        if (endTurnEvent == null)
+        {
+            endTurnEvent = new UnityEvent();
+        }
     }
 
     void Start()
     {
-
     }
 
     void Update()
@@ -49,7 +51,7 @@ public class Nation : MonoBehaviour
 
 
     public void onEndTurn()
-    {
+    { 
         updateProvinceCount();
         updateTreasurey();
         endTurnEvent.Invoke();

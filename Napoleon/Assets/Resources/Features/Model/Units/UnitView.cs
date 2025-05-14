@@ -16,9 +16,10 @@ namespace Resources.Features.Model.Units
             unitLogic.setCurrentProvince(province);
             unitLogic.setView(this);
             updatePositions(province);
+            Nation currentNation = province.getOwner();
             this.transform.position = defaultPosition;
-            this.unitLogic.setNation(province.getOwner());
-            province.getOwner().endTurnEvent.AddListener(endTurnEvent);
+            this.unitLogic.setNation(currentNation);
+            currentNation.endTurnEvent.AddListener(endTurnEvent);
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             if (spriteRenderer != null)
             {
@@ -28,6 +29,7 @@ namespace Resources.Features.Model.Units
 
         public void selectUnit()
         {
+            Debug.Log($"unitview select unit {unitLogic.getNation().name}");
             transform.SetParent(unitLogic.getSelector().transform);
             transform.position = raisedPosition;
         }
@@ -60,7 +62,6 @@ namespace Resources.Features.Model.Units
         public void endTurnEvent()
         {
             unitLogic.onEndTurn();
-            Debug.Log("EndTurn from unit");
         }
 
         public void greyOutUnit()
