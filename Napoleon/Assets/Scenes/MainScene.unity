@@ -238,7 +238,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &184490189
 SpriteRenderer:
@@ -475,7 +475,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &283122477
 SpriteRenderer:
@@ -593,6 +593,48 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.54, y: 2.33}
   m_EdgeRadius: 0
+--- !u!1 &492883694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492883695}
+  m_Layer: 0
+  m_Name: Land
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492883695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492883694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 184490188}
+  - {fileID: 1094225963}
+  - {fileID: 283122476}
+  - {fileID: 1169340272}
+  - {fileID: 501927131}
+  - {fileID: 978151582}
+  - {fileID: 1012738898}
+  - {fileID: 1204025457}
+  - {fileID: 1306352574}
+  - {fileID: 893807110}
+  - {fileID: 1331070568}
+  m_Father: {fileID: 501415625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501415624
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,18 +664,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 184490188}
-  - {fileID: 1094225963}
-  - {fileID: 283122476}
-  - {fileID: 1169340272}
-  - {fileID: 501927131}
-  - {fileID: 978151582}
-  - {fileID: 1012738898}
-  - {fileID: 1204025457}
-  - {fileID: 1306352574}
-  - {fileID: 893807110}
-  - {fileID: 1331070568}
-  - {fileID: 2104688393}
+  - {fileID: 492883695}
+  - {fileID: 2079912352}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501927130
@@ -668,7 +700,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &501927132
 SpriteRenderer:
@@ -1223,11 +1255,11 @@ Transform:
   m_GameObject: {fileID: 893807109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.689, y: -1.299, z: 0}
+  m_LocalPosition: {x: -2.6889997, y: -1.299, z: 0}
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &893807111
 SpriteRenderer:
@@ -1477,7 +1509,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &978151583
 SpriteRenderer:
@@ -1675,7 +1707,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1012738899
 SpriteRenderer:
@@ -1994,7 +2026,7 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
           Assembly-CSharp
         m_MethodName: selectUnitInProvince
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2011,7 +2043,7 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
           Assembly-CSharp
         m_MethodName: deselectUnitInProvince
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2059,7 +2091,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1094225964
 SpriteRenderer:
@@ -2209,7 +2241,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1169340273
 SpriteRenderer:
@@ -2355,11 +2387,11 @@ Transform:
   m_GameObject: {fileID: 1204025456}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.329, y: 0.014, z: 0}
+  m_LocalPosition: {x: -5.329, y: 0.013999999, z: 0}
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1204025458
 SpriteRenderer:
@@ -2636,7 +2668,7 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
           Assembly-CSharp
         m_MethodName: selectUnitInProvince
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2653,7 +2685,7 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Resources.map_assets.Selector_Scripts.SelectorMVP.SelectorView,
           Assembly-CSharp
         m_MethodName: deselectUnitInProvince
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2858,7 +2890,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1306352575
 SpriteRenderer:
@@ -3004,11 +3036,11 @@ Transform:
   m_GameObject: {fileID: 1331070567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.839, y: 0.076, z: 0}
+  m_LocalPosition: {x: -3.8389997, y: 0.07599999, z: 0}
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 492883695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1331070569
 SpriteRenderer:
@@ -3434,6 +3466,38 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!1 &2079912351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2079912352}
+  m_Layer: 0
+  m_Name: Sea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2079912352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079912351}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2104688393}
+  m_Father: {fileID: 501415625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2104688392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,7 +3530,7 @@ Transform:
   m_LocalScale: {x: 0.3637778, y: 0.3637778, z: 0.3637778}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501415625}
+  m_Father: {fileID: 2079912352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2104688394
 MonoBehaviour:
