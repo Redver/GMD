@@ -26,25 +26,22 @@ public class Province : MonoBehaviour
         {
             owner = startingOwner.GetComponent<Nation>();
         }
-
+        FindNeighbors();
         if (owner != null)
         {
             setStartingOwner();
         }
         
+    }
+    
+    void Start()
+    {
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Nation");
         foreach (GameObject nation in temp)
         {
             Nation nationScript = nation.GetComponent<Nation>();
             Nations.Add(nationScript.getName(), nation);
         }
-        
-        FindNeighbors();
-    }
-    
-    void Start()
-    {
-
     }
 
     public bool canSelectUnit()
@@ -118,7 +115,6 @@ public class Province : MonoBehaviour
 
             GameObject unitObj = ((Unit)units[i]).getView().gameObject;
             unitObj.transform.SetParent(this.transform);
-            Debug.Log(unitObj.name + "spread units spreading");
             unitObj.transform.position = targetPos;
         }
     }

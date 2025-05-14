@@ -35,7 +35,6 @@ namespace Resources.Features.Model.Units
 
         public void raiseSelectedUnit()
         {
-            Debug.Log("Unit rauised by na");
             view.selectUnit();
         }
 

@@ -29,7 +29,6 @@ namespace Resources.Features.Model.Units
 
         public void selectUnit()
         {
-            Debug.Log($"unitview select unit {unitLogic.getNation().name}");
             transform.SetParent(unitLogic.getSelector().transform);
             transform.position = raisedPosition;
         }

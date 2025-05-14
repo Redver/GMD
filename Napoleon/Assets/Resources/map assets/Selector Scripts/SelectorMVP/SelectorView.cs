@@ -38,20 +38,25 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             }
         }
 
-        public void selectUnitInProvince()
+        public void selectUnitInProvince(InputAction.CallbackContext context)
         {
-            if (isActiveAndEnabled)
+            if (context.canceled)
             {
-                Debug.Log($"{gameObject.name}: selectUnitInProvince() called");
-                presenter.selectUnitInProvince();
+                if (isActiveAndEnabled)
+                {
+                    presenter.selectUnitInProvince();
+                }
             }
         }
 
-        public void deselectUnitInProvince()
+        public void deselectUnitInProvince(InputAction.CallbackContext context)
         {
-            if (isActiveAndEnabled)
+            if (context.canceled)
             {
-                presenter.deselectUnitInProvince();
+                if (isActiveAndEnabled)
+                {
+                    presenter.deselectUnitInProvince();
+                }
             }
         }
 
