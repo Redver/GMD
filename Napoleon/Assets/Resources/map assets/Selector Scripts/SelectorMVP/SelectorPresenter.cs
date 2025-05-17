@@ -91,10 +91,17 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           return model.UnitSelected;
       }
 
+      public float getSpeed()
+      {
+          return model.Speed;
+      }
+
       public GameObject getCurrentCountryCapitalProvince()
       {
           return model.CurrentCountryNation.getCurrentCapitalProvince();
       }
+      
+      
   }
 
 }

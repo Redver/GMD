@@ -23,9 +23,9 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         
         private bool unitSelected = false;
         
-        private float speed = 0.1f;
-        private float maxSpeed = 5f;
-        private float minSpeed = 0.1f;
+        private float speed = 0.01f;
+        private float maxSpeed = 10f;
+        private float minSpeed = 0.01f;
 
         private Stack<IUnit> units = new Stack<IUnit>();
         
@@ -91,7 +91,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             if (speed < maxSpeed)
             {
-                speed += 0.1f;
+                speed += 10f * Time.deltaTime;
             }
 
             if (decelerateRoutine != null)
@@ -112,12 +112,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             while (speed > minSpeed)
             {
-                speed -= 0.05f;
-                yield return new WaitForSeconds(0.1f);
+                speed -= 10f * Time.deltaTime;
+                speed = Mathf.Max(speed, minSpeed);
+                yield return null;
             }
 
             decelerateRoutine = null;
         }
+        
         public GameObject SelectedProvinceObject
         {
             get => selectedProvinceObject;

@@ -149,32 +149,32 @@ public class Province : MonoBehaviour
         unitStack.Push(unit);
         updateUnitCount();
     }
-
     public void FindNeighbors()
     {
-        BoxCollider2D col = GetComponent<BoxCollider2D>();
-        if (col == null) return;
-        Vector2 position = col.bounds.center;
-        Vector2 size = new Vector2(col.bounds.size.x, col.bounds.size.y);
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(position, size, 0);
+        PolygonCollider2D poly = GetComponent<PolygonCollider2D>();
+        if (poly == null) return;
+
+        Bounds bounds = poly.bounds;
+        Vector2 center = bounds.center;
+        Vector2 size = bounds.size * 0.8f;
+
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(center, size, 0f);
+
         foreach (Collider2D hit in hitColliders)
         {
-            if (hit.gameObject == gameObject)
+            if (hit.gameObject == gameObject) continue;
+
+            Province neighbor = hit.GetComponent<Province>();
+            if (neighbor != null && !NeigbourProvinces.Contains(neighbor))
             {
-            }
-            else
-            {
-                Province neighbor = hit.GetComponent<Province>();
-                if (neighbor != null && !NeigbourProvinces.Contains(neighbor))
+                
+                if (hit.gameObject.layer == LayerMask.NameToLayer("SeaTile"))
                 {
-                    if (hit.gameObject.layer == LayerMask.NameToLayer("SeaTile"))
-                    {
-                        NeigbourProvinces.Add(neighbor);
-                    }
-                    else if (!IsBlocked(neighbor) || gameObject.layer == LayerMask.NameToLayer("SeaTile"))
-                    {
-                        NeigbourProvinces.Add(neighbor);
-                    }
+                    NeigbourProvinces.Add(neighbor);
+                }
+                else if (!IsBlocked(neighbor) || gameObject.layer == LayerMask.NameToLayer("SeaTile"))
+                {
+                    NeigbourProvinces.Add(neighbor);
                 }
             }
         }

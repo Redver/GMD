@@ -9,6 +9,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
     {
         [SerializeField] private GameObject startProvince;
         [SerializeField] private Vector2 input;
+        private bool isMoving = false;
         [SerializeField] private GameObject buildMenu;
         private SelectorPresenter presenter;
 
@@ -22,6 +23,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             ChangeSelectionParent(startProvince);
             presenter.updateModelSelectedProvinceObject(startProvince); 
             presenter.updateModelCurrentCountryObject(startProvince.GetComponent<Province>().getOwnerGameObject());
+        }
+        
+        void Update()
+        {
+            if (isMoving)
+            {
+                presenter.moveSelector(input);
+            }
         }
         
         public void dropUnitInNewProvince()
@@ -84,14 +93,17 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
         public void OnInput(InputAction.CallbackContext context)
         {
-            if (this.isActiveAndEnabled && !buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
-            {
-                this.input = context.ReadValue<Vector2>();
-                presenter.moveSelector(input); 
-            }
+            if (!isActiveAndEnabled || buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen()) return;
 
-            if (context.canceled)
+            if (context.performed)
             {
+                input = context.ReadValue<Vector2>();
+                isMoving = true;
+            }
+            else if (context.canceled)
+            {
+                input = Vector2.zero;
+                isMoving = false;
                 presenter.decelerate();
             }
         }
@@ -99,7 +111,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         public GameObject getProvinceBelowCursor()
         {
             Vector3 rayDirection = new Vector3(0, -1, 0f).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, rayDirection, 1f);
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, rayDirection, 0.1f);
             if (hit.collider != null && hit.collider.gameObject != this.getSelectedProvinceObject())
             {
                 return hit.collider.gameObject;
@@ -110,6 +122,11 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             }
         }
         
+        public void resetPosition()
+        {
+            this.transform.position = this.startProvince.transform.position;
+        }
+        
         public void ChangeSelectionParent(GameObject province)
         {
                 gameObject.transform.SetParent(province.transform); 
@@ -117,7 +134,8 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
         public void moveSelector(Vector2 input)
         {
-            gameObject.transform.position += new Vector3(input.x, input.y, 0f);
+            float speed = presenter.getSpeed();
+            transform.position += speed * Time.deltaTime * new Vector3(input.x, input.y, 0f);
         }
 
         public void onStartTurn(GameObject nation)
@@ -127,6 +145,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
         public void startOnCapital()
         {
+            resetPosition();
             ChangeSelectionParent(presenter.getCurrentCountryCapitalProvince());
         }
     }
