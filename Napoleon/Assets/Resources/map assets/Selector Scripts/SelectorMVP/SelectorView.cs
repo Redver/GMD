@@ -107,7 +107,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
             foreach (RaycastHit2D hit in hits)
             {
-                if (hit.collider != null && presenter.canSelectProvince(hit.collider.gameObject))
+                if (hit.collider != null && hit.collider.gameObject != this.getSelectedProvinceObject())
                 {
                     return hit.collider.gameObject;
                 }

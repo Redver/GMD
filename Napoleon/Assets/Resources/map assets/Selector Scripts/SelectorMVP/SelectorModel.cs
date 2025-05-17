@@ -29,17 +29,6 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             this.selectorPresenter = selectorPresenter;
         }
-        
-        public bool canSelectProvince(GameObject hitProvinceObject)
-        {
-            Province hitProvince = hitProvinceObject.GetComponent<Province>();
-            Province selectedProvince = selectedProvinceObject.GetComponent<Province>();
-
-            return hitProvinceObject != selectedProvinceObject &&
-                   (hitProvinceObject.GetComponentInParent<Nation>() == CurrentCountryNation ||
-                    hitProvinceObject.tag == "SeaTile" ||
-                    UnitSelected && hitProvince.getNeighbours().Contains(selectedProvince));
-        }
 
         public bool canSelectUnit()
         {

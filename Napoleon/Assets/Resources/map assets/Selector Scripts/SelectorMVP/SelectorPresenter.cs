@@ -61,12 +61,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           resetCooldown();
           startCooldownCoroutine();
       }
-
-      public bool canSelectProvince(GameObject hitProvinceObject)
-      {
-          return model.canSelectProvince(hitProvinceObject);
-      }
-
+      
       public void startCooldownCoroutine()
       {
           view.startCooldownCoroutine();
