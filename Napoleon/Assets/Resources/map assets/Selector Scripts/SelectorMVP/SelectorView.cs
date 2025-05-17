@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using IUnit = Resources.Features.Model.Units.IUnit;
 
 namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 {
@@ -32,12 +32,15 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
                 presenter.moveSelector(input);
             }
         }
-        
-        public void dropUnitInNewProvince()
+
+        public void dropUnitInNewProvince(InputAction.CallbackContext context)
         {
-            if (isActiveAndEnabled)
+            if (context.canceled)
             {
-                presenter.dropUnitInProvince();
+                if (isActiveAndEnabled)
+                {
+                    presenter.dropUnitInProvince();
+                }
             }
         }
 
@@ -111,7 +114,13 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         public GameObject getProvinceBelowCursor()
         {
             Vector3 rayDirection = new Vector3(0, -1, 0f).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, rayDirection, 0.1f);
+            
+            int layerMask = LayerMask.GetMask("Province", "SeaTile");
+            
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, rayDirection, 0.1f,layerMask);
+            
+
+            
             if (hit.collider != null && hit.collider.gameObject != this.getSelectedProvinceObject())
             {
                 return hit.collider.gameObject;
@@ -146,7 +155,35 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         public void startOnCapital()
         {
             resetPosition();
-            ChangeSelectionParent(presenter.getCurrentCountryCapitalProvince());
+            presenter.processProvinceSelection(startProvince);
+        }
+        
+        
+        public void spreadUnits() //minor changes to work for selector
+        {
+            int unitCount = presenter.getNumberOfUnits();
+            if (unitCount == 0) return;
+
+            Collider2D col = GetComponent<Collider2D>();
+            if (col == null) return;
+
+            Bounds bounds = col.bounds;
+            float totalWidth = bounds.size.x * 0.4f;
+            float spacing = (unitCount > 1) ? totalWidth / (unitCount - 1) : 0;
+
+            float startX = -totalWidth / 2f;
+            float yOffset = 0.2f; 
+
+            IUnit[] units = presenter.getAllUnits();
+
+            for (int i = 0; i < unitCount; i++)
+            {
+                GameObject unitObj = units[i].getView().gameObject;
+                unitObj.transform.SetParent(this.transform);
+
+                float x = startX + i * spacing;
+                unitObj.transform.localPosition = new Vector3(x, yOffset, 0f);
+            }
         }
     }
 }

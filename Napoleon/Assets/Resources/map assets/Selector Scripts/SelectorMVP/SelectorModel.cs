@@ -108,6 +108,16 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             decelerateRoutine = coroutineRunner.StartCoroutine(DecelerateOverTime());
         }
 
+        public int getNumberOfUnits()
+        {
+            return units.Count();
+        }
+
+        public IUnit[] getAllUnits()
+        {
+            return units.ToArray();
+        }
+
         private IEnumerator DecelerateOverTime()
         {
             while (speed > minSpeed)

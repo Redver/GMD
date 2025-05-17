@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5746335725539787268}
   - component: {fileID: 3239045033376335171}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildingUnit
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3247464701779992268}
   - component: {fileID: 2569156128377798581}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}

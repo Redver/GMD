@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Resources.map_assets.Selector_Scripts.SelectorMVP;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
+using IUnit = Resources.Features.Model.Units.IUnit;
 
 namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 {
@@ -100,8 +97,18 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
       {
           return model.CurrentCountryNation.getCurrentCapitalProvince();
       }
-      
-      
+
+      public int getNumberOfUnits()
+      {
+          return model.getNumberOfUnits();
+      }
+
+      public IUnit[] getAllUnits()
+      {
+          return model.getAllUnits();
+      }
+
+
   }
 
 }

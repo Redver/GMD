@@ -113,7 +113,7 @@ public class Province : MonoBehaviour
                 targetPos = new Vector3(x, bounds.center.y, transform.position.z);
             }
 
-            GameObject unitObj = ((Unit)units[i]).getView().gameObject;
+            GameObject unitObj = ((IUnit)units[i]).getView().gameObject;
             unitObj.transform.SetParent(this.transform);
             unitObj.transform.position = targetPos;
         }
@@ -156,7 +156,7 @@ public class Province : MonoBehaviour
 
         Bounds bounds = poly.bounds;
         Vector2 center = bounds.center;
-        Vector2 size = bounds.size * 0.8f;
+        Vector2 size = bounds.size * 0.9f;
 
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(center, size, 0f);
 

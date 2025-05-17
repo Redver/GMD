@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1862931904971899811}
   - component: {fileID: 8424706619925487185}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: French Boat_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3014979193602856604}
   - component: {fileID: -4779966622209990099}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
