@@ -14,13 +14,9 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
       {
           view = selectorView;
           model = new SelectorModel(this);
+          model.SetCoroutineRunner(view);
       }
-
-      public bool canMove()
-      {
-          return model.InputCooldown <= 0f;
-      }
-
+      
       public void selectUnitInProvince()
       {
           if (model.canSelectUnit())
@@ -47,26 +43,26 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
       public void moveSelector(Vector2 input)
       {
-          GameObject hitProvinceObject = view.getHitProvinceObject(input);
+          GameObject hitProvinceObject = view.getProvinceBelowCursor();
           if (hitProvinceObject != null)
           {
               processProvinceSelection(hitProvinceObject);
           }
+          view.moveSelector(input);
+          model.accelerate();
       }
-      
+
+      public void decelerate()
+      {
+          model.decelerate();
+      }
+
       public void processProvinceSelection(GameObject hitProvinceObject)
       {
           model.updateSelectedProvince(hitProvinceObject);
           view.ChangeSelectionParent(hitProvinceObject);
-          resetCooldown();
-          startCooldownCoroutine();
       }
       
-      public void startCooldownCoroutine()
-      {
-          view.startCooldownCoroutine();
-      }
-
       public void updateModelSelectedProvinceObject(GameObject selectedProvince)
       {
           model.SelectedProvinceObject = selectedProvince;
@@ -88,30 +84,11 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
       {
           return model.CurrentCountryObject;
       }
-
-      public float getModelInputCooldown()
-      {
-          return model.InputCooldown;
-      }
-
-      public float getModelMovementTime()
-      {
-          return model.MovementTime;
-      }
+      
 
       public bool getModelUnitSelected()
       {
           return model.UnitSelected;
-      }
-
-      public void updateCooldown(float deltaTime)
-      {
-          model.InputCooldown -= deltaTime;
-      }
-
-      public void resetCooldown()
-      {
-          model.InputCooldown = model.CooldownBaseValue;
       }
 
       public GameObject getCurrentCountryCapitalProvince()

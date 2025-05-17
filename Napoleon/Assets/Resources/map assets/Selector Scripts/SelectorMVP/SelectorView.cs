@@ -20,16 +20,10 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         void Start()
         {
             ChangeSelectionParent(startProvince);
-            presenter.startCooldownCoroutine();
             presenter.updateModelSelectedProvinceObject(startProvince); 
             presenter.updateModelCurrentCountryObject(startProvince.GetComponent<Province>().getOwnerGameObject());
         }
-
-        public void startCooldownCoroutine()
-        {
-            StartCoroutine(startCooldown());
-        }
-
+        
         public void dropUnitInNewProvince()
         {
             if (isActiveAndEnabled)
@@ -92,64 +86,43 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             if (this.isActiveAndEnabled && !buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
             {
-                if (presenter.canMove())
-                {
-                    this.input = context.ReadValue<Vector2>();
-                    presenter.moveSelector(input); 
-                }
+                this.input = context.ReadValue<Vector2>();
+                presenter.moveSelector(input); 
+            }
+
+            if (context.canceled)
+            {
+                presenter.decelerate();
             }
         }
 
-        public GameObject getHitProvinceObject(Vector2 input)
+        public GameObject getProvinceBelowCursor()
         {
-            Vector3 rayDirection = new Vector3(input.x, input.y, 0f).normalized;
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, rayDirection, 100f);
-
-            foreach (RaycastHit2D hit in hits)
+            Vector3 rayDirection = new Vector3(0, -1, 0f).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, rayDirection, 1f);
+            if (hit.collider != null && hit.collider.gameObject != this.getSelectedProvinceObject())
             {
-                if (hit.collider != null && hit.collider.gameObject != this.getSelectedProvinceObject())
-                {
-                    return hit.collider.gameObject;
-                }
+                return hit.collider.gameObject;
             }
-            return null; 
-        } 
-        
-        private IEnumerator startCooldown()
-        {
-            while (presenter.getModelInputCooldown() >= 0f) 
+            else
             {
-                presenter.updateCooldown(Time.deltaTime); 
-                yield return null; 
+                return null;
             }
         }
         
         public void ChangeSelectionParent(GameObject province)
         {
                 gameObject.transform.SetParent(province.transform); 
-                Vector3 oldPosition = gameObject.transform.position;
-                Vector3 newPosition = gameObject.transform.parent.position; 
-                StartCoroutine(LerpSelector(oldPosition, newPosition, presenter.getModelMovementTime())); 
         }
-        
-        private IEnumerator LerpSelector(Vector3 from, Vector3 to, float timeForMovement)
-        {
-            float elapsedTime = 0f;
-            while (elapsedTime < timeForMovement)
-            {
-                gameObject.transform.position = Vector3.Lerp(from, to, elapsedTime / timeForMovement);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
 
-            gameObject.transform.position = to;
+        public void moveSelector(Vector2 input)
+        {
+            gameObject.transform.position += new Vector3(input.x, input.y, 0f);
         }
-        
 
         public void onStartTurn(GameObject nation)
         {
             startOnCapital();
-            presenter.startCooldownCoroutine();
         }
 
         public void startOnCapital()

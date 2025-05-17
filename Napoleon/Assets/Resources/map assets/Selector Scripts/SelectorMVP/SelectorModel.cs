@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -17,10 +18,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         private GameObject currentCountryObject;
         private Nation currentCountryNation;
         
-        private float cooldownBaseValue = 0.2f;
-        private float inputCooldown = 0.0f;
-        private float movementTime = 0.2f;
+        private Coroutine decelerateRoutine;
+        private MonoBehaviour coroutineRunner; 
+        
         private bool unitSelected = false;
+        
+        private float speed = 0.1f;
+        private float maxSpeed = 5f;
+        private float minSpeed = 0.1f;
 
         private Stack<IUnit> units = new Stack<IUnit>();
         
@@ -75,7 +80,44 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             SelectedProvinceObject = selectedProvinceObject;
             SelectedProvince = selectedProvinceObject.GetComponent<Province>();
         }
+        
+        
+        public void SetCoroutineRunner(MonoBehaviour runner)
+        {
+            coroutineRunner = runner;
+        }
 
+        public void accelerate()
+        {
+            if (speed < maxSpeed)
+            {
+                speed += 0.1f;
+            }
+
+            if (decelerateRoutine != null)
+            {
+                coroutineRunner.StopCoroutine(decelerateRoutine);
+                decelerateRoutine = null;
+            }
+        }
+
+        public void decelerate()
+        {
+            if (decelerateRoutine != null) return;
+
+            decelerateRoutine = coroutineRunner.StartCoroutine(DecelerateOverTime());
+        }
+
+        private IEnumerator DecelerateOverTime()
+        {
+            while (speed > minSpeed)
+            {
+                speed -= 0.05f;
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            decelerateRoutine = null;
+        }
         public GameObject SelectedProvinceObject
         {
             get => selectedProvinceObject;
@@ -100,28 +142,16 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             set => currentCountryNation = value;
         }
 
-        public float CooldownBaseValue
-        {
-            get => cooldownBaseValue;
-            set => cooldownBaseValue = value;
-        }
-
-        public float InputCooldown
-        {
-            get => inputCooldown;
-            set => inputCooldown = value;
-        }
-
-        public float MovementTime
-        {
-            get => movementTime;
-            set => movementTime = value;
-        }
-
         public bool UnitSelected
         {
             get => unitSelected;
             set => unitSelected = value;
+        }
+        
+        public float Speed
+        {
+            get => speed;
+            set => speed = value;
         }
 
     }
