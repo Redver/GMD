@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -48,6 +49,32 @@ namespace Resources.Features.Model.Units
             province.updateUnitCount();
             view.dropUnit(newProvince);
             newProvince.addUnitToStack(this);
+            checkForEnemyUnits(newProvince);
+        }
+
+        public void checkForEnemyUnits(Province droppedProvince)
+        {
+            var (friendlyStack, enemyStack) = droppedProvince.SplitUnitStackByNation();
+            if (friendlyStack.Count > 0 && enemyStack.Count > 0)
+            {
+                firstContact();
+            } 
+        }
+
+        public void firstContact()
+        {
+            inCombat = true;
+            this.province.firstCombat();
+        }
+
+        public void beginCombat()
+        {
+            inCombat = true;
+        }
+
+        public void endCombat()
+        {
+            inCombat = false;
         }
 
         public void setView(UnitView View)

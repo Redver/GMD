@@ -18,6 +18,10 @@ namespace Resources.Features.Model.Units
         public bool canDropUnitHere(Province newProvince);
         public void setNation(Nation builderNation);
         public Nation getNation();
+        
+        public void firstContact();
+        public void beginCombat();
+        public void endCombat();
 
         public int getMoves();
         public void decreaseMoves();

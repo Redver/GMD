@@ -37,10 +37,15 @@ public class Player : MonoBehaviour
 
     public void OnEndTurn(InputAction.CallbackContext context)
     {
-        if (context.canceled)
+        if (context.canceled && canEndTurn())
         {
             onEndTurnUnityEvent.Invoke();
         }
+    }
+
+    public bool canEndTurn()
+    {
+        return selector.canEndTurn();
     }
 
     public void onStartTurn()

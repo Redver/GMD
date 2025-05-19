@@ -41,6 +41,11 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             return presenter.getNation();
         }
 
+        public bool canEndTurn()
+        {
+            return presenter.canEndTurn();
+        }
+
 
         public void dropUnitInNewProvince(InputAction.CallbackContext context)
         {
@@ -80,6 +85,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             return presenter.canOpenBuildMenuHere();
         }
 
+
+        public void closeBuildMenu()
+        {
+            if (buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
+            {
+                ToggleBuildMenu();
+            }
+        }
 
         public void ToggleBuildMenu()
         {

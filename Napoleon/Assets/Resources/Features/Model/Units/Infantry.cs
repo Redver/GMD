@@ -10,7 +10,7 @@ namespace Resources.Features.Model.Units
             bool isNeighbourProvince = this.getCurrentProvince().GetComponent<Province>().getNeighbours().Contains(newProvince);
             bool hasMovement = this.moves > 0;
             bool isLand = newProvince.CompareTag("Province");
-            bool hasBoat = newProvince.GetComponent<Province>().hasBoat();
+            bool hasBoat = newProvince.GetComponent<Province>().hasFriendlyBoat(this);
             
             bool isLandOrBoated = isLand || hasBoat;
             
@@ -28,7 +28,7 @@ namespace Resources.Features.Model.Units
             this.moves--;
             this.view.greyOutUnit();
         }
-
+        
         public override void onEndTurn()
         {
             resetMoves();
@@ -36,7 +36,6 @@ namespace Resources.Features.Model.Units
             {
                 this.getCurrentProvince().GetComponent<Province>().onChangedOwner(this.nation);
             }
-
             if (checkIfShouldBeDestroyed())
             {
                 destroy();
@@ -50,7 +49,7 @@ namespace Resources.Features.Model.Units
 
         public override bool checkIfShouldBeDestroyed()
         {
-            if (this.province.gameObject.CompareTag("SeaTile") && !(this.province.hasBoat()))
+            if (this.province.gameObject.CompareTag("SeaTile") && !(this.province.hasFriendlyBoat(this)))
             {
                 return true;
             }

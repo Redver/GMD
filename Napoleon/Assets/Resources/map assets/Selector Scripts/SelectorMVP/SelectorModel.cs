@@ -35,6 +35,23 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             this.selectorPresenter = selectorPresenter;
         }
 
+        public bool canEndTurn()
+        {
+            return !unitSelected;
+        }
+
+        public void updateUnitSelected()
+        {
+            if (units.Count > 0)
+            {
+                unitSelected = true;
+            }
+            else
+            {
+                unitSelected = false;
+            }
+        }
+
         public bool canSelectUnit()
         {
             return selectedProvince.canSelectUnit();
@@ -59,12 +76,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             units.Push(selectedProvince.selectNextUnit());
             units.Peek().raiseSelectedUnit();
+            updateUnitSelected();
         }
 
         public void delectUnitInProvince()
         {
             units.Peek().lowerSelectedUnit();
             units.Peek().getCurrentProvince().GetComponent<Province>().deselectUnit(units.Pop());
+            updateUnitSelected();
         }
 
         public bool canDropUnit()
@@ -82,7 +101,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             units.Peek().lowerSelectedUnit();
             units.Peek().decreaseMoves();
             units.Pop().dropSelectedUnit(selectedProvince);
-
+            updateUnitSelected();
         }
 
         public void updateSelectedProvince(GameObject selectedProvinceObject)

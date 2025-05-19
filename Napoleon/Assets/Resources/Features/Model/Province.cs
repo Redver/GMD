@@ -4,6 +4,7 @@ using Resources.Features.Model.Units;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Province : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Province : MonoBehaviour
     private int enemyUnitCount;
     private SpriteRenderer sr;
     private Dictionary<string, GameObject> Nations = new Dictionary<string, GameObject>();
+    private bool combatInProvince = false;
 
     private void Awake()
     {
@@ -33,7 +35,7 @@ public class Province : MonoBehaviour
         {
             setStartingOwner();
         }
-
+        addToEndTurnAsListeners();
     }
 
     void Start()
@@ -45,6 +47,185 @@ public class Province : MonoBehaviour
             Nations.Add(nationScript.getName(), nation);
         }
     }
+
+    public void firstCombat()
+    {
+        combatInProvince = true;
+        foreach (var unit in unitStack)
+        {
+            unit.beginCombat();
+        }
+    }
+
+    public void inCombatEndTurn()
+    {
+        if (this.gameObject.CompareTag("SeaTile"))
+        {
+            navalCombatTurn();
+        }
+
+        if (this.gameObject.CompareTag("Province"))
+        {
+            landCombatTurn();
+        }
+    }
+
+    public void navalCombatTurn()
+    {
+        var (friendlies, enemies) = SplitUnitStackByNation();
+        unitStack.Clear();
+        Stack<IUnit> tempStack = new Stack<IUnit>();
+        if (friendlies.Count > 0 && enemies.Count > 0)
+        {
+            IUnit friendlyBoat = null;
+            IUnit enemyBoat = null;
+            while (friendlies.Count > 0)
+            {
+                IUnit tempUnit = friendlies.Pop();
+                if (tempUnit.IsBoat())
+                {
+                    friendlyBoat = tempUnit;
+                    break;
+                }
+                else
+                {
+                    tempStack.Push(tempUnit);
+                }
+            }
+            while (enemies.Count > 0)
+            {
+                IUnit tempUnit = enemies.Pop();
+                if (tempUnit.IsBoat())
+                {
+                    enemyBoat = tempUnit;
+                    break;
+                }
+                else
+                {
+                    tempStack.Push(tempUnit);
+                }
+            }
+            friendlyBoat.destroy();
+            enemyBoat.destroy();
+            foreach (var unit in friendlies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in enemies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in tempStack)
+            {
+                unitStack.Push(unit);
+
+            }
+        }
+        else
+        {
+            foreach (var unit in friendlies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in enemies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in tempStack)
+            {
+                unitStack.Push(unit);
+
+            }
+            foreach (var unit in unitStack)
+            {
+                unit.endCombat();
+            }
+            combatInProvince = false;
+        }
+    }
+
+    public void landCombatTurn()
+    { 
+        var (friendlies, enemies) = SplitUnitStackByNation();
+        unitStack.Clear();
+        Stack<IUnit> tempStack = new Stack<IUnit>();
+        if (friendlies.Count > 0 && enemies.Count > 0)
+        {
+            IUnit friendlyInf = null;
+            IUnit enemyInf = null;
+            while (friendlies.Count > 0)
+            {
+                IUnit tempUnit = friendlies.Pop();
+                if (!tempUnit.IsBoat())
+                {
+                    friendlyInf = tempUnit;
+                    break;
+                }
+                else
+                {
+                    tempStack.Push(tempUnit);
+                }
+            }
+            while (enemies.Count > 0)
+            {
+                IUnit tempUnit = enemies.Pop();
+                if (!tempUnit.IsBoat())
+                {
+                    enemyInf = tempUnit;
+                    break;
+                }
+                else
+                {
+                    tempStack.Push(tempUnit);
+                }
+            }
+            friendlyInf.destroy();
+            enemyInf.destroy();
+            foreach (var unit in friendlies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in enemies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in tempStack)
+            {
+                unitStack.Push(unit);
+
+            }
+        }
+        else
+        {
+            foreach (var unit in friendlies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in enemies)
+            {
+                unitStack.Push(unit);
+            }
+            foreach (var unit in tempStack)
+            {
+                unitStack.Push(unit);
+
+            }
+            foreach (var unit in unitStack)
+            {
+                unit.endCombat();
+            }
+            combatInProvince = false;
+        }
+    }
+
+    public void onEndTurn()
+    {
+        if (combatInProvince)
+        {
+            inCombatEndTurn();
+        }
+    }
+    
 
     public bool canSelectUnit()
     {
@@ -307,6 +488,16 @@ public class Province : MonoBehaviour
         }
 
         gameObject.transform.SetParent(Nations[owner.getName()].transform);
+        
+    }
+
+    public void addToEndTurnAsListeners()
+    {
+        GameObject[] nationsGameObjects = GameObject.FindGameObjectsWithTag("Nation");
+        foreach (GameObject nation in nationsGameObjects)
+        {
+            nation.GetComponent<Nation>().endTurnEvent.AddListener(this.onEndTurn);
+        }
     }
 
     public List<Province> getNeighbours()
@@ -329,13 +520,13 @@ public class Province : MonoBehaviour
         return friendlyUnitCount;
     }
     
-    public bool hasBoat()
+    public bool hasFriendlyBoat(IUnit unit)
     {
         if (unitStack.Count > 0)
         {
-            foreach (var unit in unitStack)
+            foreach (var unitFromStack in unitStack)
             {
-                if (unit.IsBoat())
+                if (unitFromStack.IsBoat() && unitFromStack.getNation() == unit.getNation())
                 {
                     return true;
                 }
@@ -361,7 +552,7 @@ public class Province : MonoBehaviour
             unitStack.Push(tempUnitStack.Pop());
         }
     }
-    private (Stack<IUnit> friendlies, Stack<IUnit> enemies) SplitUnitStackByNation()
+    public (Stack<IUnit> friendlies, Stack<IUnit> enemies) SplitUnitStackByNation()
     {
         Stack<IUnit> friendlies = new Stack<IUnit>();
         Stack<IUnit> enemies = new Stack<IUnit>();
