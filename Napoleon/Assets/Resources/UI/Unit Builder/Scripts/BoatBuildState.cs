@@ -42,6 +42,7 @@ public class BoatBuildState : IPanelState
         builtUnit.transform.GetComponent<UnitView>().Init(new Boat(), provinceOpenOn.GetComponent<Province>());
         IUnit unit = builtUnit.transform.GetComponent<UnitView>().getUnitLogic();
         provinceOpenOn.GetComponent<Province>().addUnitToStack(unit);
+        unit.getView().greyOutUnit();
     }
 
     public void Exit()

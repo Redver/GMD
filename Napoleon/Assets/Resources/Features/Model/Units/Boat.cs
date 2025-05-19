@@ -10,6 +10,12 @@ namespace Resources.Features.Model.Units
             int spacesToMove = this.province.findDistanceBetween(newProvince);
             if ( spacesToMove <= moves)
             {
+                moves -= spacesToMove;
+                if (moves <= 0)
+                {
+                    view.greyOutUnit();
+                }
+
                 return true;
             }
             else
@@ -26,8 +32,7 @@ namespace Resources.Features.Model.Units
 
         public override void decreaseMoves()
         {
-            int spacesOfMoves = this.province.findDistanceBetween(this.getSelector().GetComponent<SelectorView>().getSelectedProvinceObject().GetComponent<Province>());
-            moves = moves - spacesOfMoves;
+            //moves decreased already in can drop unit here check
         }
 
         public override void onEndTurn()

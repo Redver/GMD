@@ -86,11 +86,14 @@ public class BuilderMenuUI : MonoBehaviour
         this.provinceOpenOn = provinceOpenOn;
     }
 
-    public void startBuildingOnProvince()
+    public void startBuildingOnProvince(InputAction.CallbackContext context)
     {
-        if (IsOpen)
+        if (context.canceled)
         {
-            panelStateMachine.buildSelected();
+            if (IsOpen)
+            {
+                panelStateMachine.buildSelected();
+            }
         }
     }
 }
