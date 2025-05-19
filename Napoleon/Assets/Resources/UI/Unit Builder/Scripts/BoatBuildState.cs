@@ -22,6 +22,12 @@ public class BoatBuildState : IPanelState
     {
         return new UnitBuildState();
     }
+    
+    
+    public bool canBuild(Province here)
+    {
+        return here.isCoastal();
+    }
 
     public void BuildSelected(BuilderMenuUI builderMenuUI)
     {
@@ -65,4 +71,5 @@ public class BoatBuildState : IPanelState
         boatPanel.transform.position = unitPanelPosition;
         boatPanel.GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>("UI/Unit Builder/Assets/BoatBuilder");
     }
+    
 }

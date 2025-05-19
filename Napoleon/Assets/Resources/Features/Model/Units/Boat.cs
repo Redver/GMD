@@ -8,14 +8,14 @@ namespace Resources.Features.Model.Units
         public override bool canDropUnitHere(Province newProvince)
         {
             int spacesToMove = this.province.findDistanceBetween(newProvince);
-            if ( spacesToMove <= moves)
+            
+            if ( spacesToMove <= moves && newProvince.CompareTag("SeaTile"))
             {
                 moves -= spacesToMove;
                 if (moves <= 0)
                 {
                     view.greyOutUnit();
                 }
-
                 return true;
             }
             else
@@ -38,6 +38,11 @@ namespace Resources.Features.Model.Units
         public override void onEndTurn()
         {
             resetMoves();
+        }
+        
+        public override bool IsBoat()
+        {
+            return true;
         }
     }
 }

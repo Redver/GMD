@@ -26,7 +26,14 @@ public class PanelStateMachine
 
     public void buildSelected()
     {
-        State.BuildSelected(BuilderMenuUI);
+        if (State.canBuild(BuilderMenuUI.getProvinceOpenOn().GetComponent<Province>()))
+        {
+            State.BuildSelected(BuilderMenuUI);
+        }
+        else
+        {
+            //unity event to show cannot build here
+        }
     }
 
     public IEnumerator cooldownRoutine()

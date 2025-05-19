@@ -29,5 +29,7 @@ namespace Resources.Features.Model.Units
         public void setNotInCombat();
 
         public bool canSelect();
+
+        public bool IsBoat();
     }
 }

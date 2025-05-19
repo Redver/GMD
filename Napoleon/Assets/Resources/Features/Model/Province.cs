@@ -26,14 +26,15 @@ public class Province : MonoBehaviour
         {
             owner = startingOwner.GetComponent<Nation>();
         }
+
         FindNeighbors();
         if (owner != null)
         {
             setStartingOwner();
         }
-        
+
     }
-    
+
     void Start()
     {
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Nation");
@@ -50,7 +51,7 @@ public class Province : MonoBehaviour
         {
             Queue<IUnit> unitQueue = new Queue<IUnit>();
             IUnit canUnit = null;
-                
+
             while (unitStack.Count > 0)
             {
                 IUnit unit = unitStack.Pop();
@@ -60,20 +61,22 @@ public class Province : MonoBehaviour
                     canUnit = unit;
                     break;
                 }
+
                 unitQueue.Enqueue(unit);
             }
-                
+
             foreach (var unit in unitQueue)
             {
                 unitStack.Push(unit);
             }
-                
+
             if (canUnit != null)
             {
                 unitStack.Push(canUnit);
                 return true;
             }
         }
+
         return false;
     }
 
@@ -128,6 +131,7 @@ public class Province : MonoBehaviour
                 return child.gameObject;
             }
         }
+
         throw new Exception("Selectors not found");
     }
 
@@ -135,6 +139,18 @@ public class Province : MonoBehaviour
     {
         this.friendlyUnitCount = unitStack.Count;
         spreadUnits();
+    }
+
+    public bool isCoastal()
+    {
+        foreach (Province neigh in NeigbourProvinces)
+        {
+            if (neigh.gameObject.CompareTag("SeaTile") && this.gameObject.CompareTag("Province"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public IUnit selectNextUnit()
@@ -149,6 +165,7 @@ public class Province : MonoBehaviour
         unitStack.Push(unit);
         updateUnitCount();
     }
+
     public void FindNeighbors()
     {
         PolygonCollider2D poly = GetComponent<PolygonCollider2D>();
@@ -167,7 +184,7 @@ public class Province : MonoBehaviour
             Province neighbor = hit.GetComponent<Province>();
             if (neighbor != null && !NeigbourProvinces.Contains(neighbor))
             {
-                
+
                 if (hit.gameObject.layer == LayerMask.NameToLayer("SeaTile"))
                 {
                     NeigbourProvinces.Add(neighbor);
@@ -180,7 +197,9 @@ public class Province : MonoBehaviour
         }
     }
 
-    public int findDistanceBetween(Province target) //implementing breadth first search algorithm from medium.com, modified to do with provinces
+    public int
+        findDistanceBetween(
+            Province target) //implementing breadth first search algorithm from medium.com, modified to do with provinces
     {
         List<Province> visited = new List<Province>();
 
@@ -191,7 +210,7 @@ public class Province : MonoBehaviour
             return 0;
         }
 
-        queue.Enqueue((this,0));
+        queue.Enqueue((this, 0));
         visited.Add(this);
 
         while (queue.Count > 0)
@@ -215,13 +234,13 @@ public class Province : MonoBehaviour
     }
 
     public bool IsBlocked(Province neighbor)
-    { 
+    {
         Vector2 start = transform.position;
         Vector2 end = neighbor.transform.position;
 
         RaycastHit2D hit = Physics2D.Raycast(start, (end - start).normalized, Vector2.Distance(start, end), seaLayer);
 
-        return hit.collider != null; 
+        return hit.collider != null;
     }
 
     public void setStartingOwner()
@@ -231,20 +250,22 @@ public class Province : MonoBehaviour
             case "France": sr.color = Color.blue; break;
             case "GreatBritain": sr.color = Color.red; break;
         }
+
         gameObject.transform.SetParent(startingOwner.transform);
     }
 
     public void onChangedOwner(Nation owner)
-    { 
+    {
         this.owner = owner;
         switch (owner.name)
         {
             case "France": sr.color = Color.blue; break;
             case "GreatBritain": sr.color = Color.red; break;
         }
+
         gameObject.transform.SetParent(Nations[owner.getName()].transform);
     }
-    
+
     public List<Province> getNeighbours()
     {
         return NeigbourProvinces;
@@ -264,6 +285,22 @@ public class Province : MonoBehaviour
     {
         return friendlyUnitCount;
     }
+    
+    public bool hasBoat()
+    {
+        if (unitStack.Count > 0)
+        {
+            foreach (var unit in unitStack)
+            {
+                if (unit.IsBoat())
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
 
     void Update()
     {

@@ -46,6 +46,11 @@ public class UnitBuildState : IPanelState
         makeUnitdeSelected();
     }
 
+    public bool canBuild(Province here)
+    {
+        return here.gameObject.CompareTag("Province");
+    }
+
     public IPanelState NextState()
     {
         return new BoatBuildState();

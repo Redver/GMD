@@ -5,6 +5,8 @@ public interface IPanelState
     void Enter(BuilderMenuUI builderMenuUI);
     void BuildSelected(BuilderMenuUI builderMenuUI);
     void Exit();
+
+    bool canBuild(Province here);
     
     IPanelState NextState();
 }

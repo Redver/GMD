@@ -22,6 +22,11 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           }
       }
       
+      public bool canOpenBuildMenuHere()
+      {
+          return model.canOpenBuildMenuHere();
+      }
+      
       public void deselectUnitInProvince()
       {
           if (model.canDeselectUnit())

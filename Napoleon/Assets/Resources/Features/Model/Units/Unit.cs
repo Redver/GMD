@@ -94,6 +94,8 @@ namespace Resources.Features.Model.Units
         {
             throw new Exception("Unit should never be initialised as this base class");
         }
+        
+        public abstract bool IsBoat();
 
         public bool canSelect()
         {
@@ -114,5 +116,6 @@ namespace Resources.Features.Model.Units
         {
             this.inCombat = false;
         }
+        
     }
 }

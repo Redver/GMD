@@ -9,8 +9,12 @@ namespace Resources.Features.Model.Units
         {
             bool isNeighbourProvince = this.getCurrentProvince().GetComponent<Province>().getNeighbours().Contains(newProvince);
             bool hasMovement = this.moves > 0;
-
-            return isNeighbourProvince && hasMovement;
+            bool isLand = newProvince.CompareTag("Province");
+            bool hasBoat = newProvince.GetComponent<Province>().hasBoat();
+            
+            bool isLandOrBoated = isLand || hasBoat;
+            
+            return isNeighbourProvince && hasMovement && isLandOrBoated;
         }
 
         public override void resetMoves()
@@ -32,6 +36,11 @@ namespace Resources.Features.Model.Units
             {
                 this.getCurrentProvince().GetComponent<Province>().onChangedOwner(this.nation);
             }
+        }
+        
+        public override bool IsBoat()
+        {
+            return true;
         }
     }
 }

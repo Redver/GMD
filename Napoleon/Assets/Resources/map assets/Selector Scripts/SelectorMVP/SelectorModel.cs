@@ -40,6 +40,11 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             return selectedProvince.canSelectUnit();
         }
 
+        public bool canOpenBuildMenuHere()
+        {
+            return selectedProvince.getOwner() == currentCountryNation;
+        }
+
         public bool canDeselectUnit()
         {
             return units.Count > 0;
