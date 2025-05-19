@@ -26,7 +26,12 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
       {
           return model.canOpenBuildMenuHere();
       }
-      
+
+      public Nation getNation()
+      {
+          return model.getNation();
+      }
+
       public void deselectUnitInProvince()
       {
           if (model.canDeselectUnit())

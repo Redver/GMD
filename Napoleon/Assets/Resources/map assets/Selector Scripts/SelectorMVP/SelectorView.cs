@@ -12,6 +12,8 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         private bool isMoving = false;
         [SerializeField] private GameObject buildMenu;
         private SelectorPresenter presenter;
+        [SerializeField] private Nation selectorNation;
+
 
         private void Awake()
         {
@@ -22,7 +24,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             ChangeSelectionParent(startProvince);
             presenter.updateModelSelectedProvinceObject(startProvince); 
-            presenter.updateModelCurrentCountryObject(startProvince.GetComponent<Province>().getOwnerGameObject());
+            presenter.updateModelCurrentCountryObject(selectorNation.gameObject);
         }
         
         void Update()
@@ -33,6 +35,11 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             }
         }
 
+
+        public Nation getNation()
+        {
+            return presenter.getNation();
+        }
 
 
         public void dropUnitInNewProvince(InputAction.CallbackContext context)
@@ -176,8 +183,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             Collider2D col = GetComponent<Collider2D>();
             if (col == null) return;
 
-            Bounds bounds = col.bounds;
-            float totalWidth = bounds.size.x * 0.4f;
+            float totalWidth = 0.4f;
             float spacing = (unitCount > 1) ? totalWidth / (unitCount - 1) : 0;
 
             float startX = -totalWidth / 2f;

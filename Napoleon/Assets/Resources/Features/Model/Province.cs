@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Resources.Features.Model.Units;
+using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
@@ -56,7 +57,7 @@ public class Province : MonoBehaviour
             {
                 IUnit unit = unitStack.Pop();
 
-                if (unit.canSelect())
+                if (unit.canSelect() && getSelector().GetComponent<SelectorView>().getNation() == unit.getNation())
                 {
                     canUnit = unit;
                     break;
@@ -168,7 +169,7 @@ public class Province : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            if (child.CompareTag("Selectors"))
+            if (child.CompareTag("Selectors") && child.gameObject.activeInHierarchy)
             {
                 return child.gameObject;
             }
