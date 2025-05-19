@@ -6,8 +6,6 @@ public class PanelStateMachine
 {
     public IPanelState State { get; set; }
     public BuilderMenuUI BuilderMenuUI { get; set; }
-    private float stateCooldown = 0.2f;
-    private float stateTime = 0;
 
     public PanelStateMachine(BuilderMenuUI builderMenuUI)
     {
@@ -34,25 +32,6 @@ public class PanelStateMachine
         {
             //unity event to show cannot build here
         }
-    }
-
-    public IEnumerator cooldownRoutine()
-    {
-        while (stateTime >= 0)
-        {
-            stateTime -= Time.deltaTime;
-            yield return null;
-        }
-    }
-
-    public void resetCooldown()
-    {
-        stateTime = stateCooldown;
-    }
-
-    public float getStateTime()
-    {
-        return stateTime;
     }
 
     public void Build()

@@ -17561,6 +17561,7 @@ MonoBehaviour:
   startProvince: {fileID: 1331070567}
   input: {x: 0, y: 0}
   buildMenu: {fileID: 977922361}
+  selectorNation: {fileID: 914798099}
 --- !u!61 &1000568167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18810,18 +18811,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 914798099}
-        m_TargetAssemblyTypeName: Nation, Assembly-CSharp
-        m_MethodName: onEndTurn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1056876588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18918,7 +18907,7 @@ MonoBehaviour:
       - m_Target: {fileID: 977922362}
         m_TargetAssemblyTypeName: BuilderMenuUI, Assembly-CSharp
         m_MethodName: startBuildingOnProvince
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23046,7 +23035,7 @@ MonoBehaviour:
       - m_Target: {fileID: 977922362}
         m_TargetAssemblyTypeName: BuilderMenuUI, Assembly-CSharp
         m_MethodName: startBuildingOnProvince
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23155,18 +23144,6 @@ MonoBehaviour:
   onEndTurnUnityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761472371}
-        m_TargetAssemblyTypeName: Selectors, Assembly-CSharp
-        m_MethodName: OnEndTurn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 844984859}
         m_TargetAssemblyTypeName: Nation, Assembly-CSharp
         m_MethodName: onEndTurn
@@ -28284,7 +28261,7 @@ Transform:
   m_GameObject: {fileID: 1508532281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7622353, y: 0.70425713, z: 0.43628192}
+  m_LocalPosition: {x: 0.699, y: 0.70425713, z: 0.43628192}
   m_LocalScale: {x: 0.3681745, y: 0.3681745, z: 0.3681745}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -28306,6 +28283,7 @@ MonoBehaviour:
   startProvince: {fileID: 1169340271}
   input: {x: 0, y: 0}
   buildMenu: {fileID: 977922361}
+  selectorNation: {fileID: 844984859}
 --- !u!61 &1508532284
 BoxCollider2D:
   m_ObjectHideFlags: 0

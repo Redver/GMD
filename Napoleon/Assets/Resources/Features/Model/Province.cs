@@ -70,72 +70,45 @@ public class Province : MonoBehaviour
         }
     }
 
-    public void navalCombatTurn()
+    public Stack<IUnit> removeBoatsFromStack(Stack<IUnit> stack)
     {
-        var (friendlies, enemies) = SplitUnitStackByNation();
-        unitStack.Clear();
+        Stack<IUnit> removeStack = new Stack<IUnit>();
         Stack<IUnit> tempStack = new Stack<IUnit>();
-        if (friendlies.Count > 0 && enemies.Count > 0)
+        while (stack.Count > 0)
         {
-            IUnit friendlyBoat = null;
-            IUnit enemyBoat = null;
-            while (friendlies.Count > 0)
+            if (stack.Peek().IsBoat())
             {
-                IUnit tempUnit = friendlies.Pop();
-                if (tempUnit.IsBoat())
-                {
-                    friendlyBoat = tempUnit;
-                    break;
-                }
-                else
-                {
-                    tempStack.Push(tempUnit);
-                }
+                removeStack.Push(stack.Pop());
             }
-            while (enemies.Count > 0)
+            else
             {
-                IUnit tempUnit = enemies.Pop();
-                if (tempUnit.IsBoat())
-                {
-                    enemyBoat = tempUnit;
-                    break;
-                }
-                else
-                {
-                    tempStack.Push(tempUnit);
-                }
-            }
-            friendlyBoat.destroy();
-            enemyBoat.destroy();
-            foreach (var unit in friendlies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in enemies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in tempStack)
-            {
-                unitStack.Push(unit);
-
+                tempStack.Push(stack.Pop());
             }
         }
-        else
+        while (tempStack.Count > 0)
         {
-            foreach (var unit in friendlies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in enemies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in tempStack)
-            {
-                unitStack.Push(unit);
+            stack.Push(tempStack.Pop());
+        }
+        return removeStack;
+    }
 
+    public void combatTurn(Stack<IUnit> friendlyStack, Stack<IUnit> enemyStack)
+    {
+        if (friendlyStack.Count > 0 && enemyStack.Count > 0)
+        {
+            friendlyStack.Pop().destroy();
+            enemyStack.Pop().destroy();
+            foreach (var unit in friendlyStack)
+            {
+                unitStack.Push(unit);
             }
+            foreach (var unit in enemyStack)
+            {
+                unitStack.Push(unit);
+            }
+        }
+        if (friendlyStack.Count <= 0 || enemyStack.Count <= 0)
+        {
             foreach (var unit in unitStack)
             {
                 unit.endCombat();
@@ -144,78 +117,40 @@ public class Province : MonoBehaviour
         }
     }
 
-    public void landCombatTurn()
-    { 
+    public void navalCombatTurn()
+    {
         var (friendlies, enemies) = SplitUnitStackByNation();
         unitStack.Clear();
-        Stack<IUnit> tempStack = new Stack<IUnit>();
-        if (friendlies.Count > 0 && enemies.Count > 0)
+        Stack<IUnit> friendlyCombatUnits = removeBoatsFromStack(friendlies);
+        Stack<IUnit> enemyCombatUnits = removeBoatsFromStack(enemies);
+        foreach (var unit in friendlies)
         {
-            IUnit friendlyInf = null;
-            IUnit enemyInf = null;
-            while (friendlies.Count > 0)
-            {
-                IUnit tempUnit = friendlies.Pop();
-                if (!tempUnit.IsBoat())
-                {
-                    friendlyInf = tempUnit;
-                    break;
-                }
-                else
-                {
-                    tempStack.Push(tempUnit);
-                }
-            }
-            while (enemies.Count > 0)
-            {
-                IUnit tempUnit = enemies.Pop();
-                if (!tempUnit.IsBoat())
-                {
-                    enemyInf = tempUnit;
-                    break;
-                }
-                else
-                {
-                    tempStack.Push(tempUnit);
-                }
-            }
-            friendlyInf.destroy();
-            enemyInf.destroy();
-            foreach (var unit in friendlies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in enemies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in tempStack)
-            {
-                unitStack.Push(unit);
-
-            }
+            unitStack.Push(unit);
         }
-        else
+        foreach (var unit in enemies)
         {
-            foreach (var unit in friendlies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in enemies)
-            {
-                unitStack.Push(unit);
-            }
-            foreach (var unit in tempStack)
-            {
-                unitStack.Push(unit);
-
-            }
-            foreach (var unit in unitStack)
-            {
-                unit.endCombat();
-            }
-            combatInProvince = false;
+            unitStack.Push(unit);
         }
+        combatTurn(friendlyCombatUnits,enemyCombatUnits);
+    }
+    
+    
+
+    public void landCombatTurn()
+    {         
+        var (friendlies, enemies) = SplitUnitStackByNation();
+        unitStack.Clear();
+        Stack<IUnit> friendlyBoatsUnits = removeBoatsFromStack(friendlies);
+        Stack<IUnit> enemyBoatsUnits = removeBoatsFromStack(enemies);
+        foreach (var unit in friendlyBoatsUnits)
+        {
+            unitStack.Push(unit);
+        }
+        foreach (var unit in enemyBoatsUnits)
+        {
+            unitStack.Push(unit);
+        }
+        combatTurn(friendlies,enemies);
     }
 
     public void onEndTurn()
@@ -223,6 +158,7 @@ public class Province : MonoBehaviour
         if (combatInProvince)
         {
             inCombatEndTurn();
+            spreadUnits();
         }
     }
     
@@ -397,7 +333,7 @@ public class Province : MonoBehaviour
 
         Bounds bounds = poly.bounds;
         Vector2 center = bounds.center;
-        Vector2 size = bounds.size * 0.9f;
+        Vector2 size = bounds.size * 1f;
 
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(center, size, 0f);
 

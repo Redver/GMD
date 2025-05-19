@@ -39,7 +39,10 @@ public class Player : MonoBehaviour
     {
         if (context.canceled && canEndTurn())
         {
-            onEndTurnUnityEvent.Invoke();
+            if (selector.tryEndTurn())
+            {
+                onEndTurnUnityEvent.Invoke();
+            }
         }
     }
 

@@ -43,11 +43,9 @@ public class BuilderMenuUI : MonoBehaviour
 
     public void ChangeSelected(InputAction.CallbackContext context)
     {
-        if (panelStateMachine.getStateTime() <= 0 && IsOpen)
+        if (context.canceled && IsOpen)
         {
             panelStateMachine.switchState();
-            panelStateMachine.resetCooldown();
-            StartCoroutine(panelStateMachine.cooldownRoutine());
         }
     }
 

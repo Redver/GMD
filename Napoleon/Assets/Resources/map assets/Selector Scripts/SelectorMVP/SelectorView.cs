@@ -46,6 +46,15 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             return presenter.canEndTurn();
         }
 
+        public bool tryEndTurn()
+        {
+            if (isActiveAndEnabled)
+            {
+                return presenter.tryEndTurn();
+            }
+            return false;
+        }
+
 
         public void dropUnitInNewProvince(InputAction.CallbackContext context)
         {
@@ -94,10 +103,17 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             }
         }
 
+        public void stopMovement()
+        {
+            presenter.stopMovement();
+            isMoving = false;
+        }
+
         public void ToggleBuildMenu()
         {
             if (isActiveAndEnabled && canOpenBuildMenuHere())
             {
+                stopMovement();
                 if (buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
                 {
                     buildMenu.GetComponent<BuilderMenuUI>().setClose();

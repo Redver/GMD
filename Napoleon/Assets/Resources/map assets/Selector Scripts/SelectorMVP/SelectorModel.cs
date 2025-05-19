@@ -35,6 +35,17 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             this.selectorPresenter = selectorPresenter;
         }
 
+        public bool tryEndTurn()
+        {
+            Selectors selectors = GameObject.FindGameObjectWithTag("SelectorManagement").GetComponent<Selectors>();
+            if (selectors != null)
+            {
+                selectors.OnEndTurn();
+                return true;
+            }
+            return false;
+        }
+
         public bool canEndTurn()
         {
             return !unitSelected;
@@ -135,6 +146,12 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             if (decelerateRoutine != null) return;
 
             decelerateRoutine = coroutineRunner.StartCoroutine(DecelerateOverTime());
+        }
+
+        public void stopMovement()
+        {
+            decelerate();
+            speed = 0f;
         }
 
         public int getNumberOfUnits()

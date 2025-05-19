@@ -69,6 +69,21 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           return model.canEndTurn();
       }
 
+      public bool tryEndTurn()
+      {
+          if (model.canEndTurn())
+          {
+              return model.tryEndTurn();
+          }
+
+          return false;
+      }
+
+      public void stopMovement()
+      {
+          model.stopMovement();
+      }
+
       public void processProvinceSelection(GameObject hitProvinceObject)
       {
           model.updateSelectedProvince(hitProvinceObject);
