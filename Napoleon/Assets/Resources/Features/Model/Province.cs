@@ -126,7 +126,7 @@ public class Province : MonoBehaviour
         float totalWidth = bounds.size.x * 0.4f;
         Vector3 center = bounds.center;
         
-        var (friendlyStack, enemyStack) = splitUnitStackIntoNations();
+        var (friendlyStack, enemyStack) = SplitUnitStackByNation();
 
         IUnit[] friendlyUnits = friendlyStack.ToArray();
         IUnit[] enemyUnits = enemyStack.ToArray();
@@ -360,26 +360,48 @@ public class Province : MonoBehaviour
             unitStack.Push(tempUnitStack.Pop());
         }
     }
-
-    public (Stack<IUnit> friendlyStack, Stack<IUnit> enemyStack) splitUnitStackIntoNations()
+    private (Stack<IUnit> friendlies, Stack<IUnit> enemies) SplitUnitStackByNation()
     {
+        Stack<IUnit> friendlies = new Stack<IUnit>();
+        Stack<IUnit> enemies = new Stack<IUnit>();
         Stack<IUnit> tempUnitStack = new Stack<IUnit>();
-        Stack<IUnit> friendlyUnitStack = new Stack<IUnit>();
-        Stack<IUnit> enemyUnitStack = new Stack<IUnit>();
+
+        Nation referenceNation = null;
 
         while (unitStack.Count > 0)
         {
             IUnit unit = unitStack.Pop();
-            if (unit.getNation() == owner)
+            tempUnitStack.Push(unit);
+
+            Nation unitNation = unit.getNation();
+
+            if (owner == null)
             {
-                friendlyUnitStack.Push(unit);
+                if (referenceNation == null)
+                {
+                    referenceNation = unitNation;
+                    friendlies.Push(unit);
+                }
+                else if (unitNation == referenceNation)
+                {
+                    friendlies.Push(unit);
+                }
+                else
+                {
+                    enemies.Push(unit);
+                }
             }
             else
             {
-                enemyUnitStack.Push(unit);
+                if (unitNation == owner)
+                {
+                    friendlies.Push(unit);
+                }
+                else
+                {
+                    enemies.Push(unit);
+                }
             }
-
-            tempUnitStack.Push(unit); 
         }
 
         while (tempUnitStack.Count > 0)
@@ -387,7 +409,7 @@ public class Province : MonoBehaviour
             unitStack.Push(tempUnitStack.Pop());
         }
 
-        return (friendlyUnitStack, enemyUnitStack);
+        return (friendlies, enemies);
     }
 
 

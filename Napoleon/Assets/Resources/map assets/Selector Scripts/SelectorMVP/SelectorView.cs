@@ -120,11 +120,13 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
         public GameObject getProvinceBelowCursor()
         {
-            Vector3 rayDirection = new Vector3(0, -1, 0f).normalized;
+            Vector3 rayDirection = new Vector3(0f, -1f, 0f).normalized;
             
             int layerMask = LayerMask.GetMask("Province", "SeaTile");
+            float yOffset = 0.1f;
+            Vector3 adjustedPosition = this.transform.position + Vector3.up * yOffset;
             
-            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, rayDirection, 0.1f,layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(adjustedPosition, rayDirection, 0.05f,layerMask);
             
 
             
