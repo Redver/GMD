@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using UnityEngine;
 

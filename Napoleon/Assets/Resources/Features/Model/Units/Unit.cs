@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using Unity.VisualScripting;
 using UnityEngine;
 

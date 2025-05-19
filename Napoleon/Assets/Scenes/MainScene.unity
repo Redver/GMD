@@ -18799,9 +18799,9 @@ MonoBehaviour:
   onEndTurnUnityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1761472371}
-        m_TargetAssemblyTypeName: Selectors, Assembly-CSharp
-        m_MethodName: OnEndTurn
+      - m_Target: {fileID: 914798099}
+        m_TargetAssemblyTypeName: Nation, Assembly-CSharp
+        m_MethodName: onEndTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34247,7 +34247,7 @@ GameObject:
   - component: {fileID: 1761472371}
   m_Layer: 0
   m_Name: Selectors
-  m_TagString: Untagged
+  m_TagString: SelectorManagement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

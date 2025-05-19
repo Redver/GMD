@@ -1,11 +1,7 @@
 using UnityEngine;
-using System;
-using System.Collections.Generic;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject NationObject;

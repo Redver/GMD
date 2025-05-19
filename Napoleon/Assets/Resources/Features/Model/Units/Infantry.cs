@@ -1,7 +1,4 @@
-﻿using Resources.map_assets.Selector_Scripts.SelectorMVP;
-using UnityEngine;
-
-namespace Resources.Features.Model.Units
+﻿namespace Resources.Features.Model.Units
 {
     public class Infantry : Unit
     {

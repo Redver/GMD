@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using Resources.Features.Model.Units;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Province : MonoBehaviour
 {
