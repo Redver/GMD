@@ -124,29 +124,43 @@ public class Province : MonoBehaviour
 
         Bounds bounds = col.bounds;
         float totalWidth = bounds.size.x * 0.4f;
-        float spacing = (unitCount > 1) ? totalWidth / (unitCount - 1) : 0;
+        Vector3 center = bounds.center;
+        
+        var (friendlyStack, enemyStack) = splitUnitStackIntoNations();
 
-        Vector3 startPos = new Vector3(bounds.center.x - totalWidth / 2f, bounds.center.y, transform.position.z);
+        IUnit[] friendlyUnits = friendlyStack.ToArray();
+        IUnit[] enemyUnits = enemyStack.ToArray();
 
-        IUnit[] units = unitStack.ToArray();
+        float friendlyY = center.y + (enemyUnits.Length > 0 ? 0.2f : 0f);
+        float enemyY = center.y - 0.2f;
+        
+        
+        SpreadSymmetrically(friendlyUnits, friendlyY, center ,totalWidth);
+        SpreadSymmetrically(enemyUnits, enemyY, center , totalWidth);
+    }
+    
+    private void SpreadSymmetrically(IUnit[] units, float y, Vector3 center ,float totalWidth)
+    {
+        int count = units.Length;
+        if (count == 0) return;
 
-        for (int i = 0; i < unitCount; i++)
+        float spacing = (count > 1) ? totalWidth / (count - 1) : 0;
+
+        for (int i = 0; i < count; i++)
         {
-            Vector3 targetPos;
-
-            if (unitCount == 1)
+            float x;
+            if (count == 1)
             {
-                targetPos = new Vector3(bounds.center.x, bounds.center.y, transform.position.z);
+                x = center.x;
             }
             else
             {
-                float x = startPos.x + spacing * i;
-                targetPos = new Vector3(x, bounds.center.y, transform.position.z);
+                x = center.x - totalWidth / 2f + spacing * i;
             }
 
-            GameObject unitObj = ((IUnit)units[i]).getView().gameObject;
+            GameObject unitObj = units[i].getView().gameObject;
             unitObj.transform.SetParent(this.transform);
-            unitObj.transform.position = targetPos;
+            unitObj.transform.position = new Vector3(x, y, transform.position.z);
         }
     }
 
