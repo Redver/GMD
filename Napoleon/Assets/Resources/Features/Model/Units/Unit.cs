@@ -98,7 +98,11 @@ namespace Resources.Features.Model.Units
         public abstract bool IsBoat();
         public abstract bool checkIfShouldBeDestroyed();
 
-        public abstract void destroy();
+        public void destroy()
+        {
+            province.removeThisUnitFromStack(this);
+            this.view.destroy();
+        }
 
         public bool canSelect()
         {

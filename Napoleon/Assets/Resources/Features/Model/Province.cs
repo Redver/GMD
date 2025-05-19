@@ -328,7 +328,54 @@ public class Province : MonoBehaviour
         }
         return false;
     }
-    
+
+    public void removeThisUnitFromStack(IUnit unitToRemove)
+    {
+        Stack<IUnit> tempUnitStack = new Stack<IUnit>();
+        while (unitStack.Contains(unitToRemove))
+        {
+            tempUnitStack.Push(unitStack.Pop());
+            if (tempUnitStack.Peek() == unitToRemove)
+            {
+                tempUnitStack.Pop();
+            }
+        }
+
+        while (tempUnitStack.Count > 0)
+        {
+            unitStack.Push(tempUnitStack.Pop());
+        }
+    }
+
+    public (Stack<IUnit> friendlyStack, Stack<IUnit> enemyStack) splitUnitStackIntoNations()
+    {
+        Stack<IUnit> tempUnitStack = new Stack<IUnit>();
+        Stack<IUnit> friendlyUnitStack = new Stack<IUnit>();
+        Stack<IUnit> enemyUnitStack = new Stack<IUnit>();
+
+        while (unitStack.Count > 0)
+        {
+            IUnit unit = unitStack.Pop();
+            if (unit.getNation() == owner)
+            {
+                friendlyUnitStack.Push(unit);
+            }
+            else
+            {
+                enemyUnitStack.Push(unit);
+            }
+
+            tempUnitStack.Push(unit); 
+        }
+
+        while (tempUnitStack.Count > 0)
+        {
+            unitStack.Push(tempUnitStack.Pop());
+        }
+
+        return (friendlyUnitStack, enemyUnitStack);
+    }
+
 
     void Update()
     {

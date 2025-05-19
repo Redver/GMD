@@ -56,10 +56,5 @@ namespace Resources.Features.Model.Units
             }
             return false;
         }
-
-        public override void destroy()
-        {
-            this.view.destroy();
-        }
     }
 }
