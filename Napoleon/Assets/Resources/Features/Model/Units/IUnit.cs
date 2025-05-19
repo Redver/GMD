@@ -31,5 +31,8 @@ namespace Resources.Features.Model.Units
         public bool canSelect();
 
         public bool IsBoat();
+        
+        public bool checkIfShouldBeDestroyed();
+        public void destroy();
     }
 }

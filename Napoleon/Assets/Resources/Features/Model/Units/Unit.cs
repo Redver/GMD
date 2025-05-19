@@ -96,6 +96,9 @@ namespace Resources.Features.Model.Units
         }
         
         public abstract bool IsBoat();
+        public abstract bool checkIfShouldBeDestroyed();
+
+        public abstract void destroy();
 
         public bool canSelect()
         {

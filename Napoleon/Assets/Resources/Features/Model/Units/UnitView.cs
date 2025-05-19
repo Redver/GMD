@@ -76,5 +76,11 @@ namespace Resources.Features.Model.Units
                 spriteRenderer.color = defaultColor;
             }
         }
+
+        public void destroy()
+        {
+            Destroy(gameObject);
+            //gameObject.SetActive(false);
+        }
     }
 }

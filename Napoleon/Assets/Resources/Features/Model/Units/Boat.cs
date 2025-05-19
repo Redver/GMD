@@ -38,11 +38,29 @@ namespace Resources.Features.Model.Units
         public override void onEndTurn()
         {
             resetMoves();
+            if (checkIfShouldBeDestroyed())
+            {
+                destroy();
+            }
         }
         
         public override bool IsBoat()
         {
             return true;
+        }
+
+        public override bool checkIfShouldBeDestroyed()
+        {
+            if (this.nation != province.getOwner())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override void destroy()
+        {
+            view.destroy();
         }
     }
 }

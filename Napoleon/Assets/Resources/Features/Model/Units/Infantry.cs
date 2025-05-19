@@ -36,11 +36,30 @@ namespace Resources.Features.Model.Units
             {
                 this.getCurrentProvince().GetComponent<Province>().onChangedOwner(this.nation);
             }
+
+            if (checkIfShouldBeDestroyed())
+            {
+                destroy();
+            }
         }
         
         public override bool IsBoat()
         {
-            return true;
+            return false;
+        }
+
+        public override bool checkIfShouldBeDestroyed()
+        {
+            if (this.province.gameObject.CompareTag("SeaTile") && !(this.province.hasBoat()))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override void destroy()
+        {
+            this.view.destroy();
         }
     }
 }

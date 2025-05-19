@@ -86,8 +86,36 @@ public class Province : MonoBehaviour
         updateUnitCount();
     }
 
+    public void putBoatsAtBottomOfSea()
+    {
+        Stack<IUnit> infStack = new Stack<IUnit>();
+        Stack<IUnit> boatStack = new Stack<IUnit>();
+        while(unitStack.Count > 0)
+        {
+            IUnit topUnit = unitStack.Pop();
+            if (topUnit.IsBoat())
+            {
+                boatStack.Push(topUnit);
+            }
+            else
+            {
+                infStack.Push(topUnit);
+            }
+        }
+        while (boatStack.Count > 0)
+        {
+            unitStack.Push(boatStack.Pop());
+        }
+        while (infStack.Count > 0)
+        {
+            unitStack.Push(infStack.Pop());
+        }
+    }
+
     public void spreadUnits()
     {
+        putBoatsAtBottomOfSea();
+
         int unitCount = unitStack.Count;
         if (unitCount == 0) return;
 
