@@ -4,7 +4,8 @@ using UnityEngine;
 public class BoatBuildState : IPanelState
 {
     private GameObject boatPanel = null;
-    
+    private int cost = 15;
+
     public void Enter(BuilderMenuUI builderMenuUI)
     {
         GameObject[] panels = builderMenuUI.getPanels();
@@ -17,11 +18,17 @@ public class BoatBuildState : IPanelState
         }
         makeBoatSelected();
     }
-    
+
+    public int getCost()
+    {
+        return cost;
+    }
+
     public IPanelState NextState()
     {
         return new UnitBuildState();
     }
+    
     
     
     public bool canBuild(Province here)

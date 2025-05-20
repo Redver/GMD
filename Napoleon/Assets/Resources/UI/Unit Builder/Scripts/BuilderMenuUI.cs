@@ -85,7 +85,7 @@ public class BuilderMenuUI : MonoBehaviour
     {
         if (context.canceled)
         {
-            if (IsOpen)
+            if (IsOpen && provinceOpenOn.GetComponent<Province>().getOwner().canBuild(panelStateMachine.getCost()))
             {
                 panelStateMachine.buildSelected();
             }

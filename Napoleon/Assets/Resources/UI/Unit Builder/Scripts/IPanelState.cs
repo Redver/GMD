@@ -8,5 +8,7 @@ public interface IPanelState
 
     bool canBuild(Province here);
     
+    int getCost();
+    
     IPanelState NextState();
 }

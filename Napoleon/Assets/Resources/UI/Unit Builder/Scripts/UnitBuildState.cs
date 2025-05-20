@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnitBuildState : IPanelState
 {
     private GameObject unitPanel = null;
+    private int cost = 5;
     
     public void Enter(BuilderMenuUI builderMenuUI)
     {
@@ -49,6 +50,11 @@ public class UnitBuildState : IPanelState
     public bool canBuild(Province here)
     {
         return here.gameObject.CompareTag("Province");
+    }
+
+    public int getCost()
+    {
+        return cost;
     }
 
     public IPanelState NextState()

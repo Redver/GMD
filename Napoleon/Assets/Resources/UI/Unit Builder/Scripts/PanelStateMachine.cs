@@ -19,6 +19,11 @@ public class PanelStateMachine
         State.Enter(BuilderMenuUI);
     }
 
+    public int getCost()
+    {
+        return State.getCost();
+    }
+
     public void buildSelected()
     {
         if (State.canBuild(BuilderMenuUI.getProvinceOpenOn().GetComponent<Province>()))

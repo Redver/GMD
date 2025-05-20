@@ -1,5 +1,6 @@
 using UnityEngine;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
+using TMPro;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 public class Player : MonoBehaviour

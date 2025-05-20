@@ -331,7 +331,7 @@ public class Province : MonoBehaviour
 
         Bounds bounds = poly.bounds;
         Vector2 center = bounds.center;
-        Vector2 size = bounds.size * 1f;
+        Vector2 size = bounds.size * 1.1f;
 
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(center, size, 0f);
 

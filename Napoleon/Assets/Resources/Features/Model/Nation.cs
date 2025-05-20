@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,10 @@ public class Nation : MonoBehaviour
     private int boatCount;
     [SerializeField] private int provinceCount;
     [SerializeField] GameObject capitalProvince;
+    [SerializeField] private GameObject MoneyText;
+    [SerializeField] private int startingTreasury = 100;
     public UnityEvent endTurnEvent; 
+    private TextMeshProUGUI moneyUi;
 
 
     private void Awake()
@@ -19,6 +23,9 @@ public class Nation : MonoBehaviour
         {
             endTurnEvent = new UnityEvent();
         }
+        moneyUi = MoneyText.GetComponent<TextMeshProUGUI>();
+        treasurey = startingTreasury;
+        refreshTreasurey();
     }
 
     void Start()
@@ -30,22 +37,39 @@ public class Nation : MonoBehaviour
         
     }
 
+    public bool canBuild(int cost)
+    {
+        if (cost > treasurey)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void refreshTreasurey()
+    {
+        moneyUi.text = treasurey.ToString();
+    }
+
     public void updateTreasurey()
     {
         float income = provinceCount * 3;
         float expenses = unitCount + (boatCount * 3);
         float net = income - expenses;
         treasurey += net;
+        refreshTreasurey();
     }
 
     public void payForUnit()
     {
-        treasurey -= 10;
+        treasurey -= 5;
+        refreshTreasurey();
     }
     
     public void payForBoat()
     {
         treasurey -= 15;
+        refreshTreasurey();
     }
 
 
