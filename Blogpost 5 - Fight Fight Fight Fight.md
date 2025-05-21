@@ -1,0 +1,9 @@
+In this update I reefined how the controls work, along with  adding a unityevent for ending turn that gets invoked to call other end turn methods across the game. I also decided to change how the selector works to just be a uniform aceeleration mainly becuase of how difficult it became to select smaller and more complex shaped provinces, as thsi update was also where I added the remaining provinces and seatiles. This allowed me to do some experimentation and testing to ensure Ux was ok, and a main issue i found was that pressing an input for any amount of time resulted in repeating the action far more then intentional. Initially I solved this by creating cooldown subroutines but for better and more stable inputs i changed to instead use context.canceled in the inputs, so the input would be processed when the button is released.
+
+Next due to how the provinces had been shaped I decided to change from box colllider 2d to polygon collider 2d. My main concern and reason for wanting to avoid this initially had come from worries of performance issues, but after changing the provinces to polygon colliders it was clear that the performance had not suffered at all, getting a smooth 1900 fps on my desktop pc.
+
+Along with making the rest of the sea tiles, I had added a method to provinces to find the number of tiles between themselves and another tile. This was an implementation of breadth first search adapted from a medium.com article. This allowed boats to work properly and go their full distance within one turn. 
+
+This also allowed me to start working on the code to not let infantry units into water unless there is a boat present underneath the unit, and if the boat is 
+
+made the selector work differantly, made unit combat work

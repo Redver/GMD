@@ -16,3 +16,16 @@ Systems: The internal systems are mainly based around the economy - where provin
 
 Time travel: The "twist" is the ability to use a units movement turn to send it back or across time, splitting timelines. In each turn where players time travel, if they travel to the same "past" then the timeline splits from that point. Players may send any amount of units back in time, and the unit maintenance cost is then paid by the timeline which sent it.
 
+milestones:
+
+make a map and province ownership
+
+Turn based unit creation and movement,
+
+province occupation and combat
+
+Victory and loss
+
+Time travel functionality
+
+UI refining
