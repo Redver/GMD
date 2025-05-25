@@ -7,7 +7,7 @@ public class Selectors : MonoBehaviour
     
     void Start()
     {
-        selectors = GameObject.FindGameObjectsWithTag("Selectors");
+        selectors = GameObject.FindGameObjectsWithTag(nameof(Selectors));
         OnEndTurn();
     }
 

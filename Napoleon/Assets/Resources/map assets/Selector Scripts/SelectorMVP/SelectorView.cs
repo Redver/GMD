@@ -157,7 +157,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             Vector3 rayDirection = new Vector3(0f, -1f, 0f).normalized;
             
-            int layerMask = LayerMask.GetMask("Province", "SeaTile");
+            int layerMask = LayerMask.GetMask(nameof(Province), "SeaTile");
             float yOffset = 0.1f;
             Vector3 adjustedPosition = this.transform.position + Vector3.up * yOffset;
             

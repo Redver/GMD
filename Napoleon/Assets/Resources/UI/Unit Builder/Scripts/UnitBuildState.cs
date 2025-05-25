@@ -11,7 +11,7 @@ public class UnitBuildState : IPanelState
         GameObject[] panels = builderMenuUI.getPanels();
         foreach (GameObject panel in panels)
         {
-            if (panel.name == "Unit")
+            if (panel.name == nameof(Unit))
             {
                 unitPanel = panel;
             }
@@ -49,7 +49,7 @@ public class UnitBuildState : IPanelState
 
     public bool canBuild(Province here)
     {
-        return here.gameObject.CompareTag("Province");
+        return here.gameObject.CompareTag(nameof(Province));
     }
 
     public int getCost()

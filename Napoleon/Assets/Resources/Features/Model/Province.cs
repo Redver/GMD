@@ -20,7 +20,7 @@ public class Province : MonoBehaviour
 
     private void Awake()
     {
-        provinceLayer = LayerMask.GetMask("Province");
+        provinceLayer = LayerMask.GetMask(nameof(Province));
         seaLayer = LayerMask.GetMask("SeaTile");
         sr = gameObject.GetComponent<SpriteRenderer>();
         if (startingOwner != null)
@@ -38,7 +38,7 @@ public class Province : MonoBehaviour
 
     void Start()
     {
-        GameObject[] temp = GameObject.FindGameObjectsWithTag("Nation");
+        GameObject[] temp = GameObject.FindGameObjectsWithTag(nameof(Nation));
         foreach (GameObject nation in temp)
         {
             Nation nationScript = nation.GetComponent<Nation>();
@@ -62,7 +62,7 @@ public class Province : MonoBehaviour
             navalCombatTurn();
         }
 
-        if (this.gameObject.CompareTag("Province"))
+        if (this.gameObject.CompareTag(nameof(Province)))
         {
             landCombatTurn();
         }
@@ -284,7 +284,7 @@ public class Province : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            if (child.CompareTag("Selectors") && child.gameObject.activeInHierarchy)
+            if (child.CompareTag(nameof(Selectors)) && child.gameObject.activeInHierarchy)
             {
                 return child.gameObject;
             }
@@ -303,7 +303,7 @@ public class Province : MonoBehaviour
     {
         foreach (Province neigh in NeigbourProvinces)
         {
-            if (neigh.gameObject.CompareTag("SeaTile") && this.gameObject.CompareTag("Province"))
+            if (neigh.gameObject.CompareTag("SeaTile") && this.gameObject.CompareTag(nameof(Province)))
             {
                 return true;
             }
@@ -427,7 +427,7 @@ public class Province : MonoBehaviour
 
     public void addToEndTurnAsListeners()
     {
-        GameObject[] nationsGameObjects = GameObject.FindGameObjectsWithTag("Nation");
+        GameObject[] nationsGameObjects = GameObject.FindGameObjectsWithTag(nameof(Nation));
         foreach (GameObject nation in nationsGameObjects)
         {
             nation.GetComponent<Nation>().endTurnEvent.AddListener(this.onEndTurn);

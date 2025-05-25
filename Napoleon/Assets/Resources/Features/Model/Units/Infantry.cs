@@ -6,7 +6,7 @@
         {
             bool isNeighbourProvince = this.getCurrentProvince().GetComponent<Province>().getNeighbours().Contains(newProvince);
             bool hasMovement = this.moves > 0;
-            bool isLand = newProvince.CompareTag("Province");
+            bool isLand = newProvince.CompareTag(nameof(Province));
             bool hasBoat = newProvince.GetComponent<Province>().hasFriendlyBoat(this);
             
             bool isLandOrBoated = isLand || hasBoat;
@@ -29,7 +29,7 @@
         public override void onEndTurn()
         {
             resetMoves();
-            if (!isInCombat() && this.getCurrentProvince().GetComponent<Province>().getOwner() != this.nation && this.getCurrentProvince().CompareTag("Province"))
+            if (!isInCombat() && this.getCurrentProvince().GetComponent<Province>().getOwner() != this.nation && this.getCurrentProvince().CompareTag(nameof(Province)))
             {
                 this.getCurrentProvince().GetComponent<Province>().onChangedOwner(this.nation);
             }

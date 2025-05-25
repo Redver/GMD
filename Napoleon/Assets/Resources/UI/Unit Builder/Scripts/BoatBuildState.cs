@@ -11,7 +11,7 @@ public class BoatBuildState : IPanelState
         GameObject[] panels = builderMenuUI.getPanels();
         foreach (GameObject panel in panels)
         {
-            if (panel.name == "Boat")
+            if (panel.name == nameof(Boat))
             {
                 boatPanel = panel;
             }

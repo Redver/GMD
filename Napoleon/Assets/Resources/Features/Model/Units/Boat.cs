@@ -51,7 +51,7 @@ namespace Resources.Features.Model.Units
 
         public override bool checkIfShouldBeDestroyed()
         {
-            if (this.nation != province.getOwner() && province.gameObject.CompareTag("Province"))
+            if (this.nation != province.getOwner() && province.gameObject.CompareTag(nameof(Province)))
             {
                 return true;
             }

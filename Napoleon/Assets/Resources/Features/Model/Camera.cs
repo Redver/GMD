@@ -26,7 +26,7 @@ public class Camera : MonoBehaviour
     
     private void addPlayers()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] players = GameObject.FindGameObjectsWithTag(nameof(Player));
         foreach (GameObject player in players)
         {
             _playersList.Add(player);

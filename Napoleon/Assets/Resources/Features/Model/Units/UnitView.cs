@@ -9,6 +9,7 @@ namespace Resources.Features.Model.Units
         private Vector3 defaultPosition;
         private Color defaultColor;
         private SpriteRenderer spriteRenderer;
+        private GameObject deathEffect;
 
         public void Init(IUnit unitType, Province province)
         {
@@ -24,6 +25,15 @@ namespace Resources.Features.Model.Units
             if (spriteRenderer != null)
             {
                 defaultColor = spriteRenderer.color;
+            }
+
+            if (currentNation.name == "GreatBritain")
+            {
+                deathEffect = UnityEngine.Resources.Load<GameObject>("Features/ParticleExplosion/Sprites/TeaParticle");
+            }
+            else
+            {
+                deathEffect = UnityEngine.Resources.Load<GameObject>("Features/ParticleExplosion/Sprites/BaguetteParticle");
             }
         }
 
@@ -79,6 +89,8 @@ namespace Resources.Features.Model.Units
 
         public void destroy()
         {
+            GameObject particles = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(particles, 1f);
             Destroy(gameObject);
             //gameObject.SetActive(false);
         }
