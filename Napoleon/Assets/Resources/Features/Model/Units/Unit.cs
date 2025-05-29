@@ -45,6 +45,8 @@ namespace Resources.Features.Model.Units
         public void dropSelectedUnit(Province newProvince)
         {
             province.updateUnitCount();
+            nation.refreshBoatUi();
+            nation.refreshSoldierUI();
             view.dropUnit(newProvince);
             newProvince.addUnitToStack(this);
             checkForEnemyUnits(newProvince);
