@@ -12,6 +12,7 @@ TagManager:
   - BuildPanel
   - Unit
   - SelectorManagement
+  - Button
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Province
   - Nation
   - Unit
-  - 
+  - Button
   - 
   - 
   - 

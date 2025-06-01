@@ -32,12 +32,21 @@ public class Player : MonoBehaviour
         
     }
 
+    public void victoryCheck()
+    {
+        if (nation.victoryCheck())
+        {
+            nation.showVictoryScreen();
+        }
+    }
+
     public void OnEndTurn(InputAction.CallbackContext context)
     {
         if (context.canceled && canEndTurn())
         {
             if (selector.tryEndTurn())
             {
+                victoryCheck();
                 onEndTurnUnityEvent.Invoke();
             }
         }

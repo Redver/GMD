@@ -110,7 +110,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
 
         public void ToggleBuildMenu()
         {
-            if (isActiveAndEnabled && canOpenBuildMenuHere())
+            if (isActiveAndEnabled && canOpenBuildMenuHere() && presenter.noButtonSelected())
             {
                 stopMovement();
                 if (buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
@@ -128,6 +128,12 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
                     buildMenu.GetComponent<BuilderMenuUI>().setOpen();
                     buildMenu.GetComponent<BuilderMenuUI>().setProvinceOpenOn(presenter.getSelectedProvinceObject());
                 }
+            }
+
+            if (presenter.buttonSelected())
+            {
+                stopMovement();
+                presenter.activateButton();
             }
         }
 
@@ -150,6 +156,27 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
                 input = Vector2.zero;
                 isMoving = false;
                 presenter.decelerate();
+            }
+        }
+
+        public GameObject getButtonBelowCursor(){
+            Vector3 rayDirection = new Vector3(0f, -1f, 0f).normalized;
+            
+            int layerMask = LayerMask.GetMask("Button");
+            float yOffset = 0.1f;
+            Vector3 adjustedPosition = this.transform.position + Vector3.up * yOffset;
+            
+            RaycastHit2D hit = Physics2D.Raycast(adjustedPosition, rayDirection, 0.05f,layerMask);
+            
+
+            
+            if (hit.collider != null)
+            {
+                return hit.collider.gameObject;
+            }
+            else
+            {
+                return null;
             }
         }
 

@@ -10,6 +10,7 @@ public class Nation : MonoBehaviour
     private float treasurey;
     private int unitCount;
     private int boatCount;
+    private string startingCapital;
     [SerializeField] private int provinceCount;
     [SerializeField] GameObject capitalProvince;
     [SerializeField] private GameObject MoneyText;
@@ -19,6 +20,7 @@ public class Nation : MonoBehaviour
     [SerializeField] private GameObject BoatAllText;
     [SerializeField] private GameObject ProvinceCurrentOwnedText;
     [SerializeField] private int startingTreasury = 100;
+    [SerializeField] private GameObject victoryScreenPrefab;
     public UnityEvent endTurnEvent; 
     private TextMeshProUGUI moneyUi;
     private TextMeshProUGUI soliderMoveUi;
@@ -42,6 +44,7 @@ public class Nation : MonoBehaviour
         boatOwnedUi = BoatAllText.GetComponent<TextMeshProUGUI>();
         provincesOwnedUi = ProvinceCurrentOwnedText.GetComponent<TextMeshProUGUI>();
         treasurey = startingTreasury;
+        startingCapital = capitalProvince.name;
         refreshTreasurey();
     }
 
@@ -54,6 +57,42 @@ public class Nation : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void showVictoryScreen()
+    {
+        Instantiate(victoryScreenPrefab);
+    }
+
+    public bool victoryCheck()
+    {
+        if (this.provinceCount >= 80 && ownsParisAndLondon())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool ownsParisAndLondon()
+    {
+        bool ownsParis = false;
+        bool ownsLondon = false;
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            Transform child = gameObject.transform.GetChild(i);
+            if (child.gameObject.name == "Iledefrance_0")
+            {
+                ownsParis = true;
+            }
+            if (child.gameObject.name == "SouthEast_0")
+            {
+                ownsLondon = true;
+            }
+        }
+        return ownsParis && ownsLondon;
     }
 
     public bool canBuild(int cost)

@@ -51,12 +51,51 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
       public void moveSelector(Vector2 input)
       {
           GameObject hitProvinceObject = view.getProvinceBelowCursor();
+          GameObject hitButtonObject = view.getButtonBelowCursor();
           if (hitProvinceObject != null)
           {
               processProvinceSelection(hitProvinceObject);
           }
+
+          if (hitButtonObject != null)
+          {
+              model.updateSelectedButton(hitButtonObject);
+          }
+          else
+          {
+              model.clearButton();
+          }
           view.moveSelector(input);
           model.accelerate();
+      }
+
+      public bool noButtonSelected()
+      {
+          if (model.isButtonSelected())
+          {
+              return false;
+          }
+          else
+          {
+              return true;
+          }
+      }
+      
+      public bool buttonSelected()
+      {
+          if (model.isButtonSelected())
+          {
+              return true;
+          }
+          else
+          {
+              return false;
+          }
+      }
+
+      public void activateButton()
+      {
+          model.activateButton();
       }
 
       public void decelerate()

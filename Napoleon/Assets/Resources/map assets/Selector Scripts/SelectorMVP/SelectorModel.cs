@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Resources.Features.MenuFeatures.Logic;
 using Resources.Features.Model.Units;
 using UnityEngine;
 
@@ -12,6 +14,9 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         
         private GameObject selectedProvinceObject;
         private Province selectedProvince;
+
+        private GameObject selectedButtonObject;
+        private ButtonUi selectedButton;
         
         private GameObject currentCountryObject;
         private Nation currentCountryNation;
@@ -118,8 +123,36 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             SelectedProvinceObject = selectedProvinceObject;
             SelectedProvince = selectedProvinceObject.GetComponent<Province>();
         }
-        
-        
+
+        public void updateSelectedButton(GameObject selectedButtonObject)
+        {
+            this.selectedButtonObject = selectedButtonObject;
+            this.selectedButton = selectedButtonObject.GetComponent<ButtonUi>();
+        }
+
+        public void clearButton()
+        {
+            this.selectedButtonObject = null;
+            this.selectedButton = null;
+        }
+
+        public void activateButton()
+        {
+            selectedButton.activateButton();
+        }
+
+        public bool isButtonSelected()
+        {
+            if (selectedButtonObject != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void SetCoroutineRunner(MonoBehaviour runner)
         {
             coroutineRunner = runner;
