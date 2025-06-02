@@ -9,13 +9,7 @@ public class restartUiScript : ButtonUi
     {
         restartLogic = new restartLogic();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public override void activateButton()
     {
         restartLogic.activateButton();
