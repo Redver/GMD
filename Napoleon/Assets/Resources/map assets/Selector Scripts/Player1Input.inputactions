@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "openOptionsMenu",
+                    "type": "Button",
+                    "id": "2662ead9-3718-4dbf-ab1b-b974825943fa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -287,6 +296,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "DeselectUnit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2aa65830-9e8a-46ef-ad5c-40950a4e4b03",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "openOptionsMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c057353-a978-4db6-9565-f3cb2651b01b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "openOptionsMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

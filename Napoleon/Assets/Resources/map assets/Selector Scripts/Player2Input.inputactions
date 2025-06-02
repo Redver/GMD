@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "openOptionsMenu",
+                    "type": "Button",
+                    "id": "034d8e5c-b81b-470f-98b6-5fd6ca2f1234",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SwitchSelectedBuildItem",
                     "type": "Button",
                     "id": "7c986240-9c37-46b3-9121-fc71664d8c62",
@@ -78,6 +87,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SelectProvince",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b21525f5-0f0b-4a89-827d-bc4491bcfd88",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "openOptionsMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

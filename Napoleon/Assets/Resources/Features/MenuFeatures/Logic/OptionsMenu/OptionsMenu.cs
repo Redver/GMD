@@ -11,4 +11,9 @@ public class OptionsMenu : MonoBehaviour
     private void Awake()
     {
     }
+
+    public void onInput()
+    {
+        this.gameObject.transform.position = new Vector3(-1.5f,0,0);
+    }
 }
