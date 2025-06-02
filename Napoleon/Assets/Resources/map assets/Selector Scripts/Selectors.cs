@@ -25,7 +25,10 @@ public class Selectors : MonoBehaviour
             otherSelector = selectors[0];
             playersSelector = selectors[1];
         }
-        playersSelector.GetComponent<SelectorView>().closeBuildMenu();
+        if (playersSelector.TryGetComponent<SelectorView>(out SelectorView selectorView))
+        {
+            selectorView.closeBuildMenu();
+        }
         activateSelector(otherSelector);
         deactivateSelector(playersSelector);
     }
