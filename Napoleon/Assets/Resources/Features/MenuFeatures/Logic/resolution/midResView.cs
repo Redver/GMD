@@ -1,16 +1,16 @@
+using Resources.Features.MenuFeatures.Logic;
 using UnityEngine;
 
-public class midResView : MonoBehaviour
+public class midResView : ButtonUi
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private IButton midResButton;
+    void Awake()
     {
-        
+        midResButton = new midResLogic();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void activateButton()
     {
-        
+        midResButton.activateButton();
     }
 }

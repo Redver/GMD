@@ -1,16 +1,16 @@
 using Resources.Features.MenuFeatures.Logic;
 using UnityEngine;
 
-public class lowResView : ButtonUi
+public class resumeView : ButtonUi
 {
-    private IButton lowResButton;
+    private IButton resumeButton;
     void Awake()
     {
-        lowResButton = new lowResLogic();
+        resumeButton = new resumeLogic();
     }
 
     public override void activateButton()
     {
-        lowResButton.activateButton();
+        resumeButton.activateButton();
     }
 }

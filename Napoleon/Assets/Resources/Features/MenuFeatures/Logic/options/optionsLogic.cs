@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class optionsLogic : Button
 {
+    private GameObject optionsMenu;
+
+    public optionsLogic(GameObject optionsMenu)
+    {
+        this.optionsMenu = optionsMenu;
+    }
+
     public override void activateButton()
     {
         openOptionsMenu();
@@ -9,7 +16,6 @@ public class optionsLogic : Button
 
     public void openOptionsMenu()
     {
-        GameObject optionsMenu = GameObject.Find("OptionsMenu");
-        optionsMenu.transform.position = Vector3.zero;
+        optionsMenu.SetActive(true);
     }
 }

@@ -1,12 +1,13 @@
 using Resources.Features.MenuFeatures.Logic;
+using UnityEngine;
 
 public class optionsUiScript : ButtonUi
 {
     private IButton optionsLogic;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject optionsPanel;
+    void Awake()
     {
-        optionsLogic = new optionsLogic();
+        optionsLogic = new optionsLogic(optionsPanel);
     }
 
     public override void activateButton()

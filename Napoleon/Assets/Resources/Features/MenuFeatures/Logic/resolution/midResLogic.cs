@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class midResLogic : MonoBehaviour
+public class midResLogic : Button
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void activateButton()
     {
-        
+        setResolution();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setResolution()
     {
-        
+        Screen.SetResolution(1280,720,true);
     }
 }

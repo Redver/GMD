@@ -1,3 +1,4 @@
+using System;
 using Resources.Features.MenuFeatures.Logic;
 using TMPro;
 using UnityEngine;
@@ -6,9 +7,14 @@ public class volumeUpView : ButtonUi
 {
 private IButton _volumeUpButton;
 [SerializeField] private TextMeshProUGUI _text;
-private void Start()
+private void Awake()
 {
     _volumeUpButton = new volumeDownLogic();
+    updateText();
+}
+
+private void Start()
+{
     updateText();
 }
 
@@ -20,6 +26,6 @@ public override void activateButton()
 
 public void updateText()
 {
-    _text.text = AudioListener.volume.ToString();
+    _text.text = (AudioListener.volume * 100f).ToString();
 }
 }

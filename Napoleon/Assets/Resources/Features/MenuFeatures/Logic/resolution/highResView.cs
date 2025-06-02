@@ -1,16 +1,17 @@
+using Resources.Features.MenuFeatures.Logic;
 using UnityEngine;
 
-public class highResView : MonoBehaviour
+public class highResView : ButtonUi
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private IButton highResButton;
+    void Awake()
     {
-        
+        highResButton = new highResLogic();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void activateButton()
     {
-        
+        highResButton.activateButton();
     }
 }
+

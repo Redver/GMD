@@ -7,9 +7,13 @@ public class volumeDownView : ButtonUi
 {
     private IButton _volumeDownButton;
     [SerializeField] private TextMeshProUGUI _text;
-    private void Start()
+    private void Awake()
     {
         _volumeDownButton = new volumeDownLogic();
+    }
+
+    private void Start()
+    {
         updateText();
     }
 
@@ -21,6 +25,6 @@ public class volumeDownView : ButtonUi
 
     public void updateText()
     {
-        _text.text = AudioListener.volume.ToString();
+        _text.text = (AudioListener.volume * 100f).ToString();
     }
 }

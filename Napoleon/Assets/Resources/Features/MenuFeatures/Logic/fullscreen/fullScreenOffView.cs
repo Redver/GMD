@@ -4,7 +4,7 @@ using UnityEngine;
 public class fullScreenOffView : ButtonUi
 {
 private IButton _fullScreenOffLogic;
-void Start()
+void Awake()
 {
     _fullScreenOffLogic = new fullScreenOffLogic();
 }

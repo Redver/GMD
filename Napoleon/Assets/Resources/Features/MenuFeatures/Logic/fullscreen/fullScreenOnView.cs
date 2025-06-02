@@ -5,7 +5,7 @@ public class fullScreenOnView : ButtonUi
 {
     private IButton _fullScreenOnLogic;
     
-    void Start()
+    void Awake()
     {
         _fullScreenOnLogic = new fullScreenOnLogic();
     }
