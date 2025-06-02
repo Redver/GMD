@@ -13,5 +13,6 @@ public class optionsUiScript : ButtonUi
     public override void activateButton()
     {
         optionsLogic.activateButton();
+        this.gameObject.SetActive(false);
     }
 }

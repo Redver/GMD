@@ -42665,6 +42665,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1497587612287770546, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497587612287770546, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1508532283}
@@ -42692,6 +42696,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1508532283}
+    - target: {fileID: 1497587612287770546, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: inputToggleBuildMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 3823789705449971162, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -42956,6 +42964,10 @@ PrefabInstance:
       value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 5766306391741020438, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766306391741020438, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1000568166}
@@ -42983,6 +42995,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1000568166}
+    - target: {fileID: 5766306391741020438, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: inputToggleBuildMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5877669063718304003, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
       propertyPath: NationObject
       value: 

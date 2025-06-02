@@ -108,6 +108,14 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             isMoving = false;
         }
 
+        public void inputToggleBuildMenu(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                ToggleBuildMenu();
+            }
+        }
+
         public void ToggleBuildMenu()
         {
             if (isActiveAndEnabled && canOpenBuildMenuHere() && presenter.noButtonSelected())

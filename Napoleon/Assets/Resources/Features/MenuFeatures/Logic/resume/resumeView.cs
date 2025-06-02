@@ -4,9 +4,10 @@ using UnityEngine;
 public class resumeView : ButtonUi
 {
     private IButton resumeButton;
+    [SerializeField] private GameObject optionsButton;
     void Awake()
     {
-        resumeButton = new resumeLogic();
+        resumeButton = new resumeLogic(optionsButton);
     }
 
     public override void activateButton()

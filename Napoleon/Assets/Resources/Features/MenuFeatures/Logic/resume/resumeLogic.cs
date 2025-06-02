@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class resumeLogic : Button
 {
-    [SerializeField] private GameObject optionsMenu;
-
+    private GameObject optionsButton;
     public override void activateButton()
     {
         closeMenu();
     }
 
+    public resumeLogic(GameObject optionsButton)
+    {
+        setOptionsButton(optionsButton);
+    }
+
     public void closeMenu()
     {
-        optionsMenu.SetActive(false);
+        GameObject optionsMenu = GameObject.Find("OptionsMenu");
+        optionsMenu.transform.position = new Vector3(53,-1,0);
+        optionsButton.SetActive(true);
+    }
+
+    public void setOptionsButton(GameObject optionsButton)
+    {
+        this.optionsButton = optionsButton;
     }
 }

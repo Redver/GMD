@@ -464,6 +464,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1497587612287770546, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497587612287770546, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 664657397}
@@ -477,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497587612287770546, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleBuildMenu
+      value: inputToggleBuildMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3823789705449971162, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
       propertyPath: m_Name
@@ -1194,6 +1198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 7926883351707171971, guid: 3f78fad0a08d96c40bd12425d52082a1, type: 3}
+      propertyPath: optionsButton
+      value: 
+      objectReference: {fileID: 1277810170}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

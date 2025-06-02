@@ -9,6 +9,10 @@ public class volumeUpLogic : Button
 
     public void volumeUp()
     {
-        AudioListener.volume += 0.1f;
+        float temp = AudioListener.volume;
+        temp += 0.1f;
+        float rounded = Mathf.Round(temp * 10f) / 10f;
+        rounded = Mathf.Clamp(temp, 0f, 1f);
+        AudioListener.volume = rounded;    
     }
 }

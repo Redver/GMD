@@ -118,6 +118,25 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           return false;
       }
 
+      public void updateButtonUnderView()
+      {
+          GameObject hitProvinceObject = view.getProvinceBelowCursor();
+          GameObject hitButtonObject = view.getButtonBelowCursor();
+          if (hitProvinceObject != null)
+          {
+              processProvinceSelection(hitProvinceObject);
+          }
+
+          if (hitButtonObject != null)
+          {
+              model.updateSelectedButton(hitButtonObject);
+          }
+          else
+          {
+              model.clearButton();
+          }
+      }
+
       public void stopMovement()
       {
           model.stopMovement();

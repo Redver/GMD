@@ -9,7 +9,7 @@ private IButton _volumeUpButton;
 [SerializeField] private TextMeshProUGUI _text;
 private void Awake()
 {
-    _volumeUpButton = new volumeDownLogic();
+    _volumeUpButton = new volumeUpLogic();
     updateText();
 }
 
@@ -26,6 +26,6 @@ public override void activateButton()
 
 public void updateText()
 {
-    _text.text = (AudioListener.volume * 100f).ToString();
+    _text.text = Mathf.Round(AudioListener.volume * 100f).ToString();
 }
 }

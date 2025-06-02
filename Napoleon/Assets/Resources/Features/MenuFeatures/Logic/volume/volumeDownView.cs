@@ -25,6 +25,6 @@ public class volumeDownView : ButtonUi
 
     public void updateText()
     {
-        _text.text = (AudioListener.volume * 100f).ToString();
+        _text.text = Mathf.Round(AudioListener.volume * 100f).ToString();
     }
 }

@@ -139,6 +139,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         public void activateButton()
         {
             selectedButton.activateButton();
+            selectorPresenter.updateButtonUnderView();
         }
 
         public bool isButtonSelected()

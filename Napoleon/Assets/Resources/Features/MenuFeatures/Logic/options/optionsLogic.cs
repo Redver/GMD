@@ -16,6 +16,6 @@ public class optionsLogic : Button
 
     public void openOptionsMenu()
     {
-        optionsMenu.SetActive(true);
+        optionsMenu.transform.position = new Vector3(29.5f,-1.29f,0f);
     }
 }
