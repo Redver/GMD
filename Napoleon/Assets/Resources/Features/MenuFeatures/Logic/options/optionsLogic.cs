@@ -16,6 +16,6 @@ public class optionsLogic : Button
 
     public void openOptionsMenu()
     {
-        optionsMenu.transform.position = new Vector3(29.5f,-1.29f,0f);
+        optionsMenu.transform.position = new Vector3(29.5f,0.69f,0f);
     }
 }
