@@ -10,12 +10,6 @@ public class quitUiScript : ButtonUi
         quitLogic = new quitLogic();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void activateButton()
     {
         quitLogic.activateButton();

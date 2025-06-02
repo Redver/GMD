@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7382683938499514694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7529751902093637108}
+  - component: {fileID: 2978291801273418768}
+  m_Layer: 8
+  m_Name: GreatBritain
+  m_TagString: Nation
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7529751902093637108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382683938499514694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6333508, y: 0.3228034, z: -0.048599713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2978291801273418768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382683938499514694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c63b46449d3c4d47b4c5cc0a5ccf853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  provinceCount: 0
+  capitalProvince: {fileID: 0}
+  MoneyText: {fileID: 0}
+  SoldierCurrentMoveableText: {fileID: 0}
+  SoldierAllText: {fileID: 0}
+  BoatCurrentMoveableText: {fileID: 0}
+  BoatAllText: {fileID: 0}
+  ProvinceCurrentOwnedText: {fileID: 0}
+  startingTreasury: 200
+  victoryScreenPrefab: {fileID: 9144013345848947240, guid: 0caf0c583251d114598e637ee2593bce, type: 3}
+  endTurnEvent:
+    m_PersistentCalls:
+      m_Calls: []
