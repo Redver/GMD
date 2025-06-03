@@ -251,7 +251,6 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void unloadBoardAndLoadTurn(int turn)
     {
-        updateGameStateTable(makeGameState());
         unloadBoard();
         loadBoardFromGamestateStore(this.currentTimeline, turn);
     }
@@ -263,53 +262,62 @@ public class TimelineClockLogic : MonoBehaviour
         int turn = gameStateTable.GetTurnOfHead(timeline);
         loadBoardFromGamestateStore(timeline,turn);
     }
-
     public void endTurnAcrossAllTimelines()
     {
-        int maxTimeline = gameStateTable.getNumberOfTimelines();
         updateGameStateTable(makeGameState());
+        StartCoroutine(EndTurnRoutine());
+    }
+
+    private IEnumerator EndTurnRoutine()
+    {
+        int maxTimeline = gameStateTable.getNumberOfTimelines();
 
         for (int timeline = 0; timeline < maxTimeline; timeline++)
         {
+            unloadBoard(); 
+            yield return new WaitForEndOfFrame(); 
 
-            unloadBoard();
             loadBoardFromGamestateStore(timeline, gameStateTable.GetTurnOfHead(timeline));
+            yield return new WaitForEndOfFrame(); 
 
             gameState oldHead = gameStateTable.GetHeadOfTimeline(timeline);
             int oldTurn = gameStateTable.GetTurnOfHead(timeline);
-            
+
             if (oldHead != null)
-            {
                 oldHead.IsHead = false;
-            }
 
             Nation[] currentNations = getNationOneAndTwo();
+
             if ((oldTurn + 1) % 2 == 0)
-            {
                 currentNations[0].onEndTurn();
-            }
             else
-            {
                 currentNations[1].onEndTurn();
-            }
+
+            yield return new WaitForEndOfFrame(); 
             
-            StartCoroutine(currentNations[0].DelayedUiUpdate());
-            StartCoroutine(currentNations[1].DelayedUiUpdate());
+            currentNations[0].updateUi();
+            currentNations[1].updateUi();
 
             currentTurn = gameStateTable.GetTurnOfHead(timeline);
             gameState newState = makeGameState();
             newState.IsHead = true;
+
             gameStateTable.saveGameState(newState, timeline, oldTurn + 1);
             updateCurrentTurn(currentTurn + 1);
         }
     }
-
-    public void showPreviousTurn()
+    
+    private void SaveIfOnHeadTurn()
     {
         if (gameStateTable.GetTurnOfHead(currentTimeline) == currentTurn)
         {
             updateGameStateTable(makeGameState());
         }
+    }
+
+    public void showPreviousTurn()
+    {
+        SaveIfOnHeadTurn();
         if (currentTurn > 0)
         {
             unloadBoardAndLoadTurn(currentTurn - 1);
@@ -329,10 +337,7 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void showPreviousTimeline()
     {
-        if (gameStateTable.GetTurnOfHead(currentTimeline) == currentTurn)
-        {
-            updateGameStateTable(makeGameState());
-        }
+        SaveIfOnHeadTurn();
         if (currentTimeline > 0)
         {
             unloadBoardAndLoadTimeline(currentTimeline - 1);
@@ -342,6 +347,7 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void showNextTimeline()
     {
+        SaveIfOnHeadTurn();
         if (gameStateTable.GetTurnOfHead(currentTimeline) == currentTurn)
         {
             updateGameStateTable(makeGameState());
