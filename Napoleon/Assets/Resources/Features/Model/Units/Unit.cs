@@ -150,6 +150,15 @@ namespace Resources.Features.Model.Units
         {
             this.inCombat = false;
         }
+
+        public virtual GameObject getPrefab()
+        {
+            throw new Exception("Unit should never be initialised as this base class");
+        }
         
+        public virtual void setPrefab(GameObject prefab)
+        {
+            throw new Exception("Unit should never be initialised as this base class");
+        }
     }
 }

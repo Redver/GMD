@@ -582,6 +582,44 @@ public class Province : MonoBehaviour
         return (friendlies, enemies);
     }
 
+    public void summonUnit(IUnit unitToSummon)
+    {
+        string path = "";
+        if (unitToSummon.IsBoat())
+        {
+            if (unitToSummon.getNation().name == "GreatBritain")
+            {
+                path = "Features/Model/Units/Unit Assets/uk boat";
+            }
+
+            if (unitToSummon.getNation().name == "France")
+            {
+                path = "Features/Model/Units/Unit Assets/French Boat";
+            }
+        }
+        else
+        {
+            if (unitToSummon.getNation().name == "GreatBritain")
+            {
+                path = "Features/Model/Units/Unit Assets/UK flag unit";
+            }
+
+            if (unitToSummon.getNation().name == "France")
+            {
+                path = "Features/Model/Units/Unit Assets/FRflag";
+            }
+        }
+
+        GameObject builtUnit = Instantiate(unitToSummon.getPrefab());
+        builtUnit.transform.localPosition = Vector3.zero;
+        builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
+        builtUnit.transform.GetComponent<UnitView>().Init(unitToSummon, this);
+        addUnitToStack(unitToSummon);
+        if (unitToSummon.getMoves() == 0)
+        {
+            unitToSummon.getView().greyOutUnit();
+        }
+    }
 
     void Update()
     {

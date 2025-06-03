@@ -284,4 +284,9 @@ public class Nation : MonoBehaviour
         return nationName;
     }
 
+    public void updateWithNation(Nation storedNation)
+    {
+        this.treasurey = storedNation.treasurey;
+    }
+
 }

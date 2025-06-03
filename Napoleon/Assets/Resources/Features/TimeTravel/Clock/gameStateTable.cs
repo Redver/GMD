@@ -23,4 +23,35 @@ public class gameStateTable
             return null;
         }
     }
+    
+    public gameState GetHeadOfTimeline(int timeline)
+    {
+        IEnumerable<int> turns = boardData.Keys
+            .Where(k => k.timeline == timeline)
+            .Select(k => k.turn);
+
+        if (!turns.Any())
+            return null;
+
+        int maxTurn = turns.Max();
+        return boardData[(timeline, maxTurn)];
+    }
+    
+    public int? GetTurnOfHead(int timeline)
+    {
+        IEnumerable<int> turns = boardData.Keys
+            .Where(k => k.timeline == timeline)
+            .Select(k => k.turn);
+
+        if (!turns.Any())
+            return null;
+
+        int maxTurn = turns.Max();
+        return maxTurn;
+    }
+
+    public int getNumberOfTimelines()
+    {
+        return boardData.Max(x => x.Key.timeline);
+    }
 }

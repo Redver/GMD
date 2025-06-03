@@ -211,14 +211,16 @@ public class TimelineClockLogic : MonoBehaviour
     public void loadNewBoard(int timeline, int turn)
     {
         gameState loadedGameState = gameStateTable.getGameState(timeline,turn);
-        foreach (var province in loadedGameState.AllOwnedProvinces)
-        {
-            province.setLandOwner(province.getOwner());   
-        }
 
         foreach (var unit in loadedGameState.AllUnits)
         {
             unit.getCurrentProvince().GetComponent<Province>().summonUnit(unit);
+        }
+        
+        foreach (var province in loadedGameState.AllOwnedProvinces)
+        {
+            province.setLandOwner(province.getOwner());
+            province.spreadUnits();
         }
 
         Nation[] currentNations = getNationOneAndTwo();
@@ -231,17 +233,43 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void unloadBoardAndLoadDifferantTurnOrTimeline(int timeline, int turn)
     {
-        //if new timeline is loaded load the head, not the current turn
+        unloadBoard();
+        loadNewBoard(timeline, turn);
+    }
+
+    public void unloadBoardAndLoadTurn(int turn)
+    {
+        unloadBoard();
+        loadNewBoard(this.currentTimeline, turn);
+    }
+
+    public void unloadBoardAndLoadTimeline(int timeline)
+    {
+        unloadBoard();
+        int? turn = gameStateTable.GetTurnOfHead(timeline);
+        loadNewBoard(timeline,turn);
     }
 
     public void endTurn()
     {
         unHeadOldGameStateAndSaveNewHead(makeGameState());
+        endTurnAcrossAllTimelines();
     }
 
     public void endTurnAcrossAllTimelines()
     {
-        //for each timeline, end turn, i.e make that nation do their unity event?
+        for (int i = 0; i < gameStateTable.getNumberOfTimelines(); i++)
+        {
+            gameState thisState = gameStateTable.GetHeadOfTimeline(i);
+            if (this.currentTurn % 2 == 0)
+            {
+                thisState.NationOneState.onEndTurn();
+            }
+            else
+            {
+                thisState.NationTwoState.onEndTurn();
+            }
+        }
     }
 
     public void showPreviousTurn()

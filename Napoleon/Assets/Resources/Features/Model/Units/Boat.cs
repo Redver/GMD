@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
+using UnityEngine;
 
 namespace Resources.Features.Model.Units
 {
     public class Boat : Unit
     {
+        [SerializeField] private GameObject boatPrefab;
         public override bool canDropUnitHere(Province newProvince)
         {
             int spacesToMove = this.province.findDistanceBetween(newProvince);
@@ -56,6 +58,16 @@ namespace Resources.Features.Model.Units
                 return true;
             }
             return false;
+        }
+
+        public override GameObject getPrefab()
+        {
+            return boatPrefab;
+        }
+
+        public override void setPrefab(GameObject prefab)
+        {
+            this.boatPrefab = prefab;
         }
     }
 }

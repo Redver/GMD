@@ -37,5 +37,9 @@ namespace Resources.Features.Model.Units
         
         public bool checkIfShouldBeDestroyed();
         public void destroy();
+
+        public GameObject getPrefab();
+        
+        public void setPrefab(GameObject prefab);
     }
 }

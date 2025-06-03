@@ -10,6 +10,7 @@ namespace Resources.Features.Model.Units
         private Color defaultColor;
         private SpriteRenderer spriteRenderer;
         private GameObject deathEffect;
+        [SerializeField] private GameObject unitPrefab;
 
         public void Init(IUnit unitType, Province province)
         {
