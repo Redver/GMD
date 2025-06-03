@@ -422,7 +422,51 @@ public class Province : MonoBehaviour
         }
 
         gameObject.transform.SetParent(Nations[owner.getName()].transform);
-        
+    }
+
+    public void clearOwner()
+    {
+        if (this.transform.CompareTag("Province"))
+        {
+            this.owner = null;
+            sr.color = Color.white;
+            gameObject.transform.SetParent(GameObject.Find("Land").transform);
+        }
+    }
+
+    public void setLandOwner(Nation owner)
+    {
+        if (this.transform.CompareTag("Province"))
+        {
+            onChangedOwner(owner);
+        }
+    }
+
+    public void loadUnitsFromUnit(IUnit unitToLoad)
+    {
+        new UnitView();// make method in unitview to just load UI/gameobject on the province? idk
+    }
+
+    public void deleteUnits()
+    {
+        UnitView[] unitsViews = transform.GetComponentsInChildren<UnitView>();
+        foreach (var unit in unitsViews)
+        {
+            Destroy(unit.gameObject);
+        }
+        updateUnitStack();
+    }
+
+    public void updateUnitStack()
+    {
+        unitStack.Clear();
+        UnitView[] unitsViews = transform.GetComponentsInChildren<UnitView>();
+        foreach (var unit in unitsViews)
+        {
+            unitStack.Push(unit.getUnitLogic());
+        }
+        updateUnitCount();
+        spreadUnits();
     }
 
     public void addToEndTurnAsListeners()

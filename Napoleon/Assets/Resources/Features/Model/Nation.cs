@@ -125,7 +125,7 @@ public class Nation : MonoBehaviour
         provincesOwnedUi.text = provinceCount.ToString();
     }
 
-    private List<IUnit> getAllOwnedUnits()
+    public List<IUnit> getAllOwnedUnits()
     {
         GameObject[] allUnits = GameObject.FindGameObjectsWithTag("Unit");
         List<IUnit> units = new List<IUnit>();
@@ -249,6 +249,15 @@ public class Nation : MonoBehaviour
     {
         this.provinceCount = transform.childCount;
         refreshProvinceUI();
+    }
+
+    public List<Province> getAllOwnedProvinces()
+    {
+        List<Province> provinces = new List<Province>();
+
+        provinces.AddRange(GetComponentsInChildren<Province>());
+
+        return provinces;
     }
 
     public void getNewCapitalProvince()
