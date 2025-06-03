@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Resources.Features.Model.Units;
 using Resources.Features.TimeTravel.Clock.SavedData;
@@ -120,6 +121,12 @@ public class Nation : MonoBehaviour
         boatMoveUi.text = countAllBoatsWithMoves().ToString();
         boatOwnedUi.text = countAllOwnedBoats().ToString();
     }
+    
+    public IEnumerator DelayedUiUpdate()
+    {
+        yield return new WaitForEndOfFrame(); 
+        this.updateUi();
+    }
 
     public void refreshProvinceUI()
     {
@@ -241,6 +248,10 @@ public class Nation : MonoBehaviour
         updateProvinceCount();
         updateTreasurey();
         endTurnEvent.Invoke();
+    }
+
+    public void updateUi()
+    {
         refreshBoatUi();
         refreshSoldierUI();
         refreshProvinceUI();
@@ -274,6 +285,9 @@ public class Nation : MonoBehaviour
     public void onStartTurn()
     {
         refreshProvinceUI();
+        refreshSoldierUI();
+        refreshTreasurey();
+        refreshBoatUi();
         if (capitalProvince.GetComponent<Province>().getOwner().nationName != this.nationName)
         {
             getNewCapitalProvince();

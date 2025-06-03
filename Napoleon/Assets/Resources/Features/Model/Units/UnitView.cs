@@ -35,8 +35,8 @@ namespace Resources.Features.Model.Units
             {
                 deathEffect = UnityEngine.Resources.Load<GameObject>("Features/ParticleExplosion/Sprites/BaguetteParticle");
             }
-            currentNation.refreshBoatUi();
-            currentNation.refreshSoldierUI();
+
+            StartCoroutine(currentNation.DelayedUiUpdate());
         }
 
         public void selectUnit()

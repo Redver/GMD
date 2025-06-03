@@ -450,9 +450,11 @@ public class Province : MonoBehaviour
         UnitView[] unitChildren = gameObject.GetComponentsInChildren<UnitView>();
         foreach (var unit in unitChildren)
         {
+            removeThisUnitFromStack(unit.getUnitLogic());
             Destroy(unit.gameObject);
         }
-        updateUnitStack();
+        unitStack.Clear();
+        updateUnitCount();
     }
 
     public void updateUnitStack()
@@ -582,8 +584,6 @@ public class Province : MonoBehaviour
 
     public void summonUnit(UnitData unitToSummon)
     {
-        Debug.Log("Called SummonUnit");
-        /*
         string path = "";
         GameObject prefabToSummon = null;
         IUnit unitImplementationToSummon = null;
@@ -621,13 +621,17 @@ public class Province : MonoBehaviour
         GameObject builtUnit = Instantiate(prefabToSummon);
         builtUnit.transform.localPosition = Vector3.zero;
         builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
+        if (this.owner == null)
+        {
+            this.onChangedOwner(unitToSummon.Nation);
+        }
         builtUnit.transform.GetComponent<UnitView>().Init(unitImplementationToSummon, this);
         builtUnit.transform.localScale = Vector3.one * 0.05f;
         addUnitToStack(unitImplementationToSummon);
         if (unitToSummon.Moves == 0)
         {
             unitImplementationToSummon.getView().greyOutUnit();
-        }*/
+        }
     }
 
     void Update()
