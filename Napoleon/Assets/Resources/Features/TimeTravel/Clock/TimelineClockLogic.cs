@@ -152,14 +152,7 @@ public class TimelineClockLogic : MonoBehaviour
     {
         gameStateTable.saveGameState(newGameState,currentTurn,currentTimeline);
     }
-
-    public void unHeadOldGameStateAndSaveNewHead(gameState newGameState)
-    {
-        gameStateTable.getGameState(currentTimeline, (currentTurn - 1)).IsHead = false;
-        newGameState.IsHead = true;
-        updateGameStateTable(newGameState);
-    }
-
+    
     public void updateCurrentTurn(int currentTurn)
     {
         this.currentTurn = currentTurn;
@@ -231,12 +224,6 @@ public class TimelineClockLogic : MonoBehaviour
         nationTwo.updateWithNation(loadedGameState.NationTwoState);
     }
 
-    public void unloadBoardAndLoadDifferantTurnOrTimeline(int timeline, int turn)
-    {
-        unloadBoard();
-        loadNewBoard(timeline, turn);
-    }
-
     public void unloadBoardAndLoadTurn(int turn)
     {
         unloadBoard();
@@ -246,49 +233,77 @@ public class TimelineClockLogic : MonoBehaviour
     public void unloadBoardAndLoadTimeline(int timeline)
     {
         unloadBoard();
-        int? turn = gameStateTable.GetTurnOfHead(timeline);
+        int turn = gameStateTable.GetTurnOfHead(timeline);
         loadNewBoard(timeline,turn);
-    }
-
-    public void endTurn()
-    {
-        unHeadOldGameStateAndSaveNewHead(makeGameState());
-        endTurnAcrossAllTimelines();
     }
 
     public void endTurnAcrossAllTimelines()
     {
-        for (int i = 0; i < gameStateTable.getNumberOfTimelines(); i++)
+        int maxTimeline = gameStateTable.getNumberOfTimelines();
+
+        for (int timeline = 0; timeline < maxTimeline; timeline++)
         {
-            gameState thisState = gameStateTable.GetHeadOfTimeline(i);
-            if (this.currentTurn % 2 == 0)
+            gameState oldHead = gameStateTable.GetHeadOfTimeline(timeline);
+            if (oldHead != null)
             {
-                thisState.NationOneState.onEndTurn();
+                oldHead.IsHead = false;
+            }
+
+            int oldTurn = gameStateTable.GetTurnOfHead(timeline);
+            loadNewBoard(timeline, oldTurn);
+
+            gameState newState = makeGameState();
+            newState.IsHead = true;
+            gameStateTable.saveGameState(newState, timeline, oldTurn + 1);
+
+            if ((oldTurn + 1) % 2 == 0)
+            {
+                newState.NationOneState.onEndTurn();
             }
             else
             {
-                thisState.NationTwoState.onEndTurn();
+                newState.NationTwoState.onEndTurn();
             }
         }
+
+        updateCurrentTurn(currentTurn + 1);
     }
 
     public void showPreviousTurn()
     {
-        
+        if (currentTurn > 0)
+        {
+            unloadBoardAndLoadTurn(currentTurn - 1);
+            updateCurrentTurn(currentTurn - 1);
+        }
     }
 
     public void showNextTurn()
     {
-        
-    }
-
-    public void showNextTimeline()
-    {
-        
+        int maxTurn = gameStateTable.GetTurnOfHead(currentTimeline);
+        if (currentTurn < maxTurn)
+        {
+            unloadBoardAndLoadTurn(currentTurn + 1);
+            updateCurrentTurn(currentTurn + 1);
+        }
     }
 
     public void showPreviousTimeline()
     {
-        
+        if (currentTimeline > 0)
+        {
+            unloadBoardAndLoadTimeline(currentTimeline - 1);
+            updateCurrentTimeline(currentTimeline - 1);
+        }
+    }
+
+    public void showNextTimeline()
+    {
+        int maxTimeline = gameStateTable.getNumberOfTimelines();
+        if (currentTimeline + 1 < maxTimeline)
+        {
+            unloadBoardAndLoadTimeline(currentTimeline + 1);
+            updateCurrentTimeline(currentTimeline + 1);
+        }
     }
 }

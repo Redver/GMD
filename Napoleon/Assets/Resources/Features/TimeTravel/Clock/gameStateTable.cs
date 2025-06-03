@@ -37,14 +37,11 @@ public class gameStateTable
         return boardData[(timeline, maxTurn)];
     }
     
-    public int? GetTurnOfHead(int timeline)
+    public int GetTurnOfHead(int timeline)
     {
         IEnumerable<int> turns = boardData.Keys
             .Where(k => k.timeline == timeline)
             .Select(k => k.turn);
-
-        if (!turns.Any())
-            return null;
 
         int maxTurn = turns.Max();
         return maxTurn;
