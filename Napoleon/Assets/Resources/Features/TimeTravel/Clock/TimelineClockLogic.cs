@@ -199,18 +199,34 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void unloadBoard()
     {
+        updateGameStateTable(makeGameState());
         List<Province> allProvinces = getAllProvinces();
         foreach (var province in allProvinces)
         {
             province.clearOwner();
             province.deleteUnits();
         }
-
     }
 
     public void loadNewBoard(int timeline, int turn)
     {
-        
+        gameState loadedGameState = gameStateTable.getGameState(timeline,turn);
+        foreach (var province in loadedGameState.AllOwnedProvinces)
+        {
+            province.setLandOwner(province.getOwner());   
+        }
+
+        foreach (var unit in loadedGameState.AllUnits)
+        {
+            unit.getCurrentProvince().GetComponent<Province>().summonUnit(unit);
+        }
+
+        Nation[] currentNations = getNationOneAndTwo();
+        Nation nationOne = currentNations[0];
+        Nation nationTwo = currentNations[1];
+
+        nationOne.updateWithNation(loadedGameState.NationOneState);
+        nationTwo.updateWithNation(loadedGameState.NationTwoState);
     }
 
     public void unloadBoardAndLoadDifferantTurnOrTimeline(int timeline, int turn)
