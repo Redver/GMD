@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Resources.Features.Model.Units;
+using Resources.Features.TimeTravel.Clock.SavedData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -284,9 +285,14 @@ public class Nation : MonoBehaviour
         return nationName;
     }
 
-    public void updateWithNation(Nation storedNation)
+    public void updateWithNation(NationData storedNation)
     {
-        this.treasurey = storedNation.treasurey;
+        this.treasurey = storedNation.Treasurey;
     }
 
+
+    public float getTreasurey()
+    {
+        return treasurey;
+    }
 }

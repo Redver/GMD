@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using Resources.Features.Model.Units;
+using Resources.Features.TimeTravel.Clock.SavedData;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using UnityEngine;
 
 public class Province : MonoBehaviour
 {
     [SerializeField] private List<Province> NeigbourProvinces = new List<Province>();
+    [SerializeField] private GameObject infantryPrefab;
+    [SerializeField] private GameObject boatPrefab;
     private LayerMask provinceLayer;
     private LayerMask seaLayer;
     private Nation owner;
@@ -442,15 +445,10 @@ public class Province : MonoBehaviour
         }
     }
 
-    public void loadUnitsFromUnit(IUnit unitToLoad)
-    {
-        new UnitView();// make method in unitview to just load UI/gameobject on the province? idk
-    }
-
     public void deleteUnits()
     {
-        UnitView[] unitsViews = transform.GetComponentsInChildren<UnitView>();
-        foreach (var unit in unitsViews)
+        UnitView[] unitChildren = gameObject.GetComponentsInChildren<UnitView>();
+        foreach (var unit in unitChildren)
         {
             Destroy(unit.gameObject);
         }
@@ -582,43 +580,54 @@ public class Province : MonoBehaviour
         return (friendlies, enemies);
     }
 
-    public void summonUnit(IUnit unitToSummon)
+    public void summonUnit(UnitData unitToSummon)
     {
+        Debug.Log("Called SummonUnit");
+        /*
         string path = "";
-        if (unitToSummon.IsBoat())
+        GameObject prefabToSummon = null;
+        IUnit unitImplementationToSummon = null;
+        if (unitToSummon.IsBoat)
         {
-            if (unitToSummon.getNation().name == "GreatBritain")
+            if (unitToSummon.Nation.name == "GreatBritain")
             {
                 path = "Features/Model/Units/Unit Assets/uk boat";
             }
 
-            if (unitToSummon.getNation().name == "France")
+            if (unitToSummon.Nation.name == "France")
             {
                 path = "Features/Model/Units/Unit Assets/French Boat";
             }
+
+            unitImplementationToSummon = new Boat();
+            prefabToSummon = boatPrefab;
         }
         else
         {
-            if (unitToSummon.getNation().name == "GreatBritain")
+            if (unitToSummon.Nation.name == "GreatBritain")
             {
                 path = "Features/Model/Units/Unit Assets/UK flag unit";
             }
 
-            if (unitToSummon.getNation().name == "France")
+            if (unitToSummon.Nation.name == "France")
             {
                 path = "Features/Model/Units/Unit Assets/FRflag";
             }
+            
+            unitImplementationToSummon = new Infantry();
+            prefabToSummon = infantryPrefab;
         }
 
-        GameObject builtUnit = Instantiate(unitToSummon.getPrefab());
+        GameObject builtUnit = Instantiate(prefabToSummon);
         builtUnit.transform.localPosition = Vector3.zero;
         builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
-        builtUnit.transform.GetComponent<UnitView>().Init(unitToSummon, this);
-        addUnitToStack(unitToSummon);
-        if (unitToSummon.getMoves() == 0)
+        builtUnit.transform.GetComponent<UnitView>().Init(unitImplementationToSummon, this);
+        builtUnit.transform.localScale = Vector3.one * 0.05f;
+        addUnitToStack(unitImplementationToSummon);
+        if (unitToSummon.Moves == 0)
         {
-            unitToSummon.getView().greyOutUnit();
-        }
+            unitImplementationToSummon.getView().greyOutUnit();
+        }*/
     }
 
     void Update()

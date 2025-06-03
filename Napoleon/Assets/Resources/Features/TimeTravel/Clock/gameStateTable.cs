@@ -49,6 +49,6 @@ public class gameStateTable
 
     public int getNumberOfTimelines()
     {
-        return boardData.Max(x => x.Key.timeline);
+        return boardData.Max(x => x.Key.timeline) + 1;
     }
 }

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using NUnit.Framework;
 using Resources.Features.Model.Units;
+using Resources.Features.TimeTravel.Clock.SavedData;
 using Resources.map_assets.Selector_Scripts.SelectorMVP;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TimelineClockLogic : MonoBehaviour
 {
@@ -17,6 +20,10 @@ public class TimelineClockLogic : MonoBehaviour
     {
         updateCurrentTurn(0);
         updateCurrentTimeline(0);
+
+        gameState initialState = makeGameState();
+        initialState.IsHead = true;
+        gameStateTable.saveGameState(initialState, 0, 0);
     }
 
     public int getCurrentTurn()
@@ -62,7 +69,7 @@ public class TimelineClockLogic : MonoBehaviour
     public Nation[] getNationOneAndTwo()
     {
         
-        GameObject[] nations = GameObject.FindGameObjectsWithTag("Nations");
+        GameObject[] nations = GameObject.FindGameObjectsWithTag("Nation");
         Nation nationOne;
         Nation nationTwo;
         
@@ -122,6 +129,19 @@ public class TimelineClockLogic : MonoBehaviour
         return allProvinces;
     }
 
+    public List<ProvinceData> getAllProvincesData()
+    {
+        List<ProvinceData> allProvinceData = new List<ProvinceData>();
+        List<Province> allProvinces = getAllOwnedProvinces();
+
+        foreach (var province in allProvinces)
+        {
+            allProvinceData.Add(new ProvinceData(province.name,province.getOwner()));
+        }
+
+        return allProvinceData;
+    }
+
     public List<IUnit> getAllUnitsOnlyOnBoard()
     {
         List<IUnit> allUnits = getAllUnits();
@@ -135,15 +155,26 @@ public class TimelineClockLogic : MonoBehaviour
         return allUnits;
     }
 
+    public List<UnitData> getAllUnitData()
+    {
+        List<UnitData> allUnitData = new List<UnitData>();
+        List<IUnit> allUnits = getAllUnitsOnlyOnBoard();
+        foreach (var unit in allUnits)
+        {
+            allUnitData.Add(new UnitData(unit.getCurrentProvince().GetComponent<Province>(),unit.getNation(),unit.IsBoat(),unit.getMoves()));
+        }
+        return allUnitData;
+    }
+
     public gameState makeGameState()
     {
         Nation[] nations = getNationOneAndTwo();
+
+        NationData nationOne = new NationData(nations[0].getName(), nations[0].getTreasurey());
+        NationData nationTwo = new NationData(nations[1].getName(), nations[1].getTreasurey());
         
-        Nation nationOne = nations[0];
-        Nation nationTwo = nations[1];
-        
-        List<Province> allOwnedProvinces = getAllOwnedProvinces();
-        List<IUnit> allUnits = getAllUnitsOnlyOnBoard();
+        List<ProvinceData> allOwnedProvinces = getAllProvincesData();
+        List<UnitData> allUnits = getAllUnitData();
         
         return new gameState(allUnits,allOwnedProvinces,nationOne,nationTwo);
     }
@@ -201,19 +232,50 @@ public class TimelineClockLogic : MonoBehaviour
         }
     }
 
+    public List<Province> getAllLandProvinces()
+    {
+        List<Province> allLandProvinces = new List<Province>();
+        GameObject[] landList = GameObject.FindGameObjectsWithTag("Province");
+        
+        foreach (GameObject land in landList)
+        {
+            allLandProvinces.Add(land.GetComponent<Province>());
+        }
+
+        return allLandProvinces;
+    }
+
     public void loadNewBoard(int timeline, int turn)
     {
         gameState loadedGameState = gameStateTable.getGameState(timeline,turn);
+        
+        List<Province> allProvinces = getAllLandProvinces();
+        
+        foreach (var province in allProvinces)
+        {
+            bool foundOwner = false;
 
+            foreach (var loadedProvince in loadedGameState.AllOwnedProvinces)
+            {
+                if (province.name == loadedProvince.ProvinceName)
+                {
+                    province.setLandOwner(loadedProvince.Owner);
+                    foundOwner = true;
+                    break; 
+                }
+            }
+
+            if (!foundOwner)
+            {
+                province.clearOwner();
+            }
+        }
+
+        
         foreach (var unit in loadedGameState.AllUnits)
         {
-            unit.getCurrentProvince().GetComponent<Province>().summonUnit(unit);
-        }
-        
-        foreach (var province in loadedGameState.AllOwnedProvinces)
-        {
-            province.setLandOwner(province.getOwner());
-            province.spreadUnits();
+            unit.Province.GetComponent<Province>().summonUnit(unit);
+            unit.Province.GetComponent<Province>().spreadUnits();
         }
 
         Nation[] currentNations = getNationOneAndTwo();
@@ -240,9 +302,13 @@ public class TimelineClockLogic : MonoBehaviour
     public void endTurnAcrossAllTimelines()
     {
         int maxTimeline = gameStateTable.getNumberOfTimelines();
-
+        unloadBoardAndLoadTimeline(0);
+        
         for (int timeline = 0; timeline < maxTimeline; timeline++)
         {
+
+            unloadBoardAndLoadTimeline(timeline);
+
             gameState oldHead = gameStateTable.GetHeadOfTimeline(timeline);
             if (oldHead != null)
             {
@@ -250,20 +316,21 @@ public class TimelineClockLogic : MonoBehaviour
             }
 
             int oldTurn = gameStateTable.GetTurnOfHead(timeline);
-            loadNewBoard(timeline, oldTurn);
 
             gameState newState = makeGameState();
             newState.IsHead = true;
             gameStateTable.saveGameState(newState, timeline, oldTurn + 1);
 
+            Nation[] currentNations = getNationOneAndTwo();
             if ((oldTurn + 1) % 2 == 0)
             {
-                newState.NationOneState.onEndTurn();
+                currentNations[0].onEndTurn();
             }
             else
             {
-                newState.NationTwoState.onEndTurn();
+                currentNations[1].onEndTurn();
             }
+            
         }
 
         updateCurrentTurn(currentTurn + 1);
@@ -271,6 +338,10 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void showPreviousTurn()
     {
+        if (gameStateTable.GetTurnOfHead(currentTimeline) == currentTurn)
+        {
+            updateGameStateTable(makeGameState());
+        }
         if (currentTurn > 0)
         {
             unloadBoardAndLoadTurn(currentTurn - 1);
@@ -290,6 +361,10 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void showPreviousTimeline()
     {
+        if (gameStateTable.GetTurnOfHead(currentTimeline) == currentTurn)
+        {
+            updateGameStateTable(makeGameState());
+        }
         if (currentTimeline > 0)
         {
             unloadBoardAndLoadTimeline(currentTimeline - 1);
@@ -299,6 +374,10 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void showNextTimeline()
     {
+        if (gameStateTable.GetTurnOfHead(currentTimeline) == currentTurn)
+        {
+            updateGameStateTable(makeGameState());
+        }
         int maxTimeline = gameStateTable.getNumberOfTimelines();
         if (currentTimeline + 1 < maxTimeline)
         {

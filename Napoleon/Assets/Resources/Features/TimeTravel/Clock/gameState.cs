@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Resources.Features.Model.Units;
+using Resources.Features.TimeTravel.Clock.SavedData;
 using UnityEngine;
 
 public class gameState
@@ -10,25 +11,25 @@ public class gameState
         set => isHead = value;
     }
 
-    public List<IUnit> AllUnits
+    public List<UnitData> AllUnits
     {
         get => allUnits;
         set => allUnits = value;
     }
 
-    public List<Province> AllOwnedProvinces
+    public List<ProvinceData> AllOwnedProvinces
     {
         get => allOwnedProvinces;
         set => allOwnedProvinces = value;
     }
 
-    public Nation NationOneState
+    public NationData NationOneState
     {
         get => nationOneState;
         set => nationOneState = value;
     }
 
-    public Nation NationTwoState
+    public NationData NationTwoState
     {
         get => nationTwoState;
         set => nationTwoState = value;
@@ -36,12 +37,12 @@ public class gameState
 
 
     private bool isHead;
-    private List<IUnit> allUnits = new List<IUnit>();
-    private List<Province> allOwnedProvinces = new List<Province>();
-    private Nation nationOneState;
-    private Nation nationTwoState;
+    private List<UnitData> allUnits = new List<UnitData>();
+    private List<ProvinceData> allOwnedProvinces = new List<ProvinceData>();
+    private NationData nationOneState;
+    private NationData nationTwoState;
 
-    public gameState(List<IUnit> units, List<Province> provinces, Nation nationOne, Nation nationTwo)
+    public gameState(List<UnitData> units, List<ProvinceData> provinces, NationData nationOne, NationData nationTwo)
     {
         allUnits = units;
         allOwnedProvinces = provinces;

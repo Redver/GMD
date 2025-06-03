@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2557969
@@ -375,6 +377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &6073667
@@ -604,6 +608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &13675212
@@ -792,6 +798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &14891482
@@ -993,6 +1001,7 @@ GameObject:
   - component: {fileID: 16022532}
   - component: {fileID: 16022534}
   - component: {fileID: 16022533}
+  - component: {fileID: 16022535}
   m_Layer: 10
   m_Name: UpArrow
   m_TagString: Button
@@ -1104,7 +1113,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -5422586279872711584, guid: 69e4e02fd426f5b43a53edffeca3380f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1116,6 +1125,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &16022535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16022531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbe138af5ae1694da82f67ab3cf680e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 82743868}
+  clock: {fileID: 905465355}
 --- !u!1 &34832004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &44767434
@@ -1442,6 +1467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &47214531
@@ -1651,6 +1678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &52778779
@@ -1999,6 +2028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &87954517
@@ -2187,6 +2218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &105048868
@@ -2443,6 +2476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &110778130
@@ -2667,6 +2702,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &125034718
@@ -2849,6 +2886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &125989426
@@ -3112,6 +3151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &135468207
@@ -3328,6 +3369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &142122599
@@ -3544,6 +3587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &154629820
@@ -3749,6 +3794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &156129140
@@ -3966,6 +4013,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &167866864
@@ -4193,6 +4242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &180216820
@@ -4468,6 +4519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &184490191
@@ -4653,6 +4706,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &200038995
@@ -4884,6 +4939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &207148792
@@ -5135,6 +5192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &240757840
@@ -5385,6 +5444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &241941505
@@ -5597,6 +5658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &247931950
@@ -5884,6 +5947,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 844984857}
   friendlyUnitCount: 0
 --- !u!60 &283122479
@@ -6008,6 +6073,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &302774407
@@ -6266,6 +6333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &320214974
@@ -6525,6 +6594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &323452240
@@ -6777,6 +6848,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &335940686
@@ -6982,6 +7055,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &343124965
@@ -7174,6 +7249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &369234107
@@ -7384,6 +7461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &392417176
@@ -7565,6 +7644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &403960648
@@ -7793,6 +7874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &409048216
@@ -8045,6 +8128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &409944406
@@ -8265,6 +8350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &418886203
@@ -8452,6 +8539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &432606708
@@ -8694,6 +8783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &463821119
@@ -8928,6 +9019,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &469362251
@@ -9381,6 +9474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &501586311
@@ -9624,6 +9719,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &501927134
@@ -9897,6 +9994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &564615414
@@ -10127,6 +10226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &571142577
@@ -10318,6 +10419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &586893210
@@ -10495,6 +10598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &594315978
@@ -10774,6 +10879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &597805256
@@ -10989,6 +11096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &609809170
@@ -11257,6 +11366,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &621439229
@@ -11487,6 +11598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &631362444
@@ -11739,6 +11852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &636338454
@@ -12080,6 +12195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &645266308
@@ -12339,6 +12456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 0}
+  boatPrefab: {fileID: 0}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!114 &649844008
@@ -12354,6 +12473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &649844009
@@ -12585,6 +12706,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &652546630
@@ -12790,6 +12913,7 @@ GameObject:
   - component: {fileID: 658231020}
   - component: {fileID: 658231022}
   - component: {fileID: 658231021}
+  - component: {fileID: 658231023}
   m_Layer: 10
   m_Name: DownArrow
   m_TagString: Button
@@ -12901,7 +13025,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -8069974331915488823, guid: 4668d9528ac69434b9e529ff07bb9819, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12913,6 +13037,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &658231023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658231019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cb9332456dc1f4c816e481b97c74d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 82743868}
+  clock: {fileID: 905465355}
 --- !u!1 &691461464
 GameObject:
   m_ObjectHideFlags: 0
@@ -13047,6 +13185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &696939999
@@ -13238,6 +13378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &697328350
@@ -13456,6 +13598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &698728677
@@ -13633,6 +13777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &713083517
@@ -13837,6 +13983,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &734397659
@@ -14064,6 +14212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &756662724
@@ -14321,6 +14471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &786459017
@@ -14627,6 +14779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &789352660
@@ -14847,6 +15001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &809703759
@@ -15042,6 +15198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &822918941
@@ -15266,6 +15424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &826635003
@@ -15444,6 +15604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &833348675
@@ -15787,6 +15949,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &853730780
@@ -15997,6 +16161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &854326415
@@ -16228,6 +16394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &883488881
@@ -16459,6 +16627,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &890097874
@@ -16716,6 +16886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 914798097}
   friendlyUnitCount: 0
 --- !u!60 &893807113
@@ -16863,6 +17035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905465356}
   - component: {fileID: 905465357}
+  - component: {fileID: 905465358}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -16940,6 +17113,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &905465358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905465355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caff622d47b90c643848c5d06421c130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnText: {fileID: 1785179657}
+  timelineText: {fileID: 82743868}
 --- !u!1 &914798097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 655147355625825530, guid: a65104577679edc4b8fdf0931345d8a9, type: 3}
@@ -16988,6 +17175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &940809177
@@ -17220,6 +17409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &950353294
@@ -17418,6 +17609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &959312344
@@ -17651,6 +17844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &962028222
@@ -17920,6 +18115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &978151585
@@ -18226,6 +18423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1012738901
@@ -18388,6 +18587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1023764322
@@ -18712,6 +18913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1032244021
@@ -18922,6 +19125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1049046574
@@ -19192,6 +19397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1055162148
@@ -19296,6 +19503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1064030132
@@ -19482,6 +19691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1068055546
@@ -19751,6 +19962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 844984857}
   friendlyUnitCount: 0
 --- !u!60 &1094225966
@@ -19879,6 +20092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1100134126
@@ -20094,6 +20309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1107803956
@@ -20337,6 +20554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1125499619
@@ -20549,6 +20768,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1132955580
@@ -20828,6 +21049,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1156075095
@@ -21060,6 +21283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1160687373
@@ -21326,6 +21551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 844984857}
   friendlyUnitCount: 0
 --- !u!60 &1169340275
@@ -21488,6 +21715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1190718673
@@ -21813,6 +22042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1202597010
@@ -22068,6 +22299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1204025460
@@ -22233,6 +22466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1210710166
@@ -22460,6 +22695,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1252598635
@@ -22649,6 +22886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1255116834
@@ -22863,6 +23102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1258466285
@@ -23124,6 +23365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1260333485
@@ -23339,6 +23582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1263167523
@@ -23496,6 +23741,7 @@ GameObject:
   - component: {fileID: 1280155136}
   - component: {fileID: 1280155138}
   - component: {fileID: 1280155137}
+  - component: {fileID: 1280155139}
   m_Layer: 10
   m_Name: BackArrow
   m_TagString: Button
@@ -23607,7 +23853,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -5422586279872711584, guid: 69e4e02fd426f5b43a53edffeca3380f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23619,6 +23865,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1280155139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280155135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270b54bd1fb60f44fb9dd35278a9f4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1785179657}
+  clock: {fileID: 905465355}
 --- !u!1 &1281739538 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6089126970863181500, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
@@ -23656,6 +23916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1284302864
@@ -23962,6 +24224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1295860246
@@ -24203,6 +24467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1296839922
@@ -24393,6 +24659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1299120152
@@ -24581,6 +24849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1301564006
@@ -24792,6 +25062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1305897384
@@ -25031,6 +25303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 914798097}
   friendlyUnitCount: 0
 --- !u!60 &1306352577
@@ -25216,6 +25490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1309541822
@@ -25471,6 +25747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1313303157
@@ -25682,6 +25960,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1322058049
@@ -26070,6 +26350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 914798097}
   friendlyUnitCount: 0
 --- !u!60 &1331070571
@@ -26279,6 +26561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1339587015
@@ -26537,6 +26821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1349963429
@@ -26756,6 +27042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1359112710
@@ -26939,6 +27227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1363212564
@@ -27105,6 +27395,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1381770854
@@ -27377,6 +27669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1397980021
@@ -27548,6 +27842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1404580716
@@ -27832,6 +28128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1421085706
@@ -28031,6 +28329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1449454284
@@ -28228,6 +28528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1449967224
@@ -28414,6 +28716,7 @@ GameObject:
   - component: {fileID: 1463089013}
   - component: {fileID: 1463089015}
   - component: {fileID: 1463089014}
+  - component: {fileID: 1463089016}
   m_Layer: 10
   m_Name: FowardArrow
   m_TagString: Button
@@ -28525,7 +28828,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -8069974331915488823, guid: 4668d9528ac69434b9e529ff07bb9819, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -28537,6 +28840,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1463089016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463089012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e4aea8047505d49bb141f754f67651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1785179657}
+  clock: {fileID: 905465355}
 --- !u!1 &1467981627
 GameObject:
   m_ObjectHideFlags: 0
@@ -28656,6 +28973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1484279431
@@ -28866,6 +29185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1530777461
@@ -29154,6 +29475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1540407575
@@ -29400,6 +29723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1541449117
@@ -29740,6 +30065,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1564568685
@@ -29995,6 +30322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1566124002
@@ -30229,6 +30558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1573550045
@@ -30467,6 +30798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1582663894
@@ -30669,6 +31002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1584373032
@@ -30914,6 +31249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1584978838
@@ -31185,6 +31522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1595530297
@@ -31388,6 +31727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1597618986
@@ -31696,6 +32037,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1606205176
@@ -31897,6 +32240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1607789177
@@ -32103,6 +32448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1628185241
@@ -32328,6 +32675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1650011199
@@ -32564,6 +32913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1652429714
@@ -32750,6 +33101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1669793754
@@ -33011,6 +33364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1679956005
@@ -33188,6 +33543,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1680844798
@@ -33534,6 +33891,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1682238425
@@ -33895,6 +34254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1718238129
@@ -34114,6 +34475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1726393271
@@ -34315,6 +34678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1747173853
@@ -34514,6 +34879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1760654643
@@ -34840,6 +35207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1767964267
@@ -35036,6 +35405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1771447661
@@ -35281,6 +35652,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1773852951
@@ -35528,6 +35901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1783275122
@@ -35840,6 +36215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1794038875
@@ -36058,6 +36435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1799079668
@@ -36268,6 +36647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1829519279
@@ -36495,6 +36876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1837769771
@@ -36677,6 +37060,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1838569754
@@ -36910,6 +37295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1840508811
@@ -37151,6 +37538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1845775467
@@ -37453,6 +37842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1856104601
@@ -37657,6 +38048,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1863255844
@@ -37890,6 +38283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1869549545
@@ -38083,6 +38478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1873832987
@@ -38333,6 +38730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1874452221
@@ -38512,6 +38911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1911628851
@@ -38714,6 +39115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1920117746
@@ -38961,6 +39364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1944607213
@@ -39163,6 +39568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1965382019
@@ -39404,6 +39811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &1975671984
@@ -39619,6 +40028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1988853979
@@ -39833,6 +40244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &1993458785
@@ -40085,6 +40498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &2010604637
@@ -40294,6 +40709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &2043715023
@@ -40580,7 +40997,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!1 &2079912351
 GameObject:
@@ -40719,6 +41136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2102671087
@@ -40955,6 +41374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &2104688396
@@ -41205,6 +41626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &2104966351
@@ -41410,6 +41833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2112669233
@@ -41637,6 +42062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2116286667
@@ -41935,6 +42362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2118728586
@@ -42195,6 +42624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2120203708
@@ -42425,6 +42856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &2126580606
@@ -42656,6 +43089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2129000082
@@ -42889,6 +43324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &2130127068
@@ -43119,6 +43556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!60 &2135960992
@@ -43493,6 +43932,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeigbourProvinces: []
+  infantryPrefab: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
+  boatPrefab: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
   startingOwner: {fileID: 0}
   friendlyUnitCount: 0
 --- !u!212 &2143844612
@@ -43927,7 +44368,15 @@ PrefabInstance:
     - target: {fileID: 7818109012842682913, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
       propertyPath: onEndTurnUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 844984859}
+      objectReference: {fileID: 905465358}
+    - target: {fileID: 7818109012842682913, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
+      propertyPath: onEndTurnUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: endTurnAcrossAllTimelines
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818109012842682913, guid: 4e1837959cb357642af9d23a54322f12, type: 3}
+      propertyPath: onEndTurnUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TimelineClockLogic, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43945,6 +44394,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cyprus_0
       objectReference: {fileID: 0}
+    - target: {fileID: 3835188054827209909, guid: 8bfffdec9b50b2a49a83b8b0552d370a, type: 3}
+      propertyPath: boatPrefab
+      value: 
+      objectReference: {fileID: 4898130111384419583, guid: 1a1fca9efca2ba34c8ed0748e4cc0696, type: 3}
+    - target: {fileID: 3835188054827209909, guid: 8bfffdec9b50b2a49a83b8b0552d370a, type: 3}
+      propertyPath: infantryPrefab
+      value: 
+      objectReference: {fileID: 7527763147199493715, guid: 1e1127f0dfd4a0a42a354339ae17487e, type: 3}
     - target: {fileID: 8090710533499156312, guid: 8bfffdec9b50b2a49a83b8b0552d370a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.555348
@@ -44218,7 +44675,15 @@ PrefabInstance:
     - target: {fileID: 5877669063718304003, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
       propertyPath: onEndTurnUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 914798099}
+      objectReference: {fileID: 905465358}
+    - target: {fileID: 5877669063718304003, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
+      propertyPath: onEndTurnUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: endTurnAcrossAllTimelines
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877669063718304003, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
+      propertyPath: onEndTurnUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TimelineClockLogic, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6880496269968659748, guid: 92c83ac6fba884144bd6c845099ead91, type: 3}
       propertyPath: m_Camera
       value: 

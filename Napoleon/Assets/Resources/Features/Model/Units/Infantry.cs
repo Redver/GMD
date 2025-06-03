@@ -4,7 +4,6 @@ namespace Resources.Features.Model.Units
 {
     public class Infantry : Unit
     {
-        [SerializeField] private GameObject infantryPrefab;
         public override bool canDropUnitHere(Province newProvince)
         {
             bool isNeighbourProvince = this.getCurrentProvince().GetComponent<Province>().getNeighbours().Contains(newProvince);
@@ -54,16 +53,6 @@ namespace Resources.Features.Model.Units
                 return true;
             }
             return false;
-        }
-        
-        public override GameObject getPrefab()
-        {
-            return infantryPrefab;
-        }
-
-        public override void setPrefab(GameObject prefab)
-        {
-            this.infantryPrefab = prefab;
         }
     }
 }
