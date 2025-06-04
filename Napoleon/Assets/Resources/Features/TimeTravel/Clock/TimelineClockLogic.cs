@@ -74,33 +74,12 @@ public class TimelineClockLogic : MonoBehaviour
         return allUnits;
     }
 
-    public List<Province> getAllOwnedProvinces()
-    {
-        Nation[] nations = getNationOneAndTwo();
-        
-        Nation nationOne = nations[0];
-        Nation nationTwo = nations[1];
-        
-        List<Province> nationOneProvinces = new List<Province>();
-        List<Province> nationTwoProvinces = new List<Province>();
-
-        nationOneProvinces = nationOne.getAllOwnedProvinces();
-        nationTwoProvinces = nationTwo.getAllOwnedProvinces();
-
-        List<Province> allProvinces = new List<Province>();
-        
-        allProvinces.AddRange(nationOneProvinces);
-        allProvinces.AddRange(nationTwoProvinces);
-
-        return allProvinces;
-    }
-
     public List<ProvinceData> getAllProvincesData()
     {
         List<ProvinceData> allProvinceData = new List<ProvinceData>();
-        List<Province> allProvinces = getAllOwnedProvinces();
+        List<Province> allProvince = getAllProvinces();
 
-        foreach (var province in allProvinces)
+        foreach (var province in allProvince)
         {
             allProvinceData.Add(new ProvinceData(province.name,province.getOwner(),province.isInCombat()));
         }
@@ -144,10 +123,10 @@ public class TimelineClockLogic : MonoBehaviour
         NationData nationOne = new NationData(nations[0].getName(), nations[0].getTreasurey());
         NationData nationTwo = new NationData(nations[1].getName(), nations[1].getTreasurey());
         
-        List<ProvinceData> allOwnedProvinces = getAllProvincesData();
+        List<ProvinceData> allProvincesWithData = getAllProvincesData();
         List<UnitData> allUnits = getAllUnitData();
         
-        return new gameState(allUnits,allOwnedProvinces,nationOne,nationTwo);
+        return new gameState(allUnits,allProvincesWithData,nationOne,nationTwo);
     }
 
     public void updateGameStateTable(gameState newGameState)
@@ -213,43 +192,21 @@ public class TimelineClockLogic : MonoBehaviour
         }
     }
 
-    public List<Province> getAllLandProvinces()
-    {
-        List<Province> allLandProvinces = new List<Province>();
-        GameObject[] landList = GameObject.FindGameObjectsWithTag("Province");
-        
-        foreach (GameObject land in landList)
-        {
-            allLandProvinces.Add(land.GetComponent<Province>());
-        }
-
-        return allLandProvinces;
-    }
-
     public void loadBoardFromGamestateStore(int timeline, int turn)
     {
         gameState loadedGameState = gameStateTable.getGameState(timeline,turn);
         
-        List<Province> allProvinces = getAllLandProvinces();
-
-        Dictionary<string, Nation> ownedProvinceLookup = new Dictionary<string, Nation>();
-        foreach (var ownedProvince in loadedGameState.AllOwnedProvinces)
-        {
-            ownedProvinceLookup[ownedProvince.ProvinceName] = ownedProvince.Owner;
-        }
+        List<Province> allProvinces = getAllProvinces();
 
         foreach (var province in allProvinces)
         {
-            if (ownedProvinceLookup.TryGetValue(province.name, out var owner))
+            ProvinceData thisProvince = loadedGameState.AllOwnedProvinces.Find(e => e.ProvinceName == province.name);
+            if (thisProvince.Owner != null)
             {
-                province.setLandOwner(owner);
+                province.setLandOwner(province.getOwner());
             }
-            else
-            {
-                province.clearOwner();
-            }
+            province.CombatInProvince = thisProvince.IsInCombat;
         }
-
         
         foreach (var unit in loadedGameState.AllUnits)
         {

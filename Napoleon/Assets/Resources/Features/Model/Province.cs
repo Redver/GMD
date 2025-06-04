@@ -21,6 +21,12 @@ public class Province : MonoBehaviour
     private Dictionary<string, GameObject> Nations = new Dictionary<string, GameObject>();
     private bool combatInProvince = false;
 
+    public bool CombatInProvince
+    {
+        get => combatInProvince;
+        set => combatInProvince = value;
+    }
+
     private void Awake()
     {
         provinceLayer = LayerMask.GetMask(nameof(Province));
@@ -208,6 +214,17 @@ public class Province : MonoBehaviour
     {
         unitStack.Push(unit);
         updateUnitCount();
+
+        checkForCombatInternal();
+    }
+
+    private void checkForCombatInternal()
+    {
+        var (friendlyStack, enemyStack) = SplitUnitStackByNation();
+        if (friendlyStack.Count > 0 && enemyStack.Count > 0 && !combatInProvince)
+        {
+            firstCombat();
+        }
     }
 
     public void putBoatsAtBottomOfSea()
