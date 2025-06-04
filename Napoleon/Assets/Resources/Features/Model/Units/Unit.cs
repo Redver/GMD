@@ -17,6 +17,11 @@ namespace Resources.Features.Model.Units
             
         }
 
+        public void setMoves(int moves)
+        {
+            this.moves = moves;
+        }
+
         public GameObject getSelector()
         {
             return province.getSelector();

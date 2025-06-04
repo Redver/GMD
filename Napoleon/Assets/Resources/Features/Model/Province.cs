@@ -621,16 +621,16 @@ public class Province : MonoBehaviour
         GameObject builtUnit = Instantiate(prefabToSummon);
         builtUnit.transform.localPosition = Vector3.zero;
         builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
-        if (this.owner == null)
-        {
-            this.onChangedOwner(unitToSummon.Nation);
-        }
-        builtUnit.transform.GetComponent<UnitView>().Init(unitImplementationToSummon, this);
+        builtUnit.transform.GetComponent<UnitView>().InitWithNation(unitImplementationToSummon, this, unitToSummon.Nation);
         builtUnit.transform.localScale = Vector3.one * 0.05f;
         addUnitToStack(unitImplementationToSummon);
         if (unitToSummon.Moves == 0)
         {
             unitImplementationToSummon.getView().greyOutUnit();
+        }
+        else
+        {
+            unitImplementationToSummon.setMoves(unitToSummon.Moves);
         }
     }
 

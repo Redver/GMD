@@ -38,5 +38,6 @@ namespace Resources.Features.Model.Units
         public bool checkIfShouldBeDestroyed();
         public void destroy();
         
+        public void setMoves(int moves);
     }
 }

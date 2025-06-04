@@ -39,6 +39,34 @@ namespace Resources.Features.Model.Units
             StartCoroutine(currentNation.DelayedUiUpdate());
         }
 
+        public void InitWithNation(IUnit unitType, Province province, Nation nation)
+        {
+            unitLogic = unitType;
+            unitLogic.setCurrentProvince(province);
+            unitLogic.setView(this);
+            updatePositions(province);
+            Nation currentNation = nation;
+            this.transform.position = defaultPosition;
+            this.unitLogic.setNation(currentNation);
+            currentNation.endTurnEvent.AddListener(endTurnEvent);
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                defaultColor = spriteRenderer.color;
+            }
+
+            if (currentNation.name == "GreatBritain")
+            {
+                deathEffect = UnityEngine.Resources.Load<GameObject>("Features/ParticleExplosion/Sprites/TeaParticle");
+            }
+            else
+            {
+                deathEffect = UnityEngine.Resources.Load<GameObject>("Features/ParticleExplosion/Sprites/BaguetteParticle");
+            }
+
+            StartCoroutine(currentNation.DelayedUiUpdate());
+        }
+
         public void selectUnit()
         {
             unitLogic.getSelector().GetComponent<SelectorView>().spreadUnits();
