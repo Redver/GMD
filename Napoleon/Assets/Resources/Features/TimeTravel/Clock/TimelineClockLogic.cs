@@ -203,7 +203,7 @@ public class TimelineClockLogic : MonoBehaviour
             ProvinceData thisProvince = loadedGameState.AllOwnedProvinces.Find(e => e.ProvinceName == province.name);
             if (thisProvince.Owner != null)
             {
-                province.setLandOwner(province.getOwner());
+                province.setLandOwner(thisProvince.Owner);
             }
             province.CombatInProvince = thisProvince.IsInCombat;
         }

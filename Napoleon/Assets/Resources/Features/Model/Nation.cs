@@ -252,6 +252,7 @@ public class Nation : MonoBehaviour
 
     public void updateUi()
     {
+        refreshTreasurey();
         refreshBoatUi();
         refreshSoldierUI();
         refreshProvinceUI();
