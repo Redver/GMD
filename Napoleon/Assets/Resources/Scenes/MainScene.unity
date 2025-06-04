@@ -17036,9 +17036,11 @@ GameObject:
   - component: {fileID: 905465356}
   - component: {fileID: 905465357}
   - component: {fileID: 905465358}
-  m_Layer: 0
+  - component: {fileID: 905465360}
+  - component: {fileID: 905465359}
+  m_Layer: 10
   m_Name: Clock
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17127,6 +17129,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnText: {fileID: 1785179657}
   timelineText: {fileID: 82743868}
+--- !u!114 &905465359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905465355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd85ede63002aa947bd241f0d8205c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clock: {fileID: 905465355}
+--- !u!61 &905465360
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905465355}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.02, y: 4.77}
+    newSize: {x: 5.02, y: 4.77}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.02, y: 4.77}
+  m_EdgeRadius: 0
 --- !u!1 &914798097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 655147355625825530, guid: a65104577679edc4b8fdf0931345d8a9, type: 3}
