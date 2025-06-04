@@ -215,16 +215,6 @@ public class Province : MonoBehaviour
         unitStack.Push(unit);
         updateUnitCount();
 
-        checkForCombatInternal();
-    }
-
-    private void checkForCombatInternal()
-    {
-        var (friendlyStack, enemyStack) = SplitUnitStackByNation();
-        if (friendlyStack.Count > 0 && enemyStack.Count > 0 && !combatInProvince)
-        {
-            firstCombat();
-        }
     }
 
     public void putBoatsAtBottomOfSea()
