@@ -47,6 +47,16 @@ public class gameStateTable
         return maxTurn;
     }
 
+    public int getTurnOfMin(int timeline)
+    {
+        IEnumerable<int> turns = boardData.Keys
+            .Where(k => k.timeline == timeline)
+            .Select(k => k.turn);
+
+        int minTurns = turns.Min();
+        return minTurns;
+    }
+
     public int getNumberOfTimelines()
     {
         return boardData.Max(x => x.Key.timeline) + 1;

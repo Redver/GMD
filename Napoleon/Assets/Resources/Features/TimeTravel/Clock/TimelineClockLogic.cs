@@ -305,8 +305,9 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void showPreviousTurn()
     {
+        int minTurn = gameStateTable.getTurnOfMin(currentTimeline);
         SaveIfOnHeadTurn();
-        if (currentTurn > 0)
+        if (currentTurn > minTurn)
         {
             unloadBoardAndLoadTurn(currentTurn - 1);
             updateCurrentTurn(currentTurn - 1);
