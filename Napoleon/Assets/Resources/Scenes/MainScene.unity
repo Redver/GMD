@@ -17142,6 +17142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clock: {fileID: 905465355}
+  selectors: {fileID: 1761472370}
 --- !u!61 &905465360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35221,6 +35222,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1542048945596754382, guid: 66070001726ea3147a3b5b303347e0c8, type: 3}
   m_PrefabInstance: {fileID: 8383132154944458843}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1761472370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247143449833882327, guid: 66070001726ea3147a3b5b303347e0c8, type: 3}
+  m_PrefabInstance: {fileID: 8383132154944458843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761472369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c3dbf3421e9044697896444df5580f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1767964263
 GameObject:
   m_ObjectHideFlags: 0
