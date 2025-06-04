@@ -8,6 +8,8 @@ public class ForwardTimeArrowScript : ButtonUi
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject clock;
     private TimelineClockLogic timelineClockLogic;
+    private ClockButtonView clockButtonView;
+
     
     private void Awake()
     {
@@ -17,12 +19,14 @@ public class ForwardTimeArrowScript : ButtonUi
     private void Start()
     {
         forwardButton = new ForwardTimeArrowLogic(timelineClockLogic);
+        clockButtonView = clock.GetComponent<ClockButtonView>();
         updateText();
     }
 
     public override void activateButton()
     {
         forwardButton.activateButton();
+        clockButtonView.updateIfClockIsActive();
         updateText();
     }
 

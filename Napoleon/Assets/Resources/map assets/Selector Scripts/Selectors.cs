@@ -44,6 +44,18 @@ public class Selectors : MonoBehaviour
         selector.GetComponent<SelectorView>().startOnCapital();
     }
 
+    public SelectorView getActiveSelector()
+    {
+        if (selectors[0].activeSelf)
+        {
+            return selectors[0].GetComponent<SelectorView>();
+        }
+        else
+        {
+            return selectors[1].GetComponent<SelectorView>();
+        }
+    }
+
     void Update()
     {
         

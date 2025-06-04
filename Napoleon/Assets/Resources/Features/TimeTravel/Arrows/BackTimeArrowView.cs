@@ -8,6 +8,7 @@ public class BackTimeArrowView : ButtonUi
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject clock;
     private TimelineClockLogic timelineClockLogic;
+    private ClockButtonView clockButtonView;
     
     private void Awake()
     {
@@ -17,12 +18,14 @@ public class BackTimeArrowView : ButtonUi
     private void Start()
     {
         backButton = new BackTimeArrowLogic(timelineClockLogic);
+        clockButtonView = clock.GetComponent<ClockButtonView>();
         updateText();
     }
 
     public override void activateButton()
     {
         backButton.activateButton();
+        clockButtonView.updateIfClockIsActive();
         updateText();
     }
 

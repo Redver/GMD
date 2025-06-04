@@ -113,8 +113,13 @@ public class TimelineClockLogic : MonoBehaviour
         List<IUnit> allUnits = getAllUnits();
         GameObject activeSelectorObject = GameObject.FindGameObjectWithTag("Selectors");
         
+        List<UnitView> allUnitViewInSelector = new List<UnitView>();
         List<IUnit> allUnitsInSelector = new List<IUnit>();
-        allUnitsInSelector.AddRange(activeSelectorObject.transform.GetComponentsInChildren<IUnit>());
+        allUnitViewInSelector.AddRange(activeSelectorObject.transform.GetComponentsInChildren<UnitView>());
+        foreach (var unitView in allUnitViewInSelector)
+        {
+            allUnitsInSelector.Add(unitView.getUnitLogic());
+        }
 
         allUnits.RemoveAll(u => allUnitsInSelector.Contains(u));
         
@@ -153,6 +158,12 @@ public class TimelineClockLogic : MonoBehaviour
     public void addGameStateToNewTimeline(gameState newGameState, int timeline, int turn)
     {
         gameStateTable.saveGameState(newGameState,timeline,turn);
+    }
+
+    public void updateUis()
+    {
+        turnText.text = currentTurn.ToString();
+        timelineText.text = currentTimeline.ToString();
     }
 
     public void updateCurrentTurn(int currentTurn)
@@ -270,6 +281,7 @@ public class TimelineClockLogic : MonoBehaviour
     {
         updateGameStateTable(makeGameState());
         StartCoroutine(EndTurnRoutine());
+        updateUis();
     }
 
     private IEnumerator EndTurnRoutine()
@@ -292,7 +304,7 @@ public class TimelineClockLogic : MonoBehaviour
 
             Nation[] currentNations = getNationOneAndTwo();
 
-            if ((oldTurn + 1) % 2 == 0)
+            if (oldTurn % 2 == 0)
                 currentNations[0].onEndTurn();
             else
                 currentNations[1].onEndTurn();
@@ -308,7 +320,13 @@ public class TimelineClockLogic : MonoBehaviour
 
             gameStateTable.saveGameState(newState, timeline, oldTurn + 1);
             updateCurrentTurn(currentTurn + 1);
+            updateCurrentTimeline(timeline);
         }
+        unloadBoard(); 
+        loadBoardFromGamestateStore(0, gameStateTable.GetTurnOfHead(0));
+        currentTimeline = 0;
+        currentTurn = gameStateTable.GetTurnOfHead(0);
+        updateUis();
     }
     
     private void SaveIfOnHeadTurn()
@@ -325,7 +343,6 @@ public class TimelineClockLogic : MonoBehaviour
         alternateGameState.IsHead = true;
         int newTimeLine = gameStateTable.getNumberOfTimelines();
         addGameStateToNewTimeline(alternateGameState, newTimeLine , currentTurn);
-        unloadBoard();
         showNewestTimeline();
     }
 
@@ -336,6 +353,7 @@ public class TimelineClockLogic : MonoBehaviour
         {
             unloadBoardAndLoadTurn(currentTurn - 1);
             updateCurrentTurn(currentTurn - 1);
+            updateUis();
         }
     }
 
@@ -346,6 +364,7 @@ public class TimelineClockLogic : MonoBehaviour
         {
             unloadBoardAndLoadTurn(currentTurn + 1);
             updateCurrentTurn(currentTurn + 1);
+            updateUis();
         }
     }
 
@@ -356,6 +375,8 @@ public class TimelineClockLogic : MonoBehaviour
         {
             unloadBoardAndLoadTimeline(currentTimeline - 1);
             updateCurrentTimeline(currentTimeline - 1);
+            updateCurrentTurn(gameStateTable.GetTurnOfHead(currentTimeline));
+            updateUis();
         }
     }
 
@@ -367,6 +388,8 @@ public class TimelineClockLogic : MonoBehaviour
         {
             unloadBoardAndLoadTimeline(currentTimeline + 1);
             updateCurrentTimeline(currentTimeline + 1);
+            updateCurrentTurn(gameStateTable.GetTurnOfHead(currentTimeline));
+            updateUis();
         }
     }
 
@@ -376,6 +399,7 @@ public class TimelineClockLogic : MonoBehaviour
         int maxTimeline = gameStateTable.getNumberOfTimelines();
         unloadBoardAndLoadTimeline(maxTimeline - 1);
         updateCurrentTimeline(maxTimeline - 1);
+        updateUis();
     }
 
     public int getCurrentTimeline()
