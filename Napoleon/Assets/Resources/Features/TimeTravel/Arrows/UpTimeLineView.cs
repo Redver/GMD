@@ -28,6 +28,6 @@ public class UpTimeLineView : ButtonUi
 
     public void updateText()
     {
-        text.text = timelineClockLogic.getCurrentTurn().ToString();
+        text.text = timelineClockLogic.getCurrentTimeline().ToString();
     }
 }

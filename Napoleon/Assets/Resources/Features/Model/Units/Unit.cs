@@ -11,6 +11,7 @@ namespace Resources.Features.Model.Units
         protected Nation nation;
         protected int moves = 0;
         protected bool inCombat;
+        protected bool isHeld;
 
         public Unit()
         {
@@ -154,6 +155,21 @@ namespace Resources.Features.Model.Units
         public void setNotInCombat()
         {
             this.inCombat = false;
+        }
+
+        public bool isHeldBySelector()
+        {
+            return this.isHeld;
+        }
+
+        public void setIsHeldBySelector()
+        {
+            this.isHeld = true;
+        }
+
+        public void releasedBySelector()
+        {
+            this.isHeld = false;
         }
     }
 }

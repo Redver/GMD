@@ -39,5 +39,10 @@ namespace Resources.Features.Model.Units
         public void destroy();
         
         public void setMoves(int moves);
+
+        public bool isHeldBySelector();
+        public void setIsHeldBySelector();
+
+        public void releasedBySelector();
     }
 }

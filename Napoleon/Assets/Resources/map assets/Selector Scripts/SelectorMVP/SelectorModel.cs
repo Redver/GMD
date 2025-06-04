@@ -91,11 +91,13 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             units.Push(selectedProvince.selectNextUnit());
             units.Peek().raiseSelectedUnit();
             updateUnitSelected();
+            units.Peek().setIsHeldBySelector();
         }
 
         public void delectUnitInProvince()
         {
             units.Peek().lowerSelectedUnit();
+            units.Peek().releasedBySelector();
             units.Peek().getCurrentProvince().GetComponent<Province>().deselectUnit(units.Pop());
             updateUnitSelected();
         }
@@ -114,6 +116,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             units.Peek().lowerSelectedUnit();
             units.Peek().decreaseMoves();
+            units.Peek().releasedBySelector();
             units.Pop().dropSelectedUnit(selectedProvince);
             updateUnitSelected();
         }

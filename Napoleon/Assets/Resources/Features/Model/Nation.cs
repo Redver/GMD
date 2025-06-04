@@ -224,7 +224,7 @@ public class Nation : MonoBehaviour
     public void updateTreasurey()
     {
         float income = provinceCount * 3;
-        float expenses = unitCount + (boatCount * 3);
+        float expenses = countAllOwnedSoldiers() + (countAllOwnedBoats() * 3);
         float net = income - expenses;
         treasurey += net;
         refreshTreasurey();

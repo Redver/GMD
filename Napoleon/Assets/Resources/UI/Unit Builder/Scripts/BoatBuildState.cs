@@ -53,7 +53,7 @@ public class BoatBuildState : IPanelState
         builtUnit.transform.localPosition = Vector3.zero;
         builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
         builtUnit.transform.GetComponent<UnitView>().Init(new Boat(), provinceOpenOn.GetComponent<Province>());
-        builtUnit.transform.localScale = Vector3.one * 0.1f;
+        builtUnit.transform.localScale = Vector3.one * 0.06f;
         IUnit unit = builtUnit.transform.GetComponent<UnitView>().getUnitLogic();
         provinceOpenOn.GetComponent<Province>().addUnitToStack(unit);
         unit.getView().greyOutUnit();

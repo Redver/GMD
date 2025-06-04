@@ -2,12 +2,13 @@
 {
     public class UnitData
     {
-        public UnitData(Province province, Nation nation, bool isBoat, int moves)
+        public UnitData(Province province, Nation nation, bool isBoat, int moves, bool inCombat)
         {
             this.province = province;
             this.nation = nation;
             this.isBoat = isBoat;
             this.moves = moves;
+            this.inCombat = inCombat;
         }
 
         public int Moves
@@ -38,5 +39,12 @@
         private Nation nation;
         private bool isBoat;
         private int moves;
+        private bool inCombat;
+
+        public bool InCombat
+        {
+            get => inCombat;
+            set => inCombat = value;
+        }
     }
 }

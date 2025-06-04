@@ -102,7 +102,7 @@ public class TimelineClockLogic : MonoBehaviour
 
         foreach (var province in allProvinces)
         {
-            allProvinceData.Add(new ProvinceData(province.name,province.getOwner()));
+            allProvinceData.Add(new ProvinceData(province.name,province.getOwner(),province.isInCombat()));
         }
 
         return allProvinceData;
@@ -127,7 +127,7 @@ public class TimelineClockLogic : MonoBehaviour
         List<IUnit> allUnits = getAllUnitsOnlyOnBoard();
         foreach (var unit in allUnits)
         {
-            allUnitData.Add(new UnitData(unit.getCurrentProvince().GetComponent<Province>(),unit.getNation(),unit.IsBoat(),unit.getMoves()));
+            allUnitData.Add(new UnitData(unit.getCurrentProvince().GetComponent<Province>(),unit.getNation(),unit.IsBoat(),unit.getMoves(),unit.isInCombat()));
         }
         return allUnitData;
     }
@@ -149,7 +149,12 @@ public class TimelineClockLogic : MonoBehaviour
     {
         gameStateTable.saveGameState(newGameState,currentTimeline, currentTurn);
     }
-    
+
+    public void addGameStateToNewTimeline(gameState newGameState, int timeline, int turn)
+    {
+        gameStateTable.saveGameState(newGameState,timeline,turn);
+    }
+
     public void updateCurrentTurn(int currentTurn)
     {
         this.currentTurn = currentTurn;
@@ -257,7 +262,6 @@ public class TimelineClockLogic : MonoBehaviour
 
     public void unloadBoardAndLoadTimeline(int timeline)
     {
-        updateGameStateTable(makeGameState());
         unloadBoard();
         int turn = gameStateTable.GetTurnOfHead(timeline);
         loadBoardFromGamestateStore(timeline,turn);
@@ -315,6 +319,16 @@ public class TimelineClockLogic : MonoBehaviour
         }
     }
 
+    public void makeNewTimeline()
+    {
+        gameState alternateGameState = makeGameState();
+        alternateGameState.IsHead = true;
+        int newTimeLine = gameStateTable.getNumberOfTimelines();
+        addGameStateToNewTimeline(alternateGameState, newTimeLine , currentTurn);
+        unloadBoard();
+        showNewestTimeline();
+    }
+
     public void showPreviousTurn()
     {
         SaveIfOnHeadTurn();
@@ -348,10 +362,6 @@ public class TimelineClockLogic : MonoBehaviour
     public void showNextTimeline()
     {
         SaveIfOnHeadTurn();
-        if (gameStateTable.GetTurnOfHead(currentTimeline) == currentTurn)
-        {
-            updateGameStateTable(makeGameState());
-        }
         int maxTimeline = gameStateTable.getNumberOfTimelines();
         if (currentTimeline + 1 < maxTimeline)
         {
@@ -359,5 +369,18 @@ public class TimelineClockLogic : MonoBehaviour
             updateCurrentTimeline(currentTimeline + 1);
         }
     }
-    
+
+    public void showNewestTimeline()
+    {
+        SaveIfOnHeadTurn();
+        int maxTimeline = gameStateTable.getNumberOfTimelines();
+        unloadBoardAndLoadTimeline(maxTimeline - 1);
+        updateCurrentTimeline(maxTimeline - 1);
+    }
+
+    public int getCurrentTimeline()
+    {
+        return currentTimeline;
+    }
+
 }

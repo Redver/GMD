@@ -2,10 +2,11 @@
 {
     public class ProvinceData
     {
-        public ProvinceData(string provinceName, Nation owner)
+        public ProvinceData(string provinceName, Nation owner, bool isInCombat)
         {
             this.provinceName = provinceName;
             this.owner = owner;
+            this.isInCombat = isInCombat;
         }
 
         public string ProvinceName
@@ -22,5 +23,12 @@
 
         private string provinceName;
         private Nation owner;
+        private bool isInCombat;
+
+        public bool IsInCombat
+        {
+            get => isInCombat;
+            set => isInCombat = value;
+        }
     }
 }

@@ -162,7 +162,12 @@ public class Province : MonoBehaviour
             spreadUnits();
         }
     }
-    
+
+    public bool isInCombat()
+    {
+        return combatInProvince;
+    }
+
 
     public bool canSelectUnit()
     {
@@ -450,23 +455,18 @@ public class Province : MonoBehaviour
         UnitView[] unitChildren = gameObject.GetComponentsInChildren<UnitView>();
         foreach (var unit in unitChildren)
         {
-            removeThisUnitFromStack(unit.getUnitLogic());
-            Destroy(unit.gameObject);
+            if (unit.getUnitLogic().isHeldBySelector())
+            {
+                
+            }
+            else
+            {
+                removeThisUnitFromStack(unit.getUnitLogic());
+                Destroy(unit.gameObject);
+            }
         }
         unitStack.Clear();
         updateUnitCount();
-    }
-
-    public void updateUnitStack()
-    {
-        unitStack.Clear();
-        UnitView[] unitsViews = transform.GetComponentsInChildren<UnitView>();
-        foreach (var unit in unitsViews)
-        {
-            unitStack.Push(unit.getUnitLogic());
-        }
-        updateUnitCount();
-        spreadUnits();
     }
 
     public void addToEndTurnAsListeners()
@@ -622,8 +622,17 @@ public class Province : MonoBehaviour
         builtUnit.transform.localPosition = Vector3.zero;
         builtUnit.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = UnityEngine.Resources.Load<Sprite>(path);
         builtUnit.transform.GetComponent<UnitView>().InitWithNation(unitImplementationToSummon, this, unitToSummon.Nation);
-        builtUnit.transform.localScale = Vector3.one * 0.05f;
+        builtUnit.transform.localScale = Vector3.one * 0.02f;
         addUnitToStack(unitImplementationToSummon);
+        if (unitToSummon.InCombat)
+        {
+            unitImplementationToSummon.setInCombat();
+        }
+        else
+        {
+            unitImplementationToSummon.setNotInCombat();
+        }
+
         if (unitToSummon.Moves == 0)
         {
             unitImplementationToSummon.getView().greyOutUnit();
