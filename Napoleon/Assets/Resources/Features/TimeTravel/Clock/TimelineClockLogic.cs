@@ -143,6 +143,9 @@ public class TimelineClockLogic : MonoBehaviour
     {
         turnText.text = currentTurn.ToString();
         timelineText.text = currentTimeline.ToString();
+        Nation[] nations = getNationOneAndTwo();
+        nations[0].updateUi();
+        nations[1].updateUi();
     }
 
     public void updateCurrentTurn(int currentTurn)

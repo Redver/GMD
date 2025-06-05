@@ -405,15 +405,43 @@ public class Province : MonoBehaviour
 
         return -1;
     }
-
     public bool IsBlocked(Province neighbor)
     {
-        Vector2 start = transform.position;
-        Vector2 end = neighbor.transform.position;
+        PolygonCollider2D myCollider = GetComponent<PolygonCollider2D>();
+        PolygonCollider2D neighborCollider = neighbor.GetComponent<PolygonCollider2D>();
 
-        RaycastHit2D hit = Physics2D.Raycast(start, (end - start).normalized, Vector2.Distance(start, end), seaLayer);
+        if (myCollider == null || neighborCollider == null) return true;
 
-        return hit.collider != null;
+        foreach (Vector2 myPoint in GetWorldPoints(myCollider))
+        {
+            foreach (Vector2 neighborPoint in GetWorldPoints(neighborCollider))
+            {
+                Vector2 direction = neighborPoint - myPoint;
+                float distance = direction.magnitude;
+
+                RaycastHit2D hit = Physics2D.Raycast(myPoint, direction.normalized, distance, seaLayer);
+                if (hit.collider == null)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private List<Vector2> GetWorldPoints(PolygonCollider2D collider)
+    {
+        List<Vector2> worldPoints = new List<Vector2>();
+        for (int i = 0; i < collider.pathCount; i++)
+        {
+            Vector2[] path = collider.GetPath(i);
+            foreach (Vector2 point in path)
+            {
+                worldPoints.Add(collider.transform.TransformPoint(point));
+            }
+        }
+        return worldPoints;
     }
 
     public void setStartingOwner()
