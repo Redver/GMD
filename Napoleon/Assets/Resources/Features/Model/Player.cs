@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
             if (selector.tryEndTurn())
             {
                 victoryCheck();
+                SoundLibrary.Instance.PlayClipAtPoint(SoundLibrary.Instance.GetRandomButtonClick(), transform.position);
                 onEndTurnUnityEvent.Invoke();
             }
         }

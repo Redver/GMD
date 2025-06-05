@@ -20,6 +20,10 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           {
               model.selectUnitInProvince();
           }
+          else
+          {
+              playForbiddenSound();
+          }
       }
       
       public bool canOpenBuildMenuHere()
@@ -38,6 +42,10 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           {
               model.delectUnitInProvince();
           }
+          else
+          {
+              playForbiddenSound();
+          }
       }
 
       public void dropUnitInProvince()
@@ -45,6 +53,10 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           if (model.canDropUnit())
           {
               model.dropUnitInProvince();
+          }
+          else
+          {
+              playForbiddenSound();
           }
       }
 
@@ -115,6 +127,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
               return model.tryEndTurn();
           }
 
+          playForbiddenSound();
           return false;
       }
 
@@ -177,7 +190,10 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
           return model.getAllUnits();
       }
 
-
+      private void playForbiddenSound()
+      {
+          SoundLibrary.Instance.PlayClipAtPoint(SoundLibrary.Instance.GetForbiddenSfx(), view.transform.position);
+      }
   }
 
 }

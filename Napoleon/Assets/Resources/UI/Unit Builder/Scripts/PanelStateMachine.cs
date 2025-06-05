@@ -29,10 +29,12 @@ public class PanelStateMachine
         if (State.canBuild(BuilderMenuUI.getProvinceOpenOn().GetComponent<Province>()))
         {
             State.BuildSelected(BuilderMenuUI);
+            SoundLibrary.Instance.PlayClipAtPoint(SoundLibrary.Instance.GetBuildSfx(),this.BuilderMenuUI.transform.position);
         }
         else
         {
             //unity event to show cannot build here
+            SoundLibrary.Instance.PlayClipAtPoint(SoundLibrary.Instance.GetForbiddenSfx(),this.BuilderMenuUI.transform.position);
         }
     }
 

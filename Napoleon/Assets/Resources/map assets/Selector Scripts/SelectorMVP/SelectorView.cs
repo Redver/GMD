@@ -51,6 +51,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
             {
                 return presenter.tryEndTurn();
             }
+            playForbiddenSound();
             return false;
         }
 
@@ -59,7 +60,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             if (context.canceled)
             {
-                if (isActiveAndEnabled)
+                if (isActiveAndEnabled && !(buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen()))
                 {
                     presenter.dropUnitInProvince();
                 }
@@ -120,6 +121,7 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
         {
             if (isActiveAndEnabled && canOpenBuildMenuHere() && presenter.noButtonSelected())
             {
+                playButtonSound();
                 stopMovement();
                 if (buildMenu.GetComponent<BuilderMenuUI>().IsMenuOpen())
                 {
@@ -137,11 +139,15 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
                     buildMenu.GetComponent<BuilderMenuUI>().setProvinceOpenOn(presenter.getSelectedProvinceObject());
                 }
             }
-
-            if (presenter.buttonSelected())
+            else if (presenter.buttonSelected())
             {
+                playButtonSound();
                 stopMovement();
                 presenter.activateButton();
+            }
+            else
+            {
+                playForbiddenSound();
             }
         }
 
@@ -263,5 +269,16 @@ namespace Resources.map_assets.Selector_Scripts.SelectorMVP
                 unitObj.transform.localPosition = new Vector3(x, yOffset, 0f);
             }
         }
+            
+        private void playForbiddenSound()
+        {
+            SoundLibrary.Instance.PlayClipAtPoint(SoundLibrary.Instance.GetForbiddenSfx(), transform.position);
+        }
+
+        private void playButtonSound()
+        {
+            SoundLibrary.Instance.PlayClipAtPoint(SoundLibrary.Instance.GetRandomButtonClick(), transform.position);
+        }
     }
+
 }

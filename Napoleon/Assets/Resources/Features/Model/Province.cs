@@ -105,6 +105,7 @@ public class Province : MonoBehaviour
         {
             friendlyStack.Pop().destroy();
             enemyStack.Pop().destroy();
+            SoundLibrary.Instance.PlayClipAtPoint(SoundLibrary.Instance.GetRandomMusketClip(), this.transform.position);
             foreach (var unit in friendlyStack)
             {
                 unitStack.Push(unit);
